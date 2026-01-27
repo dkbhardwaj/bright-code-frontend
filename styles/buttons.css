@@ -1,0 +1,128 @@
+/* Blue Gradient Button */
+
+.gradient-btn-blue {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  padding: 10px 60px 10px 22px;
+  background: linear-gradient(90deg, var(--vivid-blue) 0%, #002999 100%);
+  border-radius: 9px;
+  color: var(--white);
+  transition: all 0.5s ease-in-out;
+}
+
+.gradient-btn-blue::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 28px;
+  width: 16px;
+  height: 16px;
+  background-image: url("/buttons/white_arrow.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  transition: right 0.5s ease-in-out;
+}
+
+.gradient-btn-blue:hover::after {
+  right: 18px;
+}
+
+/* Rounded Button */
+
+.rounded-btn {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  padding: 15px 30px;
+  border-radius: 99px;
+  text-align: left;
+  transition: all 0.3s ease-in-out;
+}
+
+.rounded-btn::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 40px;
+  width: 9px;
+  height: 18px;
+  background-image: url("/buttons/white_arrow.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  transition: right 0.3s ease-in-out;
+}
+
+.rounded-btn:hover::after {
+  right: 30px;
+}
+
+/* Blue Variant */
+
+.rounded-btn.blue {
+  padding: 15px 60px 15px 30px;
+  background: linear-gradient(90deg, var(--vivid-blue) 0%, #0088ff 100%);
+  color: var(--white);
+}
+
+/* White Variant */
+
+.rounded-btn.white {
+  background: var(--white);
+  color: var(--black);
+}
+
+.rounded-btn.white:hover {
+  background: var(--black);
+  color: var(--white);
+}
+
+/* Gray Variant */
+
+.rounded-btn.gray {
+  background: var(--gray);
+  color: var(--black);
+
+  box-shadow: 0px 2px 6px 2px #3c404326;
+}
+
+.rounded-btn.gray:hover {
+  background: var(--white);
+  color: var(--black);
+}
+
+.rounded-btn.gray::after,.rounded-btn.white::after {
+  display: none;
+}
+
+/* Blue Hover Variant */
+
+.rounded-btn.gray.blue-hover:hover {
+  background: linear-gradient(90deg, #0044ff 0%, #002999 100%);
+  color: var(--white);
+}
+
+/* No Arrow */
+
+.rounded-btn.no-arrow {
+  padding: 10px 30px;
+  background-size: 100% 200%;
+  background-position: 0% 0%;
+}
+
+.rounded-btn.no-arrow:hover {
+  background-position: 0% 100%;
+}
+
+.rounded-btn.no-arrow::after {
+  display: none;
+}
