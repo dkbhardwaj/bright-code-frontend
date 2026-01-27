@@ -34,9 +34,9 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
 export default function Home({ posts }: Props) {
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-gray-200 dark:bg-black sm:items-start">
+      <main className="flex min-h-screen w-full max-w-4xl flex-col items-center justify-between py-32 px-16 bg-gray-200 dark:bg-black sm:items-start">
         <div className="flex flex-col items-center gap-6 text-center w-full">
-          <h1 className="max-w-xs text-center text-[50px] font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
+          <h1 className="text-center text-[50px] font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
             Bright Code
           </h1>
         </div>
