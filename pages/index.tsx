@@ -7,7 +7,7 @@ import {
   ReactPortal,
   Key,
 } from "react";
-import Button from "../components/buttons/button";
+// import Button from "../components/buttons/button";
 import { GetServerSideProps } from "next";
 
 const graphqlUrl =
@@ -55,7 +55,7 @@ export default function Home({ posts }: Props) {
             All buttons
           </h2>
 
-          <div className="mb-4">
+          {/* <div className="mb-4">
             <Button href="#" variant="gradient-blue">
               Blue Gradient
             </Button>
@@ -77,7 +77,7 @@ export default function Home({ posts }: Props) {
             <Button href="#" variant="rounded-white">
               Rounded White
             </Button>
-          </div>
+          </div> */}
         </div>
         <section className="container">
           <h1 className="mb-7.5">Heading Level 1 (H1)</h1>
