@@ -5,9 +5,9 @@ import ThreeColumns from "../components/ThreeColumns";
 import GridCards from "@/components/GridCards";
 import BannerThird, { BannerThirdData } from "@/components/BannerThird";
 import Timeline from "@/components/Timeline";
-// import Cta from "@/components/Cta";
-// import ContactSection from "@/components/ContactSection";
-// import CalendlyCalendar from "@/components/CalendlyCalendar";
+import Cta from "@/components/Cta";
+import ContactSection from "@/components/ContactSection";
+import CalendlyCalendar from "@/components/CalendlyCalendar";
 
 const Demo: React.FC = () => {
   const bannerData: BannerThirdData['data'] = {
@@ -452,9 +452,9 @@ const Demo: React.FC = () => {
         <ThreeColumns data={colThreeCardsData} theme="dark" />
         <ThreeColumns data={colThreeCardsData} theme="light" />
         <TitleSection {...titleSectionData3} theme="dark" />
-        {/* <ContactSection data={contactForm} theme="dark" rightSlot={<ContactForm />} /> */}
-        {/* <ContactSection data={contactForm} theme="light" rightSlot={<ContactForm />} /> */}
-        {/* <ContactSection
+        <ContactSection data={contactForm} theme="dark" rightSlot={<ContactForm />} />
+        <ContactSection data={contactForm} theme="light" rightSlot={<ContactForm />} />
+        <ContactSection
           data={contactUsCalender}
           theme="dark"
           rightSlot={<CalendlyCalendar theme="dark" />}
@@ -463,11 +463,11 @@ const Demo: React.FC = () => {
           data={contactUsCalender}
           theme="light"
           rightSlot={<CalendlyCalendar theme="light" />}
-        /> */}
+        />
         <GridCards data={gridCardsData} theme="dark" />
         <GridCards data={gridCardsData} theme="light" />
-        {/* <Cta data={ctaData} theme="dark"/> */}
-        {/* <Cta data={ctaData} theme="light" /> */}
+        <Cta data={ctaData} theme="dark" />
+        <Cta data={ctaData} theme="light" />
       </div>
     </>
   );
