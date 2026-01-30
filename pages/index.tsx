@@ -4,7 +4,7 @@ import TitleSection from "../components/TitleSection";
 import ThreeColumns from "../components/ThreeColumns";
 import GridCards from "@/components/GridCards";
 import BannerThird, { BannerThirdData } from "@/components/BannerThird";
-// import Timeline from "@/components/Timeline";
+import Timeline from "@/components/Timeline";
 // import Cta from "@/components/Cta";
 // import ContactSection from "@/components/ContactSection";
 // import CalendlyCalendar from "@/components/CalendlyCalendar";
@@ -440,9 +440,9 @@ const Demo: React.FC = () => {
         <BannerThird data={bannerData} />
         <BannerThird data={bannerData2} />
         <TitleSection {...titleSectionData01} theme="dark" />
-        {/* <Timeline theme="dark" /> */}
+        <Timeline theme="dark" />
         <TitleSection {...titleSectionData01} theme="light" />
-        {/* <Timeline theme="light" /> */}
+        <Timeline theme="light" />
         <ColTwoCard {...cardData} theme="dark" />
         <ColTwoCard {...cardData} theme="light" />
         <ColTwoCard {...cardData2} theme="dark" />
