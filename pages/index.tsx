@@ -2,7 +2,7 @@ import React from "react";
 import ColTwoCard from "../components/ColTwoCard";
 import TitleSection from "../components/TitleSection";
 import ThreeColumns from "../components/ThreeColumns";
-// import GridCards from "@/components/GridCards";
+import GridCards from "@/components/GridCards";
 import BannerThird, { BannerThirdData } from "@/components/BannerThird";
 // import Timeline from "@/components/Timeline";
 // import Cta from "@/components/Cta";
@@ -464,8 +464,8 @@ const Demo: React.FC = () => {
           theme="light"
           rightSlot={<CalendlyCalendar theme="light" />}
         /> */}
-        {/* <GridCards data={gridCardsData} theme="dark" /> */}
-        {/* <GridCards data={gridCardsData} theme="light" /> */}
+        <GridCards data={gridCardsData} theme="dark" />
+        <GridCards data={gridCardsData} theme="light" />
         {/* <Cta data={ctaData} theme="dark"/> */}
         {/* <Cta data={ctaData} theme="light" /> */}
       </div>
