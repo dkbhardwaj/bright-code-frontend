@@ -13,11 +13,11 @@ const Demo: React.FC = () => {
   const bannerData: BannerThirdData['data'] = {
     theme: "dark" as "dark",
     bannerBgImg: {
-      bg:{
+      bg: {
         light: "/what-we-do-blades/BG.svg",
         dark: "/what-we-do-blades/BG_dark_theme.svg",
       },
-      leftIcons:{
+      leftIcons: {
         light: "/what-we-do-blades/hero_icons.svg",
         dark: "/what-we-do-blades/hero_icons-dark-theme.svg",
       },
@@ -58,11 +58,11 @@ const Demo: React.FC = () => {
   const bannerData2: BannerThirdData['data'] = {
     theme: "light" as "light",
     bannerBgImg: {
-      bg:{
+      bg: {
         light: "/what-we-do-blades/BG.svg",
         dark: "/what-we-do-blades/BG_dark_theme.svg",
       },
-      leftIcons:{
+      leftIcons: {
         light: "/what-we-do-blades/hero_icons.svg",
         dark: "/what-we-do-blades/hero_icons-dark-theme.svg",
       },
@@ -379,57 +379,57 @@ const Demo: React.FC = () => {
   const ContactForm = () => {
     return (
       <form className="contactForm" autoComplete="on">
-      <div className="row">
+        <div className="row">
+          <div className="field">
+            <label htmlFor="firstName">First name</label>
+            <input
+              id="firstName"
+              type="text"
+              autoComplete="given-name"
+            />
+          </div>
+
+          <div className="field">
+            <label htmlFor="lastName">Last name</label>
+            <input
+              id="lastName"
+              type="text"
+              autoComplete="family-name"
+            />
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="field">
+            <label htmlFor="email">Your mail</label>
+            <input
+              id="email"
+              type="email"
+              autoComplete="email"
+            />
+          </div>
+
+          <div className="field">
+            <label htmlFor="country">Country</label>
+            <input
+              id="country"
+              type="text"
+              autoComplete="country-name"
+            />
+          </div>
+        </div>
+
         <div className="field">
-          <label htmlFor="firstName">First name</label>
-          <input
-            id="firstName"
-            type="text"
-            autoComplete="given-name"
+          <label htmlFor="message">Message</label>
+          <textarea
+            id="message"
+            autoComplete="off"
           />
         </div>
-    
-        <div className="field">
-          <label htmlFor="lastName">Last name</label>
-          <input
-            id="lastName"
-            type="text"
-            autoComplete="family-name"
-          />
-        </div>
-      </div>
-    
-      <div className="row">
-        <div className="field">
-          <label htmlFor="email">Your mail</label>
-          <input
-            id="email"
-            type="email"
-            autoComplete="email"
-          />
-        </div>
-    
-        <div className="field">
-          <label htmlFor="country">Country</label>
-          <input
-            id="country"
-            type="text"
-            autoComplete="country-name"
-          />
-        </div>
-      </div>
-    
-      <div className="field">
-        <label htmlFor="message">Message</label>
-        <textarea
-          id="message"
-          autoComplete="off"
-        />
-      </div>
-    
-      <button className="gradient-btn no-arrow rounded-btn w-fit ml-auto mt-[15px] " type="submit">Contact us</button>
-    </form>
-    
+
+        <button className="gradient-btn no-arrow rounded-btn w-fit ml-auto mt-[15px] " type="submit">Contact us</button>
+      </form>
+
     );
   };
 
