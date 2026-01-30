@@ -1,6 +1,6 @@
 import React from "react";
 import ColTwoCard from "../components/ColTwoCard";
-// import TitleSection from "../components/TitleSection";
+import TitleSection from "../components/TitleSection";
 // import ThreeColumns from "../components/ThreeColumns";
 // import GridCards from "@/components/GridCards";
 import BannerThird, { BannerThirdData } from "@/components/BannerThird";
@@ -439,22 +439,22 @@ const Demo: React.FC = () => {
       <div >
         <BannerThird data={bannerData} />
         <BannerThird data={bannerData2} />
-        {/* <TitleSection {...titleSectionData01} theme="dark" /> */}
+        <TitleSection {...titleSectionData01} theme="dark" />
         {/* <Timeline theme="dark" /> */}
-        {/* <TitleSection {...titleSectionData01} theme="light" /> */}
+        <TitleSection {...titleSectionData01} theme="light" />
         {/* <Timeline theme="light" /> */}
         <ColTwoCard {...cardData} theme="dark" />
         <ColTwoCard {...cardData} theme="light" />
         <ColTwoCard {...cardData2} theme="dark" />
-        {/* <TitleSection {...titleSectionData} theme="dark" />
+        <TitleSection {...titleSectionData} theme="dark" />
         <TitleSection {...titleSectionData} theme="light" />
         <TitleSection {...titleSectionData2} theme="dark" />
-        <ThreeColumns data={colThreeCardsData} theme="dark" />
-        <ThreeColumns data={colThreeCardsData} theme="light" />
+        {/* <ThreeColumns data={colThreeCardsData} theme="dark" /> */}
+        {/* <ThreeColumns data={colThreeCardsData} theme="light" /> */}
         <TitleSection {...titleSectionData3} theme="dark" />
-        <ContactSection data={contactForm} theme="dark" rightSlot={<ContactForm />} />
-        <ContactSection data={contactForm} theme="light" rightSlot={<ContactForm />} />
-        <ContactSection
+        {/* <ContactSection data={contactForm} theme="dark" rightSlot={<ContactForm />} /> */}
+        {/* <ContactSection data={contactForm} theme="light" rightSlot={<ContactForm />} /> */}
+        {/* <ContactSection
           data={contactUsCalender}
           theme="dark"
           rightSlot={<CalendlyCalendar theme="dark" />}
@@ -463,11 +463,11 @@ const Demo: React.FC = () => {
           data={contactUsCalender}
           theme="light"
           rightSlot={<CalendlyCalendar theme="light" />}
-        />
-        <GridCards data={gridCardsData} theme="dark" />
-        <GridCards data={gridCardsData} theme="light" />
-        <Cta data={ctaData} theme="dark"/>
-        <Cta data={ctaData} theme="light" /> */}
+        /> */}
+        {/* <GridCards data={gridCardsData} theme="dark" /> */}
+        {/* <GridCards data={gridCardsData} theme="light" /> */}
+        {/* <Cta data={ctaData} theme="dark"/> */}
+        {/* <Cta data={ctaData} theme="light" /> */}
       </div>
     </>
   );
