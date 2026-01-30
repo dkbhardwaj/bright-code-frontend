@@ -66,6 +66,26 @@
   right: 30px;
 }
 
+/* Desktop range (≈ 992px – 1279px) */
+@media (min-width: 992px) and (max-width: 1279px) {
+  .rounded-btn {
+    font-size: 18px;
+  }
+}
+
+/* Tablet range (≈ 768px – 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .rounded-btn {
+    font-size: 16px;
+  }
+}
+
+/* Mobile / md and below (≤ 767px) */
+@media (max-width: 767px) {
+  .rounded-btn {
+    font-size: 15px;
+  }
+}
 /* Blue Variant */
 
 .rounded-btn.blue {
@@ -100,7 +120,8 @@
   color: var(--black);
 }
 
-.rounded-btn.gray::after,.rounded-btn.white::after {
+.rounded-btn.gray::after,
+.rounded-btn.white::after {
   display: none;
 }
 
