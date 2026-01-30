@@ -1,5 +1,120 @@
 @import "tailwindcss";
 
+/* Custom Breakpoints (Max-width & Ranges) */
+
+@custom-variant tablet-desktop {
+  @media (min-width: 768px) and (max-width: 1366px) {
+    @slot;
+  }
+}
+
+@custom-variant xxl-up {
+  @media (min-width: 1480px) {
+    @slot;
+  }
+}
+
+@custom-variant xxl {
+  @media (max-width: 1479px) {
+    @slot;
+  }
+}
+
+@custom-variant xl {
+  @media (max-width: 1279px) {
+    @slot;
+  }
+}
+
+@custom-variant xl-up {
+  @media (min-width: 1280px) {
+    @slot;
+  }
+}
+
+@custom-variant c-up {
+  @media (min-width: 1205px) {
+    @slot;
+  }
+}
+
+@custom-variant c-down {
+  @media (max-width: 1205px) {
+    @slot;
+  }
+}
+
+@custom-variant desktop {
+  @media (min-width: 992px) and (max-width: 1279px) {
+    @slot;
+  }
+}
+
+@custom-variant desktop-mid-down {
+  @media (max-width: 1024px) {
+    @slot;
+  }
+}
+
+@custom-variant lg {
+  @media (max-width: 991px) {
+    @slot;
+  }
+}
+
+@custom-variant lg-up {
+  @media (min-width: 992px) {
+    @slot;
+  }
+}
+
+@custom-variant tablet {
+  @media (min-width: 768px) and (max-width: 991px) {
+    @slot;
+  }
+}
+
+@custom-variant md {
+  @media (max-width: 767px) {
+    @slot;
+  }
+}
+
+@custom-variant md-up {
+  @media (min-width: 768px) {
+    @slot;
+  }
+}
+
+@custom-variant phablet {
+  @media (min-width: 596px) and (max-width: 767px) {
+    @slot;
+  }
+}
+
+@custom-variant sm {
+  @media (max-width: 595px) {
+    @slot;
+  }
+}
+
+@custom-variant sm-up {
+  @media (min-width: 596px) {
+    @slot;
+  }
+}
+
+@custom-variant xs {
+  @media (max-width: 480px) {
+    @slot;
+  }
+}
+
+@custom-variant xxs {
+  @media (max-width: 350px) {
+    @slot;
+  }
+}
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -26,6 +141,15 @@
   }
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main {
+  min-height: calc(100vh - 474px);
+}
 body {
   background: var(--background);
   color: var(--foreground);
@@ -138,6 +262,7 @@ ol ol {
 section {
   position: relative;
   width: 100%;
+    transition: background-color 0.3s ease-in-out;
 }
 
 .container {
@@ -216,4 +341,94 @@ section {
   ul li {
     font-size: 14px;
   }
+}
+
+/* =============================================
+   Large padding (hero / big sections)
+============================================= */
+.padding-large {
+  padding: 132px 0;
+}
+
+.padding-large-top {
+  padding-top: 132px;
+}
+
+.padding-large-bottom {
+  padding-bottom: 132px;
+}
+
+@media (max-width: 1024px) {
+
+  .padding-large,
+  .padding-large-top,
+  .padding-large-bottom {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .padding-large,
+  .padding-large-top,
+  .padding-large-bottom {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+
+/* =============================================
+   Medium padding (sections, content blocks)
+============================================= */
+.padding-medium {
+  padding: 80px 0;
+}
+
+.padding-medium-top {
+  padding-top: 80px;
+}
+
+.padding-medium-bottom {
+  padding-bottom: 80px;
+}
+
+@media (max-width: 768px) {
+
+  .padding-medium,
+  .padding-medium-top,
+  .padding-medium-bottom {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+
+/* =============================================
+   Small padding (cards, small gaps, tight layouts)
+============================================= */
+.padding-small {
+  padding: 40px 0;
+}
+
+.padding-small-top {
+  padding-top: 40px;
+}
+
+.padding-small-bottom {
+  padding-bottom: 40px;
+}
+
+/* =============================================
+   Zero padding helpers
+============================================= */
+.no-padding {
+  padding: 0 !important;
+}
+
+.no-padding-top {
+  padding-top: 0 !important;
+}
+
+.no-padding-bottom {
+  padding-bottom: 0 !important;
 }

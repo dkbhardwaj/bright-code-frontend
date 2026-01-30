@@ -1,45 +1,476 @@
-export const dynamic = 'force-dynamic'; 
+import React from "react";
+// import ColTwoCard from "../components/ColTwoCard";
+// import TitleSection from "../components/TitleSection";
+// import ThreeColumns from "../components/ThreeColumns";
+// import GridCards from "@/components/GridCards";
+import BannerThird, { BannerThirdData } from "@/components/BannerThird";
+// import Timeline from "@/components/Timeline";
+// import Cta from "@/components/Cta";
+// import ContactSection from "@/components/ContactSection";
+// import CalendlyCalendar from "@/components/CalendlyCalendar";
 
-import { GraphQLClient } from 'graphql-request';
-import {GET_POSTS} from '../lib/getAllPost'
-import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, Key } from "react";
+const Demo: React.FC = () => {
+  const bannerData: BannerThirdData['data'] = {
+    theme: "dark" as "dark",
+    bannerBgImg: {
+      bg:{
+        light: "/what-we-do-blades/BG.svg",
+        dark: "/what-we-do-blades/BG_dark_theme.svg",
+      },
+      leftIcons:{
+        light: "/what-we-do-blades/hero_icons.svg",
+        dark: "/what-we-do-blades/hero_icons-dark-theme.svg",
+      },
+      rightImg: {
+        light: "/what-we-do-blades/hero.svg",
+        dark: "/what-we-do-blades/hero-dark-theme.svg",
+      }
+    },
+    preTitle: "Protect your",
+    highlightedText: "Reputation",
+    postTitle: "Not just your Website.",
+    paragraphContent: [
+      {
+        id: 1,
+        paragraph: "Your clients hire you for vision.",
+      },
+      {
+        id: 2,
+        paragraph: "You hire us so the dev never lets that vision down.",
+      },
+    ],
+    buttons: [
+      {
+        id: 1,
+        url: "#",
+        text: "Book a 30-minute call",
+        variant: "rounded-blue" as const,
+      },
+      {
+        id: 2,
+        url: "#",
+        text: "We protect agencies",
+        variant: "rounded-gray",
+        className: "no-arrow",
+      },
+    ],
+  };
+  const bannerData2: BannerThirdData['data'] = {
+    theme: "light" as "light",
+    bannerBgImg: {
+      bg:{
+        light: "/what-we-do-blades/BG.svg",
+        dark: "/what-we-do-blades/BG_dark_theme.svg",
+      },
+      leftIcons:{
+        light: "/what-we-do-blades/hero_icons.svg",
+        dark: "/what-we-do-blades/hero_icons-dark-theme.svg",
+      },
+      rightImg: {
+        light: "/what-we-do-blades/hero.svg",
+        dark: "/what-we-do-blades/hero-dark-theme.svg",
+      }
+    },
+    preTitle: "Protect your",
+    highlightedText: "Reputation",
+    postTitle: "Not just your Website.",
+    paragraphContent: [
+      {
+        id: 1,
+        paragraph: "Your clients hire you for vision.",
+      },
+      {
+        id: 2,
+        paragraph: "You hire us so the dev never lets that vision down.",
+      },
+    ],
+    buttons: [
+      {
+        id: 1,
+        url: "#",
+        text: "Book a 30-minute call",
+        variant: "rounded-blue" as const,
+      },
+      {
+        id: 2,
+        url: "#",
+        text: "We protect agencies",
+        variant: "rounded-gray",
+        className: "no-arrow",
+      },
+    ],
+  };
+  const cardData = {
+    reverse: false,
+    image: {
+      light: "/what-we-do-blades/what_we_do.svg",
+      dark: "what-we-do-blades/what_we_do_dark_theme.svg",
+    },
+    imageSrc: "/what-we-do-blades/what_we_do_dark_theme.svg",
+    imageAlt: "Digital transformation banner",
+    badgeText: "Bright-Code does",
+    title: "We Build Digital Presence for Future of Businesses",
+    description:
+      "Bright Code works seamlessly with your team to help you envision and create your clients’ digital presence. Whether it’s building something from the ground up or developing and QA-ing existing architecture, we create sophisticated websites and content management systems that meet the enterprise needs of large businesses and institutions.",
+    buttonText: "Learn more",
+    buttonLink: "/services",
+    theme: "light", // Blade-specific theme
+  };
 
-const graphqlUrl = process.env.WP_GRAPHQL_URL;
+  const cardData2 = {
+    reverse: true,
+    image: {
+      light: "/what-we-do-blades/what_we_do.svg",
+      dark: "what-we-do-blades/what_we_do_dark_theme.svg",
+    },
+    imageAlt: "Digital transformation banner",
+    badgeText: "Bright-Code does",
+    title: "We Build Digital Presence for Future of Businesses",
+    description:
+      "Bright Code works seamlessly with your team to help you envision and create your clients’ digital presence. Whether it’s building something from the ground up or developing and QA-ing existing architecture, we create sophisticated websites and content management systems that meet the enterprise needs of large businesses and institutions.",
+    buttonText: "Learn more",
+    buttonLink: "/services",
+    theme: "dark", // Blade-specific theme
+  };
+  const titleSectionData = {
+    badgeText: "Bright-Code does",
+    title: "We Build Digital Presence for Future of Businesses",
+    description:
+      "Bright Code works seamlessly with your team to help you envision and create your clients’ digital presence. Whether it’s building something from the ground up or developing and QA-ing existing architecture, we create sophisticated websites and content management systems that meet the enterprise needs of large businesses and institutions.",
+    alignment: "center",
+    buttonText: "Learn more",
+    buttonLink: "/services",
+  } as const;
 
-if (!graphqlUrl) {
-  throw new Error('WP_GRAPHQL_URL is not defined');
-}
+  const titleSectionData2 = {
+    badgeText: "About Bright Code",
+    title: "Who we are here to help",
+    description:
+      "Bright Code works seamlessly with your team to help you envision and create your clients’ digital presence. Whether it’s building something from the ground up or developing and QA-ing existing architecture, we create sophisticated websites and content management systems.",
+    alignment: "center",
+    buttonText: "",
+    buttonLink: "",
+  } as const;
 
-console.log(graphqlUrl)
-const graphQLClient = new GraphQLClient(graphqlUrl);
+  const colThreeCardsData = {
+    paddingLarge: true,
+    featuredClass: false,
+    title: "Our Services",
+    bgTransparent: false,
+    threeCards: [
+      {
+        id: 1,
+        cardDelay: "0.1s",
+        cardDuration: "0.6s",
+        image: {
+          light: "/what-we-do-blades/creative.svg",
+          dark: "/what-we-do-blades/creative-dark-theme.svg",
+        },
+        imageAlt: "Channels",
+        cardTitle: "Creative and Brand Agencies",
+        cardDetail:
+          "We have over a decade of experience using leading technologies to provide support.",
+        link: "#",
+        linkText: "Learn more",
+      },
+      {
+        id: 2,
+        cardDelay: "0.1s",
+        cardDuration: "0.6s",
+        image: {
+          light: "/what-we-do-blades/marketing.svg",
+          dark: "/what-we-do-blades/marketing-dark-theme.svg",
+        },
+        imageAlt: "Team",
+        cardTitle: "Marketing and Digital Teams",
+        cardDetail:
+          "We have over a decade of experience using leading technologies to provide support.",
+        link: "#",
+        linkText: "Learn more",
+      },
+      {
+        id: 3,
+        cardDelay: "0.1s",
+        cardDuration: "0.6s",
+        image: {
+          light: "/what-we-do-blades/teams.svg",
+          dark: "/what-we-do-blades/teams-dark-theme.svg",
+        },
+        imageAlt: "Tools",
+        cardTitle: "Teams with too much on their Plate",
+        cardDetail:
+          "We have over a decade of experience using leading technologies to provide support.",
+        link: "#",
+        linkText: "Learn more",
+      },
+    ],
+    btntext: "Learn more",
+    btnUrl: "#",
+  } as const;
+  const titleSectionData01 = {
+    badgeText: "Values - Benefits",
+    title: "What we believe. What you feel",
+    description:
+      "Under the hood, we are a web development studio focused on CMS heavy, business critical sites.",
+    alignment: "center",
+    buttonText: "",
+    buttonLink: "",
+  } as const;
 
+  const titleSectionData3 = {
+    badgeText: "Bright Code Work",
+    title: "What we actually build",
+    description:
+      "Under the hood, we are a web development studio focused on CMS heavy, business critical sites.",
+    alignment: "center",
+    buttonText: "",
+    buttonLink: "",
+  } as const;
+  const gridCardsData = {
+    paddingLarge: true,
+    featuredClass: false,
+    title: "",
+    bgTransparent: false,
+    gridCards: [
+      {
+        id: 1,
+        image: {
+          light: "/what-we-do-blades/white_label.svg",
+          dark: "/what-we-do-blades/white_label_dark_theme.svg",
+        },
+        imageAlt: "websites",
+        cardTitle: "White label Website Builds",
+        cardDetail:
+          "We have over a decade of experience using leading technologies to provide support.",
+        link: "#",
+        linkText: "Learn more",
+        bigCard: false,
+      },
+      {
+        id: 2,
+        image: {
+          light: "/what-we-do-blades/legacy.svg",
+          dark: "/what-we-do-blades/legacy-dark-theme.svg",
+        },
+        imageAlt: "Infrastructure",
+        cardTitle: "Legacy Rescue and Refractor",
+        cardDetail:
+          "We have over a decade of experience using leading technologies to provide support.",
+        link: "#",
+        linkText: "Learn more",
+        bigCard: false,
+      },
+      {
+        id: 3,
+        image: {
+          light: "/what-we-do-blades/care.svg",
+          dark: "/what-we-do-blades/care-dark-theme.svg",
+        },
+        imageAlt: "Care and Optimization",
+        cardTitle: "Care and Optimization Plans",
+        cardDetail:
+          "We have over a decade of experience using leading technologies to provide support.",
+        link: "#",
+        linkText: "Learn more",
+        bigCard: false,
+      },
+      {
+        id: 4,
+        image: {
+          light: "/what-we-do-blades/embedded.svg",
+          dark: "/what-we-do-blades/embedded-dark-theme.svg",
+        },
+        imageAlt: "Scalable team",
+        cardTitle: "Embedded Dev Squads",
+        cardDetail:
+          "We have over a decade of experience using leading technologies to provide support.",
+        link: "#",
+        linkText: "Learn more",
+        bigCard: false,
+      },
+    ],
+    btntext: "Learn more",
+    btnUrl: "#",
+  };
+  const ctaData = {
+    bgImage: "/what-we-do-blades/cta_image.png",
+    title: "Sophisticated web solutions for smart agencies.",
+    description:
+      "Bright Code works seamlessly with your team to help you envision and create your clients’ digital presence.",
+    buttonText: "Contact us",
+    buttonUrl: "/contact-us",
+    buttonClass: "rounded-btn blue no-arrow", // You can change this to "rounded-btn gray" etc.
+  };
+  const contactForm = {
+    introWithPettern: {
+      darkThemePettern: "/squres-pettern-dark.svg",
+      lightThemePettern: "/squres-pettern.svg",
+      title: "Manage Customers across the Lifetime of the product cycle",
+      blurb:
+        "Bright Code works seamlessly with your team to help you envision and create your clients’ digital presence. Whether it’s building something from the ground up or enhancing existing architecture, we create sophisticated websites and content management systems.",
+      ctaTxt: "Learn more",
+    },
 
+    cards: [
+      {
+        icon: "/clock.svg",
+        alt: "Customer history",
+        title: "Customer History",
+        blurb: "Analyze customer behavior across product lines",
+      },
+      {
+        icon: "/uis_graph-bar.svg",
+        alt: "Actionable insights",
+        title: "Actionable Insights",
+        blurb: "Gain meaningful insights from customer data",
+      },
+      {
+        icon: "/patterns.svg",
+        alt: "Identify patterns",
+        title: "Identify Patterns",
+        blurb: "Discover trends and usage patterns efficiently",
+      },
+      {
+        icon: "/analysis.svg",
+        alt: "Predictive analysis",
+        title: "Predictive Analysis",
+        blurb: "Predict outcomes using historical customer data",
+      },
+    ],
+  };
 
-export default async function Home() {
-  const data = await graphQLClient.request(GET_POSTS);
-  const posts =data.posts.edges
+  const contactUsCalender = {
+    introWithPettern: {
+      darkThemePettern: "/squres-pettern-dark.svg",
+      lightThemePettern: "/squres-pettern.svg",
+      title: "Manage Customers across the Lifetime of the product cycle",
+      blurb:
+        "Bright Code works seamlessly with your team to help you envision and create your clients’ digital presence. Schedule time with our team to explore how we can help.",
+      ctaTxt: "Learn more",
+    },
+
+    cards: [
+      {
+        icon: "/clock.svg",
+        alt: "Customer history",
+        title: "Customer History",
+        blurb: "Analyze customer behavior across product lines",
+      },
+      {
+        icon: "/uis_graph-bar.svg",
+        alt: "Actionable insights",
+        title: "Actionable Insights",
+        blurb: "Turn data into actionable business insights",
+      },
+      {
+        icon: "/patterns.svg",
+        alt: "Identify patterns",
+        title: "Identify Patterns",
+        blurb: "Understand trends across customer journeys",
+      },
+      {
+        icon: "/analysis.svg",
+        alt: "Predictive analysis",
+        title: "Predictive Analysis",
+        blurb: "Forecast future outcomes with confidence",
+      },
+    ],
+  };
+  const ContactForm = () => {
+    return (
+      <form className="contactForm" autoComplete="on">
+      <div className="row">
+        <div className="field">
+          <label htmlFor="firstName">First name</label>
+          <input
+            id="firstName"
+            type="text"
+            autoComplete="given-name"
+          />
+        </div>
+    
+        <div className="field">
+          <label htmlFor="lastName">Last name</label>
+          <input
+            id="lastName"
+            type="text"
+            autoComplete="family-name"
+          />
+        </div>
+      </div>
+    
+      <div className="row">
+        <div className="field">
+          <label htmlFor="email">Your mail</label>
+          <input
+            id="email"
+            type="email"
+            autoComplete="email"
+          />
+        </div>
+    
+        <div className="field">
+          <label htmlFor="country">Country</label>
+          <input
+            id="country"
+            type="text"
+            autoComplete="country-name"
+          />
+        </div>
+      </div>
+    
+      <div className="field">
+        <label htmlFor="message">Message</label>
+        <textarea
+          id="message"
+          autoComplete="off"
+        />
+      </div>
+    
+      <button className="gradient-btn no-arrow rounded-btn w-fit ml-auto mt-[15px] " type="submit">Contact us</button>
+    </form>
+    
+    );
+  };
+
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-       
-        <div className="flex flex-col items-center gap-6 text-center w-full">
-          <h1 className="max-w-xs text-center text-[50px] font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            Bright Code
-          </h1>
-        </div>
-
-        <div className="w-full">
-          <h2 className="text-[40px] mb-[30px] text-center font-semibold leading-10 tracking-tight text-black dark:text-zinc-50 text-center">All Posts</h2>
-          {
-            posts.map((post: { node: { title: string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<unknown>> | Iterable<ReactNode> | ReactPortal | Promise<string | number | bigint | boolean | ReactPortal | ReactElement<unknown, string | JSXElementConstructor<unknown>> | Iterable<ReactNode> | null | undefined> | null | undefined; }; }, indx: Key | null | undefined) =>(
-              <div key={indx} className="p-4 w-[33.33%] shadow-sm">
-                <h2 >{post.node.title}</h2>
-              </div>
-            ))
-          }
-        </div>
-      </main>
-    </div>
+    <>
+      <div >
+        <BannerThird data={bannerData} />
+        <BannerThird data={bannerData2} />
+        {/* <TitleSection {...titleSectionData01} theme="dark" />
+        <Timeline theme="dark" />
+        <TitleSection {...titleSectionData01} theme="light" />
+        <Timeline theme="light" />
+        <ColTwoCard {...cardData} theme="dark" />
+        <ColTwoCard {...cardData} theme="light" />
+        <ColTwoCard {...cardData2} theme="dark" />
+        <TitleSection {...titleSectionData} theme="dark" />
+        <TitleSection {...titleSectionData} theme="light" />
+        <TitleSection {...titleSectionData2} theme="dark" />
+        <ThreeColumns data={colThreeCardsData} theme="dark" />
+        <ThreeColumns data={colThreeCardsData} theme="light" />
+        <TitleSection {...titleSectionData3} theme="dark" />
+        <ContactSection data={contactForm} theme="dark" rightSlot={<ContactForm />} />
+        <ContactSection data={contactForm} theme="light" rightSlot={<ContactForm />} />
+        <ContactSection
+          data={contactUsCalender}
+          theme="dark"
+          rightSlot={<CalendlyCalendar theme="dark" />}
+        />
+         <ContactSection
+          data={contactUsCalender}
+          theme="light"
+          rightSlot={<CalendlyCalendar theme="light" />}
+        />
+        <GridCards data={gridCardsData} theme="dark" />
+        <GridCards data={gridCardsData} theme="light" />
+        <Cta data={ctaData} theme="dark"/>
+        <Cta data={ctaData} theme="light"/> */}
+      </div>
+    </>
   );
-}
+};
+
+export default Demo;
