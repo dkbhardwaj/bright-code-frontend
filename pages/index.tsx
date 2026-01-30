@@ -1,5 +1,5 @@
 import React from "react";
-// import ColTwoCard from "../components/ColTwoCard";
+import ColTwoCard from "../components/ColTwoCard";
 // import TitleSection from "../components/TitleSection";
 // import ThreeColumns from "../components/ThreeColumns";
 // import GridCards from "@/components/GridCards";
@@ -439,14 +439,14 @@ const Demo: React.FC = () => {
       <div >
         <BannerThird data={bannerData} />
         <BannerThird data={bannerData2} />
-        {/* <TitleSection {...titleSectionData01} theme="dark" />
-        <Timeline theme="dark" />
-        <TitleSection {...titleSectionData01} theme="light" />
-        <Timeline theme="light" />
+        {/* <TitleSection {...titleSectionData01} theme="dark" /> */}
+        {/* <Timeline theme="dark" /> */}
+        {/* <TitleSection {...titleSectionData01} theme="light" /> */}
+        {/* <Timeline theme="light" /> */}
         <ColTwoCard {...cardData} theme="dark" />
         <ColTwoCard {...cardData} theme="light" />
         <ColTwoCard {...cardData2} theme="dark" />
-        <TitleSection {...titleSectionData} theme="dark" />
+        {/* <TitleSection {...titleSectionData} theme="dark" />
         <TitleSection {...titleSectionData} theme="light" />
         <TitleSection {...titleSectionData2} theme="dark" />
         <ThreeColumns data={colThreeCardsData} theme="dark" />
@@ -467,7 +467,7 @@ const Demo: React.FC = () => {
         <GridCards data={gridCardsData} theme="dark" />
         <GridCards data={gridCardsData} theme="light" />
         <Cta data={ctaData} theme="dark"/>
-        <Cta data={ctaData} theme="light"/> */}
+        <Cta data={ctaData} theme="light" /> */}
       </div>
     </>
   );

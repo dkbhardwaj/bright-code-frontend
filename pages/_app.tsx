@@ -3,7 +3,8 @@ import type { NextPage } from "next";
 import type { AppProps } from "next/app";
 import Layout from "../app/layout";
 import { Poppins } from "next/font/google";
-
+import "../styles/global.css";
+import "../styles/darkmode.css";
 
 
 const poppins = Poppins({
