@@ -1,7 +1,7 @@
 import React from "react";
 import ColTwoCard from "../components/ColTwoCard";
 import TitleSection from "../components/TitleSection";
-// import ThreeColumns from "../components/ThreeColumns";
+import ThreeColumns from "../components/ThreeColumns";
 // import GridCards from "@/components/GridCards";
 import BannerThird, { BannerThirdData } from "@/components/BannerThird";
 // import Timeline from "@/components/Timeline";
@@ -449,8 +449,8 @@ const Demo: React.FC = () => {
         <TitleSection {...titleSectionData} theme="dark" />
         <TitleSection {...titleSectionData} theme="light" />
         <TitleSection {...titleSectionData2} theme="dark" />
-        {/* <ThreeColumns data={colThreeCardsData} theme="dark" /> */}
-        {/* <ThreeColumns data={colThreeCardsData} theme="light" /> */}
+        <ThreeColumns data={colThreeCardsData} theme="dark" />
+        <ThreeColumns data={colThreeCardsData} theme="light" />
         <TitleSection {...titleSectionData3} theme="dark" />
         {/* <ContactSection data={contactForm} theme="dark" rightSlot={<ContactForm />} /> */}
         {/* <ContactSection data={contactForm} theme="light" rightSlot={<ContactForm />} /> */}
