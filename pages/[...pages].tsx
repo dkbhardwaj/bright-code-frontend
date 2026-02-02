@@ -2,7 +2,9 @@
 import { GraphQLClient } from 'graphql-request';
 import {GET_PAGE} from "../lib/pages"
 import { GetServerSideProps } from 'next';
-import PageBuilder, { Blade } from "../components/PageBuilder"
+import PageBuilder from "../components/PageBuilder"
+import { Blade } from "../components/PageBuilder/section.types";
+
 
 
 export default function Page({ pages,data }: Props) {
