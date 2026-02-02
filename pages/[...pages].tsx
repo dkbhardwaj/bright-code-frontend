@@ -2,12 +2,12 @@
 import { GraphQLClient } from 'graphql-request';
 import {GET_PAGE} from "../lib/pages"
 import { GetServerSideProps } from 'next';
-import PageBuilder from "../components/PageBuilder"
+import PageBuilder, { Blade } from "../components/PageBuilder"
 
 
 export default function Page({ pages,data }: Props) {
     
-  const sections = data?.pageBy?.pagebuilder?.sections
+  const sections = data?.pageBy?.pagebuilder?.sections || []
   
   return (
     <>
@@ -18,7 +18,7 @@ export default function Page({ pages,data }: Props) {
 
 
 type Pagebuilder = {
-  sections: unknown;
+  sections: Blade[];
 };
 
 type PageBy = {
