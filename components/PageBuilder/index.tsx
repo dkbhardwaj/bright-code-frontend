@@ -1,7 +1,12 @@
-import React, { ReactElement, ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import BannerThird from '../BannerThird';
 import IntroSection from '../Intro';
 import Timeline from '../Timeline';
+import ColTwoCard from '../ColTwoCard';
+
+/* ------------------------------------------------------------------ */
+/* Types */
+/* ------------------------------------------------------------------ */
 
 interface ThemeImage {
   light: string;
@@ -10,7 +15,7 @@ interface ThemeImage {
 
 interface HeroBannerBlade {
   fieldGroupName: 'PagebuilderSectionsHeroBannerLayout';
-  theme?: "light" | "dark";
+  theme?: 'light' | 'dark';
   image: {
     bg?: ThemeImage;
     leftIcons?: ThemeImage;
@@ -47,13 +52,13 @@ interface IntroductionBlade {
   sub?: string;
   buttonText?: string;
   buttonLink?: string;
-  theme?: "light" | "dark";
+  theme?: 'light' | 'dark';
   sectionPadding: string[];
 }
 
 interface TimelineViewBlade {
   fieldGroupName: 'PagebuilderSectionsTimelineViewLayout';
-  theme?: "light" | "dark";
+  theme?: 'light' | 'dark';
   link?: {
     classname: string;
     linkText: string;
@@ -66,58 +71,81 @@ interface TimelineViewBlade {
   }[];
 }
 
-export type Blade = HeroBannerBlade | IntroductionBlade | TimelineViewBlade;
+interface ImageWithContentBlade {
+  imageOnLeft: boolean;
+  fieldGroupName: 'PagebuilderSectionsImageWithContentLayout';
+  timageOnLeft: boolean;
+
+  image: {
+    node: {
+              altText:string;
+              sourceUrl:string;
+            }
+  };
+  eyebrowText: string;
+  imageWithContentTitle: string;
+  blurb: string;
+  link:{
+    target : boolean,
+    linkUrl : string,
+    linkText : string,
+    classname: string,
+  };
+  buttonText: string;
+  buttonLink: string;
+  theme?: "light" | "dark";
+  sectionPadding: string[];
+}
+
+export type Blade =
+  | HeroBannerBlade
+  | IntroductionBlade
+  | TimelineViewBlade
+  | ImageWithContentBlade;
 
 interface IndexProps {
   blades: Blade[];
 }
 
-const Index: React.FC<IndexProps> = ({ blades }) => {
-  const bladeList = pageBuilder(blades);
+/* ------------------------------------------------------------------ */
+/* Page */
+/* ------------------------------------------------------------------ */
 
-  return (
-    <>
-      {bladeList.length && bladeList?.map((blade, index) => (
-        <React.Fragment key={index}>{blade}</React.Fragment>
-      ))}
-    </>
-  );
+const Index: React.FC<IndexProps> = ({ blades }) => {
+  return <>{pageBuilder(blades)}</>;
 };
 
 export default Index;
 
-function pageBuilder(
-  data?: Blade[]
-): ReactNode[] {
-  const blades: ReactNode[] = [];
-  
-  data?.forEach((blade, index) => {
-    const layout = blade?.fieldGroupName?.replace(
-      'PagebuilderSections',
-      ''
+/* ------------------------------------------------------------------ */
+/* Page Builder */
+/* ------------------------------------------------------------------ */
+
+type BladeComponentMap = {
+  PagebuilderSectionsHeroBannerLayout: React.FC<{ data: HeroBannerBlade }>;
+  PagebuilderSectionsIntroductionLayout: React.FC<{ data: IntroductionBlade }>;
+  PagebuilderSectionsTimelineViewLayout: React.FC<{ data: TimelineViewBlade }>;
+  PagebuilderSectionsImageWithContentLayout: React.FC<{ data: ImageWithContentBlade }>;
+};
+
+const layoutMap: BladeComponentMap = {
+  PagebuilderSectionsHeroBannerLayout: BannerThird,
+  PagebuilderSectionsIntroductionLayout: IntroSection,
+  PagebuilderSectionsTimelineViewLayout: Timeline,
+  PagebuilderSectionsImageWithContentLayout: ColTwoCard,
+};
+
+function pageBuilder(data: Blade[]): ReactNode[] {
+  return data.map((blade, index) => {
+    const Component = layoutMap[blade.fieldGroupName];
+
+    if (!Component) return null;
+
+    return (
+      <Component
+        key={index}
+        data={blade as never}
+      />
     );
-
-    switch (layout) {
-      case 'HeroBannerLayout':
-        if (blade.fieldGroupName === 'PagebuilderSectionsHeroBannerLayout') {
-          blades.push(<BannerThird data={blade} />);
-        }
-        break;
-      case 'IntroductionLayout':
-        if (blade.fieldGroupName === 'PagebuilderSectionsIntroductionLayout') {
-          blades.push(<IntroSection data={blade} />);
-        }
-        break;
-      case 'TimelineViewLayout':
-        if (blade.fieldGroupName === 'PagebuilderSectionsTimelineViewLayout') {
-          blades.push(<Timeline data={blade} />);
-        }
-        break;
-
-      default:
-        break;
-    }
-  });
-
-  return blades;
+  }).filter(Boolean);
 }
