@@ -1,11 +1,7 @@
 import React, { ReactElement, ReactNode } from 'react';
-import HeroBanner from '../Banner';
+import BannerThird from '../BannerThird';
+import IntroSection from '../Intro';
 
-
-/**
- * Generic blade type.
- * You can replace `any` with a real schema later if needed.
- */
 interface Blade {
   fieldGroupName?: string;
   [key: string]: unknown;
@@ -23,41 +19,42 @@ interface IndexProps {
 }
 
 const Index: React.FC<IndexProps> = ({ blades }) => {
-//   const bladeList = pageBuilder(blades.pageBuilderSections?.sections);
+  const bladeList = pageBuilder(blades);
 
   return (
     <>
-    page builder
-      {/* {bladeList.map((blade, index) => (
+      {bladeList.length && bladeList?.map((blade, index) => (
         <React.Fragment key={index}>{blade}</React.Fragment>
-      ))} */}
+      ))}
     </>
   );
 };
 
 export default Index;
 
-// function pageBuilder(
-//   data?: Blade[]
-// ): ReactNode[] {
-//   const blades: ReactNode[] = [];
+function pageBuilder(
+  data?: Blade[]
+): ReactNode[] {
+  const blades: ReactNode[] = [];
+  
+  data?.forEach((blade, index) => {
+    const layout = blade?.fieldGroupName?.replace(
+      'PagebuilderSections',
+      ''
+    );
 
-//   data?.forEach((blade, index) => {
-//     const layout = blade?.fieldGroupName?.replace(
-//       'PageBuilderSectionsSections',
-//       ''
-//     );
+    switch (layout) {
+      case 'HeroBannerLayout':
+        blades.push(<BannerThird data={blade} />);
+        break;
+      case 'IntroductionLayout':
+        blades.push(<IntroSection data={blade} />);
+        break;
 
-//     switch (layout) {
-//       case 'HeroBannerLayout':
-//         blades.push(<HeroBanner banner={blade} />);
-//         break;
+      default:
+        break;
+    }
+  });
 
-
-//       default:
-//         break;
-//     }
-//   });
-
-//   return blades;
-// }
+  return blades;
+}

@@ -10,43 +10,55 @@ interface ThemeImage {
 export interface BannerThirdData {
   data: {
     theme?: "light" | "dark";
-    bannerBgImg:
-    | string
-    | ThemeImage
-    | {
+    image:{
       bg?: ThemeImage;
       leftIcons?: ThemeImage;
-      rightImg?: ThemeImage;
+      rightImg?: ThemeImage,
+      node : {
+        altText : string,
+        guid : string,
+        sourceUrl : string,
+      }
     };
-    preTitle: string;
-    highlightedText: string;
-    postTitle: string;
-    paragraphContent: {
-      id: number;
-      paragraph: string;
-    }[];
-    buttons: {
-      id: number;
-      url: string;
-      text: string;
-      variant?: ButtonVariant;
-      className?: string;
+    title: {
+      titlePrefix: string;
+    titleGradient: string;
+    titleSuffix: string;
+    }
+    varient:string;
+    subtitle: string;
+    textUnderCta: string;
+    cta: {
+      link:{
+        target: boolean;
+        linkUrl: string;
+        linkText: string;
+        variant?: ButtonVariant;
+        classname: string;
+      }
     }[];
   };
 }
 
 const BannerThird: React.FC<BannerThirdData> = ({ data }) => {
   const {
-    theme = "light",
-    bannerBgImg,
-    preTitle,
-    highlightedText,
-    postTitle,
-    paragraphContent,
-    buttons,
+    varient,
+    image,
+    title,
+    textUnderCta,
+    subtitle,
+    cta,
   } = data;
 
-  const isDark = theme === "dark";
+
+  const btnClass = {
+    "rounded-blue" : "rounded-btn blue",
+    "rounded-gray" : "rounded-btn gray",
+    "rounded-white" : "rounded-btn white",
+    "btn-blue-rect" : "gradient-btn-blue",
+  }as const;
+  
+  const isDark = varient === "dark";
   type ThemeImage = { light: string; dark: string };
 
   const resolveImage = (
@@ -64,23 +76,13 @@ const BannerThird: React.FC<BannerThirdData> = ({ data }) => {
   };
 
 
-  const bgImage =
-    typeof bannerBgImg === "string"
-      ? resolveImage(bannerBgImg)
-      : typeof bannerBgImg === "object" && "bg" in bannerBgImg
-        ? resolveImage(bannerBgImg.bg)
-        : resolveImage(bannerBgImg as ThemeImage);
+  const bgImage = "/what-we-do-blades/BG_dark_theme.svg"
 
 
-  const leftIcons =
-    typeof bannerBgImg === "object" && "leftIcons" in bannerBgImg
-      ? resolveImage(bannerBgImg.leftIcons)
-      : "";
 
-  const rightImage =
-    typeof bannerBgImg === "object" && "rightImg" in bannerBgImg
-      ? resolveImage(bannerBgImg.rightImg)
-      : "";
+  const leftIcons = "/what-we-do-blades/hero_icons-dark-theme.svg"
+
+  const rightImage = image?.node?.sourceUrl
 
   return (
     <section
@@ -140,7 +142,7 @@ const BannerThird: React.FC<BannerThirdData> = ({ data }) => {
             src={rightImage}
             fill
             className="object-contain"
-            alt="Hero visual"
+            alt={image?.node?.altText}
           />
         </div>
       )}
@@ -150,48 +152,54 @@ const BannerThird: React.FC<BannerThirdData> = ({ data }) => {
       {/* Content */}
       <div className="container relative z-10">
         <div className="w-full lg-up:max-w-[700px] lg:pt-[100px]">
-        {(preTitle || highlightedText || postTitle) && (
+        {(title?.titlePrefix || title?.titleGradient || title?.titleSuffix) && (
             <h1
               className={`lg-up:text-[56px] ${
                 isDark ? "text-white" : "text-[#000D20]"
               }`}
             >
-              {preTitle && <>{preTitle} </>}
+              {title.titlePrefix && <>{title.titlePrefix} </>}
 
-              {highlightedText && (
+              {title.titleGradient && (
                 <span
                   className={`text-[#0044FF] font-[600]`}
                 >
-                  {highlightedText}
+                  {title.titleGradient}
                 </span>
               )}
 
-              {postTitle && <> {postTitle}</>}
+              {title.titleSuffix && <> {title.titleSuffix}</>}
             </h1>
           )}
 
-          {paragraphContent.map((item) => (
+          {subtitle &&
             <p
-              key={item.id}
               className={`mt-[10px] ${isDark ? "text-[#D1D1D6]" : "text-[#333333]"
                 }`}
             >
-              {item.paragraph}
+              {subtitle}
             </p>
-          ))}
+          }
 
-          {buttons?.length > 0 && (
+          {cta?.length > 0 && (
             <div className="flex gap-4 mt-[42px] lg:mt-5 flex-wrap">
-              {buttons.map((button) => (
-                <Button
-                  key={button.id}
-                  href={button.url}
-                  variant={button.variant}
-                  className={button.className}
-                >
-                  {button.text}
-                </Button>
-              ))}
+              {cta.map((button, key) => {
+                const classKey = button?.link?.classname;
+
+                return (
+                  <Button
+                    key={key}
+                    href={button?.link?.linkUrl}
+                    className={
+                      classKey && classKey in btnClass
+                        ? btnClass[classKey as keyof typeof btnClass]
+                        : "rounded-btn blue"
+                    }
+                  >
+                    {button?.link?.linkText}
+                  </Button>
+                );
+              })}
             </div>
           )}
 
@@ -199,8 +207,7 @@ const BannerThird: React.FC<BannerThirdData> = ({ data }) => {
             className={`block mt-4 text-[14px] ${isDark ? "text-[#D1D1D6]" : "text-[#333333]"
               }`}
           >
-            White-label web development for agencies and marketing teams who
-            refuse “good enough.”
+            {textUnderCta}
           </span>
         </div>
       </div>
