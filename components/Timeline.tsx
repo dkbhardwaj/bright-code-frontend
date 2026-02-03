@@ -57,6 +57,7 @@ const Timeline: FC<TimelineProps> = ({ data: bladeData, theme = "dark" }) => {
 
   // Use timelineItems from bladeData or fall back to default
   const timelineItems = bladeData?.timelineItems || defaultTimelineItems;
+  console.log(timelineItems);
 
   // Get link data from bladeData
   const linkData = bladeData?.link;
@@ -231,54 +232,66 @@ const Timeline: FC<TimelineProps> = ({ data: bladeData, theme = "dark" }) => {
               </div>
             </div>
           </div>
-          {timelineItems.map((item, index) => {
-            const { leftText, rightText } = parseTimelineItem(item);
-            return (
-              <div
-                className={`row relative w-full flex flex-wrap items-center mb-[50px] last:mb-0 border-spacing-0 desktop-mid-down:pb-[50px] desktop-mid-down:border-b-[2px] last:pb-0 last:border-none`}
-                key={index}
-              >
+          {timelineItems.reduce<React.ReactElement[]>((rows, item, index) => {
+            // Group items in pairs: every 2 items form one row
+            if (index % 2 === 0) {
+              const leftItem = timelineItems[index];
+              const rightItem = timelineItems[index + 1];
+
+              rows.push(
                 <div
-                  className={`${style.circle} desktop-mid-down:hidden circle circleOne absolute left-1/2 top-1/2 desktop-mid-down:left-0 -translate-x-1/2 -translate-y-1/2 w-[30px] h-[30px] rounded-[50%] lg:right-auto lg:translate-x-0`}
-                >
-                  <span className="circleTopline2 hidden relative desktop-mid-down:inline-block text-[0] w-[90px] h-[2px] top-[-51px] transition-all duration-300 rounded-tl-xl left-[15px]">
-                    line
-                  </span>
-                  <span className="circleTopline hidden relative desktop-mid-down:inline-block text-[0] w-[2px] h-[50px] top-[-76px] transition-all duration-300 rounded-tl-xl left-[14px]">
-                    line
-                  </span>
-                  <span className="circleBottomline hidden relative desktop-mid-down:inline-block text-[0] w-[2px] h-[50px] bottom-[33px] transition-all duration-300 rounded-bl-xl left-[13px]">
-                    line
-                  </span>
-                  <span className="circleBottomline2 hidden relative desktop-mid-down:inline-block text-[0] w-[90px] h-[2px] bottom-[53px] transition-all duration-300 rounded-bl-xl left-[15px]">
-                    line
-                  </span>
-                </div>
-                <div
-                  className={`w-1/2 lg:w-[75%] relative pr-[100px] desktop-mid-down:pr-[0] desktop-mid-down:mb-[20px] desktop-mid-down:w-[100%]`}
+                  className={`row relative w-full flex flex-wrap items-center mb-[50px] last:mb-0 border-spacing-0 desktop-mid-down:pb-[50px] desktop-mid-down:border-b-[2px] last:pb-0 last:border-none`}
+                  key={index}
                 >
                   <div
-                    className={`left_content_wrap relative w-full p-[24px] desktop-mid-down:p-[18px] border-[1px] border-[#D1D1D6] rounded-[8px]`}
+                    className={`${style.circle} desktop-mid-down:hidden circle circleOne absolute left-1/2 top-1/2 desktop-mid-down:left-0 -translate-x-1/2 -translate-y-1/2 w-[30px] h-[30px] rounded-[50%] lg:right-auto lg:translate-x-0`}
                   >
-                    <p
-                      className={`text-[16px] text-black font-[500] desktop-mid-down:text-[14px]`}
-                    >
-                      {leftText}
-                    </p>
+                    <span className="circleTopline2 hidden relative desktop-mid-down:inline-block text-[0] w-[90px] h-[2px] top-[-51px] transition-all duration-300 rounded-tl-xl left-[15px]">
+                      line
+                    </span>
+                    <span className="circleTopline hidden relative desktop-mid-down:inline-block text-[0] w-[2px] h-[50px] top-[-76px] transition-all duration-300 rounded-tl-xl left-[14px]">
+                      line
+                    </span>
+                    <span className="circleBottomline hidden relative desktop-mid-down:inline-block text-[0] w-[2px] h-[50px] bottom-[33px] transition-all duration-300 rounded-bl-xl left-[13px]">
+                      line
+                    </span>
+                    <span className="circleBottomline2 hidden relative desktop-mid-down:inline-block text-[0] w-[90px] h-[2px] bottom-[53px] transition-all duration-300 rounded-bl-xl left-[15px]">
+                      line
+                    </span>
                   </div>
-                </div>
-                <div className="w-1/2 lg:w-[75%] relative pl-[100px] desktop-mid-down:pl-[0] desktop-mid-down:w-[100%]">
+                  {/* Left side - 1st, 3rd, 5th items */}
                   <div
-                    className={`right_content_wrap relative w-full p-[24px] desktop-mid-down:p-[18px] border-[1px] border-[#D1D1D6] rounded-[8px]`}
+                    className={`w-1/2 lg:w-[75%] relative pr-[100px] desktop-mid-down:pr-[0] desktop-mid-down:mb-[20px] desktop-mid-down:w-[100%]`}
                   >
-                    <p className="text-[16px] text-black font-[500] desktop-mid-down:text-[14px]">
-                      {rightText}
-                    </p>
+                    {leftItem && (
+                      <div
+                        className={`left_content_wrap relative w-full p-[24px] desktop-mid-down:p-[18px] border-[1px] border-[#D1D1D6] rounded-[8px]`}
+                      >
+                        <p
+                          className={`text-[16px] text-black font-[500] desktop-mid-down:text-[14px]`}
+                        >
+                          {leftItem.item}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                  {/* Right side - 2nd, 4th, 6th items */}
+                  <div className="w-1/2 lg:w-[75%] relative pl-[100px] desktop-mid-down:pl-[0] desktop-mid-down:w-[100%]">
+                    {rightItem && (
+                      <div
+                        className={`right_content_wrap relative w-full p-[24px] desktop-mid-down:p-[18px] border-[1px] border-[#D1D1D6] rounded-[8px]`}
+                      >
+                        <p className="text-[16px] text-black font-[500] desktop-mid-down:text-[14px]">
+                          {rightItem.item}
+                        </p>
+                      </div>
+                    )}
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            }
+            return rows;
+          }, [])}
         </div>
         <div className="btn-wrap w-full text-center mt-[70px] desktop-mid-down:mt-[40px]">
           <Button
