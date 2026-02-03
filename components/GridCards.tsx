@@ -6,35 +6,39 @@ import Link from "next/link";
    Types
 ========================= */
 
-export interface GridCard {
-    id: number;
-    cardDelay?: string;
-    cardDuration?: string;
-    bigCard: boolean;
-    image: {
-        light: string;
-        dark: string;
-    };
-    imageAlt: string;
-    cardTitle: string;
-    cardDetail: string;
-    link: string;
-    linkText: string;
-}
 
-export interface GridCardsData {
-    paddingLarge?: boolean;
-    featuredClass?: boolean;
-    title?: string;
-    bgTransparent?: boolean;
-    gridCards: readonly GridCard[];
-    btntext?: string;
-    btnUrl?: string;
-  }  
+ 
 
   export interface GridCardsProps {
-    data: GridCardsData;
-    theme?: "light" | "dark";
+    data: {
+         sectionPadding:string[];
+         theme:string;
+          link: {
+            target:boolean;
+            linkUrl:string;
+            linkText:string;
+            fieldGroupName:string;
+            classname:string;
+          };
+          card: {
+            fieldGroupName:string;
+            subtitle:string;
+            title:string;
+            image: {
+              node: {
+                altText:string;
+                sourceUrl:string;
+              }
+            };
+            link: {
+              target:boolean;
+              linkUrl:string;
+              linkText:string;
+              fieldGroupName:string;
+              classname:string;
+            }
+          }
+    }
   }
   
 
@@ -44,25 +48,19 @@ export interface GridCardsData {
 
 const GridCards: React.FC<GridCardsProps> = ({
     data,
-    theme = "light",
   }) => {
-    const { title, gridCards, btntext, btnUrl } = data;
-  
+    console.log(data)
+    const gridCards = data?.card
+    const btntext = data?.link?.linkText
+    const btnUrl = data?.link?.linkUrl
     return (
       <section
         className={`GridCards padding-medium ${
-          theme === "dark" ? "darkMode" : ""
+          data.theme === "dark" ? "darkMode" : ""
         }`}
       >
   
             <div className="container">
-
-                {/* Section Title */}
-                {title && (
-                    <h3 className="mb-[32px] text-[28px] font-[600]">
-                        {title}
-                    </h3>
-                )}
 
                 {/* Grid */}
                 <div className="
@@ -98,47 +96,40 @@ const GridCards: React.FC<GridCardsProps> = ({
 
                                 <div className="card h-full rounded-[24px] border border-[#E5E5EA] bg-white pb-[40px] flex flex-col justify-between overflow-hidden relative ">
                                 <Link
-                                    href={card.link}
+                                    href={card.link?.linkUrl}
                                     className="redirect rounded-[24px] overflow-hidden"
                                 >
-                                    {card.linkText}
+                                    {card.link?.linkText}
                                 </Link> 
                                     {/* Image */}
                                     <div className="imageWrap mb-[24px] h-[220px]">
                                         <Image
-                                            src={card.image.light}
-                                            alt={card.imageAlt}
+                                            src={card.image.node?.sourceUrl}
+                                            alt={card.image?.node?.altText}
                                             width={500}
                                             height={300}
-                                            className="light-image w-full h-full object-cover"
-                                        />
-                                        <Image
-                                            src={card.image.dark}
-                                            alt={card.imageAlt}
-                                            width={500}
-                                            height={300}
-                                            className="dark-image w-full h-full object-cover"
+                                            className={`${data.theme == "dark" ? "dark-image" : "light-image"} w-full h-full object-cover"`}
                                         />
                                     </div>
 
                                     {/* Content */}
                                     <div className="content px-[30px]">
                                         <h4 className="font-[600] text-[20px] md:text-[16px] ">
-                                            {card.cardTitle}
+                                            {card.title}
                                         </h4>
                                         <p className="text-[16px] md:text-[12px] mt-[5px] text-[#6b7280]">
-                                            {card.cardDetail}
+                                            {card.subtitle}
                                         </p>
                                     </div>
 
                                     {/* CTA */}
-                                    {card.linkText && card.link && (
+                                    {card.link?.linkText && card.link?.linkUrl && (
                                         <div className="btn-wrap px-[30px]">
                                             <Link
-                                                href={card.link}
+                                                href={card.link?.linkUrl}
                                                 className="blue-link inline-block text-[#0044FF] text-[12px] mt-[10px]"
                                             >
-                                                {card.linkText}
+                                                {card.link?.linkText}
                                             </Link>
                                         </div>
                                     )}

@@ -5,34 +5,49 @@ import Image from "next/image";
 type Theme = "light" | "dark";
 
 interface CtaProps {
-  theme?: Theme;
+  
   data: {
-    bgImage: string;
-    title: string;
-    description: string;
-    buttonText: string;
-    buttonUrl: string;
-    buttonClass?: string;
+    subtitle:string;
+  sectionPadding:string[];
+  theme:string;
+  footerCtaTitle:string;
+  link: {
+    target:string;
+    linkUrl:string;
+    linkText:string;
+    fieldGroupName:string;
+    classname:string;
+  }
   };
 }
 
-export default function Cta({ data, theme = "light" }: CtaProps) {
-  const { bgImage, title, description, buttonText, buttonUrl, buttonClass } =
-    data;
+ const btnClass = {
+    "rounded-blue" : "rounded-btn blue",
+    "rounded-gray" : "rounded-btn gray",
+    "rounded-white" : "rounded-btn white",
+    "btn-blue-rect" : "gradient-btn-blue",
+  }as const;
 
-  const isDark = theme === "dark";
+export default function Cta({ data }: CtaProps) {
+
+  const isDark = data.theme;
+  const title = data?.footerCtaTitle
+  const description = data?.subtitle
+  const buttonText = data?.link?.linkText
+  const buttonUrl = data?.link?.linkUrl
+  const buttonClass = data?.link?.classname[0]
 
   return (
     <section
-      className={`cta padding-small ${
-        isDark ? "bg-[#000D20]" : ""
+      className={`cta ${data.sectionPadding ? data?.sectionPadding.join(" ") : "padding-small"} ${
+        isDark=="dark" ? "bg-[#000D20]" : ""
       }`}
     >
       <div className="container">
         <div className="wrap relative rounded-[32px] py-[100px] lg:py-[60px] overflow-hidden">
           <div className="bg-image absolute w-full h-full top-0 left-0 z-0">
               <Image
-                src={bgImage}
+                src={`/what-we-do-blades/cta_image.png`}
                 alt="CTA Background"
                 fill
                 className="object-cover"
@@ -49,7 +64,10 @@ export default function Cta({ data, theme = "light" }: CtaProps) {
             <Link
               href={buttonUrl}
               className={`mt-[20px] inline-block text-white no-arrow ${
-                buttonClass ?? ""
+                 buttonClass
+                        ? btnClass[buttonClass as keyof typeof btnClass]
+                        : "rounded-btn blue"
+                    
               }`}
             >
               {buttonText}

@@ -87,8 +87,79 @@ export interface ImageWithContentBlade {
   sectionPadding: string[];
 }
 
+export interface ColThreeCardsBlade {
+   fieldGroupName : 'PagebuilderSectionsColThreeCardsLayout';
+   theme : string;
+   sectionPadding : string[];
+   cards : {
+     cardTitle : string;
+     fieldGroupName :string ; 
+     subtitle : string;
+     cta: {
+       fieldGroupName : string;
+       linkPath: string;
+       linkText: string;
+     }
+     cardImage: {
+       node: {
+         altText: string;
+         uri:string;
+       }
+     }
+   }
+}
+
+export interface GridCardsBlade {
+   fieldGroupName : 'PagebuilderSectionsGridCardsLayout';
+          sectionPadding:string[];
+          theme:string;
+          link: {
+            target:boolean;
+            linkUrl:string;
+            linkText:string;
+            fieldGroupName:string;
+            classname:string;
+          };
+          card: {
+            fieldGroupName:string;
+            subtitle:string;
+            title:string;
+            image: {
+              node: {
+                altText:string;
+                sourceUrl:string;
+              }
+            };
+            link: {
+              target:boolean;
+              linkUrl:string;
+              linkText:string;
+              fieldGroupName:string;
+              classname:string;
+            }
+          }
+}
+
+
+export interface FooterCtaBlade {
+  fieldGroupName:"PagebuilderSectionsFooterCtaLayout";
+  subtitle:string;
+  sectionPadding:string;
+  theme:string;
+  title:string;
+  link: {
+    target:string;
+    linkUrl:string;
+    linkText:string;
+    fieldGroupName:string;
+    classname:string;
+  }
+}
+
 export type Blade =
   | HeroBannerBlade
   | IntroductionBlade
   | TimelineViewBlade
-  | ImageWithContentBlade;
+  | ImageWithContentBlade
+  | ColThreeCardsBlade
+  | GridCardsBlade;

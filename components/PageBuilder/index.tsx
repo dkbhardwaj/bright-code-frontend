@@ -3,10 +3,16 @@ import BannerThird from '../BannerThird';
 import IntroSection from '../Intro';
 import Timeline from '../Timeline';
 import ColTwoCard from '../ColTwoCard';
+import ThreeColumns from '../ThreeColumns';
+import GridCards from '../GridCards';
+import Cta from '../Cta';
 import { Blade,HeroBannerBlade,
   IntroductionBlade,
   TimelineViewBlade,
-  ImageWithContentBlade, } from './section.types';
+  ImageWithContentBlade,
+  ColThreeCardsBlade,
+  GridCardsBlade,
+  FooterCtaBlade, } from './section.types';
 
 
 
@@ -26,6 +32,9 @@ type BladeComponentMap = {
   PagebuilderSectionsIntroductionLayout: React.FC<{ data: IntroductionBlade }>;
   PagebuilderSectionsTimelineViewLayout: React.FC<{ data: TimelineViewBlade }>;
   PagebuilderSectionsImageWithContentLayout: React.FC<{ data: ImageWithContentBlade }>;
+  PagebuilderSectionsColThreeCardsLayout: React.FC<{ data: ColThreeCardsBlade }>;
+  PagebuilderSectionsGridCardsLayout: React.FC<{ data: GridCardsBlade }>;
+  PagebuilderSectionsFooterCtaLayout: React.FC<{ data: FooterCtaBlade}>
 };
 
 const layoutMap: BladeComponentMap = {
@@ -33,9 +42,13 @@ const layoutMap: BladeComponentMap = {
   PagebuilderSectionsIntroductionLayout: IntroSection,
   PagebuilderSectionsTimelineViewLayout: Timeline,
   PagebuilderSectionsImageWithContentLayout: ColTwoCard,
+  PagebuilderSectionsColThreeCardsLayout: ThreeColumns,
+  PagebuilderSectionsGridCardsLayout: GridCards,
+  PagebuilderSectionsFooterCtaLayout: Cta,
 };
 
 function pageBuilder(data: Blade[]): ReactNode[] {
+  console.log(data)
   return data.map((blade, index) => {
     const Component = layoutMap[blade.fieldGroupName];
 
