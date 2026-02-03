@@ -57,7 +57,7 @@ const Timeline: FC<TimelineProps> = ({ data: bladeData, theme = "dark" }) => {
 
   // Use timelineItems from bladeData or fall back to default
   const timelineItems = bladeData?.timelineItems || defaultTimelineItems;
-  console.log(timelineItems);
+  // console.log(timelineItems);
 
   // Get link data from bladeData
   const linkData = bladeData?.link;
