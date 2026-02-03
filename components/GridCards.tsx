@@ -27,7 +27,7 @@ import Link from "next/link";
               ctaUrl:string;
               openInNewTab:boolean;
             }
-          }
+          }[];
           sectionPadding:string[];
           link: {
             target:string;

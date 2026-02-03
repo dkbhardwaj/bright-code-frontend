@@ -5,14 +5,18 @@ import Timeline from '../Timeline';
 import ColTwoCard from '../ColTwoCard';
 import ThreeColumns from '../ThreeColumns';
 import GridCards from '../GridCards';
+import ContactSection from '../ContactSection';
 import Cta from '../Cta';
-import { Blade,HeroBannerBlade,
+import {
+  Blade, HeroBannerBlade,
   IntroductionBlade,
   TimelineViewBlade,
   ImageWithContentBlade,
   ColThreeCardsBlade,
   GridCardsBlade,
-  FooterCtaBlade, } from './section.types';
+  ContactSectionBlade,
+  FooterCtaBlade,
+} from './section.types';
 
 
 
@@ -34,7 +38,8 @@ type BladeComponentMap = {
   PagebuilderSectionsImageWithContentLayout: React.FC<{ data: ImageWithContentBlade }>;
   PagebuilderSectionsColThreeCardsLayout: React.FC<{ data: ColThreeCardsBlade }>;
   PagebuilderSectionsGridCardsSectionLayout: React.FC<{ data: GridCardsBlade }>;
-  PagebuilderSectionsFooterCtaLayout: React.FC<{ data: FooterCtaBlade}>
+  PagebuilderSectionsContentWithFormOrCalanderLayout: React.FC<{ data: ContactSectionBlade }>;
+  PagebuilderSectionsFooterCtaLayout: React.FC<{ data: FooterCtaBlade }>
 };
 
 const layoutMap: BladeComponentMap = {
@@ -44,11 +49,12 @@ const layoutMap: BladeComponentMap = {
   PagebuilderSectionsImageWithContentLayout: ColTwoCard,
   PagebuilderSectionsColThreeCardsLayout: ThreeColumns,
   PagebuilderSectionsGridCardsSectionLayout: GridCards,
+  PagebuilderSectionsContentWithFormOrCalanderLayout: ContactSection,
   PagebuilderSectionsFooterCtaLayout: Cta,
 };
 
 function pageBuilder(data: Blade[]): ReactNode[] {
-  
+
   return data.map((blade, index) => {
     const Component = layoutMap[blade.fieldGroupName];
 

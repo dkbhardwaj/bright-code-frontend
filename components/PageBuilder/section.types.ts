@@ -103,9 +103,16 @@ export interface ColThreeCardsBlade {
      cardImage: {
        node: {
          altText: string;
-         uri:string;
+         sourceUrl:string;
        }
      }
+   }[];
+   link: {
+     classname: string;
+     fieldGroupName: string;
+     linkText: string;
+     linkUrl: string;
+     target: string;
    }
 }
 
@@ -126,7 +133,7 @@ export interface GridCardsBlade {
               ctaUrl:string;
               openInNewTab:boolean;
             }
-          }
+          }[];
           sectionPadding:string[];
           link: {
             target:string;
@@ -137,12 +144,40 @@ export interface GridCardsBlade {
 }
 
 
+export interface ContactSectionBlade {
+  fieldGroupName: 'PagebuilderSectionsContentWithFormOrCalanderLayout';
+  theme?: "light" | "dark";
+  contactTitle: string;
+  subtitle: string;
+  formcalender?: string;
+  isIconCards?: boolean;
+  iconWithTextCards?: {
+    card: {
+      icon: {
+        node: {
+          sourceUrl: string;
+          altText: string;
+        };
+      };
+      title: string;
+      subtitle: string;
+    };
+  }[];
+  link?: {
+    classname: string;
+    linkText: string;
+    linkUrl: string;
+    target: boolean;
+  };
+  sectionPadding?: string[];
+}
+
 export interface FooterCtaBlade {
   fieldGroupName:"PagebuilderSectionsFooterCtaLayout";
   subtitle:string;
-  sectionPadding:string;
+  sectionPadding:string[];
   theme:string;
-  title:string;
+  footerCtaTitle:string;
   link: {
     target:string;
     linkUrl:string;
@@ -158,5 +193,6 @@ export type Blade =
   | TimelineViewBlade
   | ImageWithContentBlade
   | ColThreeCardsBlade
-  | FooterCtaBlade
-  | GridCardsBlade;
+  | GridCardsBlade
+  | ContactSectionBlade
+  | FooterCtaBlade;

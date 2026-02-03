@@ -50,10 +50,10 @@ interface ThreeColumnsProps {
      cardImage: {
        node: {
          altText: string;
-         uri:string;
+         sourceUrl: string;
        }
      }
-   };
+   }[];
    link: {
             classname:string;
             fieldGroupName:string;
