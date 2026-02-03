@@ -110,33 +110,29 @@ export interface ColThreeCardsBlade {
 }
 
 export interface GridCardsBlade {
-   fieldGroupName : 'PagebuilderSectionsGridCardsLayout';
-          sectionPadding:string[];
+   fieldGroupName : 'PagebuilderSectionsGridCardsSectionLayout';
           theme:string;
-          link: {
-            target:boolean;
-            linkUrl:string;
-            linkText:string;
-            fieldGroupName:string;
-            classname:string;
-          };
-          card: {
-            fieldGroupName:string;
-            subtitle:string;
-            title:string;
-            image: {
+          gridCards: {
+            cardTitle:string;
+            cardDescription:string;
+            cardImage: {
               node: {
                 altText:string;
                 sourceUrl:string;
               }
-            };
-            link: {
-              target:boolean;
-              linkUrl:string;
-              linkText:string;
-              fieldGroupName:string;
-              classname:string;
             }
+            cta: {
+              ctaLabel:string;
+              ctaUrl:string;
+              openInNewTab:boolean;
+            }
+          }
+          sectionPadding:string[];
+          link: {
+            target:string;
+            linkUrl:string;
+            linkText:string;
+            classname:string[];
           }
 }
 
@@ -162,4 +158,5 @@ export type Blade =
   | TimelineViewBlade
   | ImageWithContentBlade
   | ColThreeCardsBlade
+  | FooterCtaBlade
   | GridCardsBlade;

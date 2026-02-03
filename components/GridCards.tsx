@@ -11,32 +11,29 @@ import Link from "next/link";
 
   export interface GridCardsProps {
     data: {
-         sectionPadding:string[];
-         theme:string;
-          link: {
-            target:boolean;
-            linkUrl:string;
-            linkText:string;
-            fieldGroupName:string;
-            classname:string;
-          };
-          card: {
-            fieldGroupName:string;
-            subtitle:string;
-            title:string;
-            image: {
+        fieldGroupName : 'PagebuilderSectionsGridCardsSectionLayout';
+        theme:string;
+          gridCards: {
+            cardTitle:string;
+            cardDescription:string;
+            cardImage: {
               node: {
                 altText:string;
                 sourceUrl:string;
               }
-            };
-            link: {
-              target:boolean;
-              linkUrl:string;
-              linkText:string;
-              fieldGroupName:string;
-              classname:string;
             }
+            cta: {
+              ctaLabel:string;
+              ctaUrl:string;
+              openInNewTab:boolean;
+            }
+          }
+          sectionPadding:string[];
+          link: {
+            target:string;
+            linkUrl:string;
+            linkText:string;
+            classname:string[];
           }
     }
   }
@@ -49,14 +46,14 @@ import Link from "next/link";
 const GridCards: React.FC<GridCardsProps> = ({
     data,
   }) => {
-    console.log(data)
-    const gridCards = data?.card
+
+    const gridCards = data?.gridCards
     const btntext = data?.link?.linkText
     const btnUrl = data?.link?.linkUrl
     return (
       <section
         className={`GridCards padding-medium ${
-          data.theme === "dark" ? "darkMode" : ""
+          data?.theme === "dark" ? "darkMode" : ""
         }`}
       >
   
@@ -84,7 +81,7 @@ const GridCards: React.FC<GridCardsProps> = ({
 
                         return (
                             <div
-                                key={card.id}
+                                key={index}
                                 className={`
                                             col-span-1 col-four
                                             ${isBig
@@ -96,16 +93,16 @@ const GridCards: React.FC<GridCardsProps> = ({
 
                                 <div className="card h-full rounded-[24px] border border-[#E5E5EA] bg-white pb-[40px] flex flex-col justify-between overflow-hidden relative ">
                                 <Link
-                                    href={card.link?.linkUrl}
+                                    href={card.cta?.ctaUrl}
                                     className="redirect rounded-[24px] overflow-hidden"
                                 >
-                                    {card.link?.linkText}
+                                    {card.cta?.ctaLabel}
                                 </Link> 
                                     {/* Image */}
                                     <div className="imageWrap mb-[24px] h-[220px]">
                                         <Image
-                                            src={card.image.node?.sourceUrl}
-                                            alt={card.image?.node?.altText}
+                                            src={card.cardImage?.node?.sourceUrl}
+                                            alt={card.cardImage?.node?.altText}
                                             width={500}
                                             height={300}
                                             className={`${data.theme == "dark" ? "dark-image" : "light-image"} w-full h-full object-cover"`}
@@ -115,21 +112,21 @@ const GridCards: React.FC<GridCardsProps> = ({
                                     {/* Content */}
                                     <div className="content px-[30px]">
                                         <h4 className="font-[600] text-[20px] md:text-[16px] ">
-                                            {card.title}
+                                            {card?.cardTitle}
                                         </h4>
                                         <p className="text-[16px] md:text-[12px] mt-[5px] text-[#6b7280]">
-                                            {card.subtitle}
+                                            {card?.cardDescription}
                                         </p>
                                     </div>
 
                                     {/* CTA */}
-                                    {card.link?.linkText && card.link?.linkUrl && (
+                                    {card.cta?.ctaLabel && card.cta?.ctaUrl && (
                                         <div className="btn-wrap px-[30px]">
                                             <Link
-                                                href={card.link?.linkUrl}
+                                                href={card.cta?.ctaUrl}
                                                 className="blue-link inline-block text-[#0044FF] text-[12px] mt-[10px]"
                                             >
-                                                {card.link?.linkText}
+                                                {card.cta?.ctaLabel}
                                             </Link>
                                         </div>
                                     )}

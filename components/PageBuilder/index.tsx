@@ -33,7 +33,7 @@ type BladeComponentMap = {
   PagebuilderSectionsTimelineViewLayout: React.FC<{ data: TimelineViewBlade }>;
   PagebuilderSectionsImageWithContentLayout: React.FC<{ data: ImageWithContentBlade }>;
   PagebuilderSectionsColThreeCardsLayout: React.FC<{ data: ColThreeCardsBlade }>;
-  PagebuilderSectionsGridCardsLayout: React.FC<{ data: GridCardsBlade }>;
+  PagebuilderSectionsGridCardsSectionLayout: React.FC<{ data: GridCardsBlade }>;
   PagebuilderSectionsFooterCtaLayout: React.FC<{ data: FooterCtaBlade}>
 };
 
@@ -43,12 +43,12 @@ const layoutMap: BladeComponentMap = {
   PagebuilderSectionsTimelineViewLayout: Timeline,
   PagebuilderSectionsImageWithContentLayout: ColTwoCard,
   PagebuilderSectionsColThreeCardsLayout: ThreeColumns,
-  PagebuilderSectionsGridCardsLayout: GridCards,
+  PagebuilderSectionsGridCardsSectionLayout: GridCards,
   PagebuilderSectionsFooterCtaLayout: Cta,
 };
 
 function pageBuilder(data: Blade[]): ReactNode[] {
-  console.log(data)
+  
   return data.map((blade, index) => {
     const Component = layoutMap[blade.fieldGroupName];
 
