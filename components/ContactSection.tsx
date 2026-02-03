@@ -60,8 +60,6 @@ const ContactSection: React.FC<Props> = ({
                                     {ctaText}
                             </button>
                         }
-
-
                     </div>
 
                     <div className={styles.right}>
@@ -71,40 +69,11 @@ const ContactSection: React.FC<Props> = ({
 
                 <div className={styles.cards}>
                     {cards.map((card, idx) => (
-                        <div
-                            key={idx}
-                            className={`
-        group relative overflow-hidden
-        p-6 rounded-2xl
-        bg-gradient-to-br from-gray-900/80 to-gray-800/80
-        backdrop-blur-md border border-gray-700/40
-        hover:border-blue-500/60 hover:shadow-2xl hover:shadow-blue-900/30
-        transition-all duration-400 ease-out
-      `}
-                        >
-                            {/* Tiny index glow for fun */}
-                            <div className="absolute -top-3 -right-3 text-xs font-mono opacity-40 group-hover:opacity-70 transition-opacity">
-                                #{idx + 1}
-                            </div>
-
-                            <Image
-                                src={card.icon}
-                                alt={card.alt}
-                                width={56}
-                                height={56}
-                                className="mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500"
-                            />
-
-                            <h4 className="text-xl font-bold mb-3 text-white tracking-tight">
-                                {card.title}
-                            </h4>
-
-                            <p className="text-gray-300 text-base leading-relaxed">
-                                {card.subtitle}
-                            </p>
-
-                            {/* Optional micro-decoration */}
-                            <div className="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all duration-700" />
+                        <div key={idx} className={styles.card}>
+                            <Image src={card.icon}
+                                alt={card.alt} width={24} height={24} />
+                            <h4 className="mt-[10px]">{card.title}</h4>
+                            <p>{card.subtitle}</p>
                         </div>
                     ))}
                 </div>
