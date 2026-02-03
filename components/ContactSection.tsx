@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styles from "../styles/contactSection.module.css";
 import { ContactSectionBlade } from "./PageBuilder/section.types";
+import CalendlyCalendar from "./CalendlyCalendar";
 
 // WordPress backend schema - now imported from section.types.ts
 
@@ -31,10 +32,11 @@ const ContactSection: React.FC<Props> = ({
     // Use theme from data prop if available, otherwise fall back to the theme prop
     const activeTheme = data?.theme || theme;
 
-    console.log(data);
+    // console.log(data);
 
     // Extract data from WordPress format
     const title = data.contactTitle;
+    const formcalender = data.formcalender;
     const subtitle = data.subtitle;
     const ctaText = data.link?.linkText || "Learn more";
     // Use 'as any' just for this line — safe because we checked console
@@ -46,6 +48,64 @@ const ContactSection: React.FC<Props> = ({
         title: item?.title ?? '',
         subtitle: item?.subtitle ?? '',
     }));
+
+    const ContactForm = () => {
+        return (
+            <form className="contactForm" autoComplete="on">
+                <div className="row">
+                    <div className="field">
+                        <label htmlFor="firstName">First name</label>
+                        <input
+                            id="firstName"
+                            type="text"
+                            autoComplete="given-name"
+                        />
+                    </div>
+
+                    <div className="field">
+                        <label htmlFor="lastName">Last name</label>
+                        <input
+                            id="lastName"
+                            type="text"
+                            autoComplete="family-name"
+                        />
+                    </div>
+                </div>
+
+                <div className="row">
+                    <div className="field">
+                        <label htmlFor="email">Your mail</label>
+                        <input
+                            id="email"
+                            type="email"
+                            autoComplete="email"
+                        />
+                    </div>
+
+                    <div className="field">
+                        <label htmlFor="country">Country</label>
+                        <input
+                            id="country"
+                            type="text"
+                            autoComplete="country-name"
+                        />
+                    </div>
+                </div>
+
+                <div className="field">
+                    <label htmlFor="message">Message</label>
+                    <textarea
+                        id="message"
+                        autoComplete="off"
+                    />
+                </div>
+
+                <button className="gradient-btn no-arrow rounded-btn w-fit ml-auto mt-[15px] " type="submit">Contact us</button>
+            </form>
+
+        );
+    };
+
     return (
         <section className={`${styles.contactSection} ${styles[activeTheme]}`}>
             <div className="container">
@@ -62,8 +122,11 @@ const ContactSection: React.FC<Props> = ({
                         }
                     </div>
 
+
                     <div className={styles.right}>
-                        {rightSlot}
+                        {/* {rightSlot} */}
+                        {formcalender == "contact_form" ? <ContactForm /> : <CalendlyCalendar theme={activeTheme} />}
+
                     </div>
                 </div>
 

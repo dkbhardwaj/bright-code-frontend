@@ -28,7 +28,7 @@ const IntroSection: React.FC<IntroProps> = ({data}) => {
         theme,
         sectionPadding
   } = data;
-    console.log(sectionPadding)
+  // console.log(sectionPadding)
   return (
     <section
       className={`title-section ${sectionPadding ? sectionPadding.join(" ") : "padding-medium"}  ${theme === "dark" ? "darkMode" : ""

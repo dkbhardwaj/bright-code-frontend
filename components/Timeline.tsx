@@ -50,7 +50,7 @@ const defaultTimelineItems: TimelineItem[] = [
 ];
 
 const Timeline: FC<TimelineProps> = ({ data: bladeData, theme = "dark" }) => {
-  console.log(bladeData);
+  // console.log(bladeData);
 
   // Use theme from bladeData prop if available, otherwise fall back to the theme prop
   const activeTheme = bladeData?.theme || theme;

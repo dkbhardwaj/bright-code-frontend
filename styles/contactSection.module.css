@@ -26,6 +26,8 @@
 .right {
     border-radius: 16px;
     padding: 24px;
+    /* background-color: rgba(255, 0, 0, 0.1); */
+        min-height: 200px;
 }
 
 .cards {

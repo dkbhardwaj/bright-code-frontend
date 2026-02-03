@@ -539,7 +539,47 @@ const Demo: React.FC = () => {
       target: false,
     }
   };
-  const ContactForm = () => {
+
+  return (
+    <>
+      <div >
+        <BannerThird data={bannerData} />
+        <BannerThird data={bannerData2} />
+        <TitleSection {...titleSectionData01} theme="dark" />
+        <Timeline theme="dark" />
+        <TitleSection {...titleSectionData01} theme="light" />
+        <Timeline theme="light" />
+        <ColTwoCard data={cardData} />
+        <ColTwoCard data={cardData} />
+        <ColTwoCard data={cardData2} />
+        <TitleSection {...titleSectionData} theme="dark" />
+        <TitleSection {...titleSectionData} theme="light" />
+        <TitleSection {...titleSectionData2} theme="dark" />
+        <ThreeColumns data={colThreeCardsDataDark} />
+        <ThreeColumns data={colThreeCardsDataLight} />
+        <TitleSection {...titleSectionData3} theme="dark" />
+        <ContactSection data={contactForm} theme="dark" rightSlot={<ContactForm />} />
+        <ContactSection data={contactForm} theme="light" rightSlot={<ContactForm />} />
+        <ContactSection
+          data={contactUsCalender}
+          theme="dark"
+          rightSlot={<CalendlyCalendar theme="dark" />}
+        />
+        <ContactSection
+          data={contactUsCalender}
+          theme="light"
+          rightSlot={<CalendlyCalendar theme="light" />}
+        />
+        <GridCards data={gridCardsDataDark} />
+        <GridCards data={gridCardsDataLight} />
+        <Cta data={ctaDataDark} />
+        <Cta data={ctaDataLight} />
+      </div>
+    </>
+  );
+};
+
+const ContactForm = () => {
     return (
       <form className="contactForm" autoComplete="on">
         <div className="row">
@@ -592,48 +632,7 @@ const Demo: React.FC = () => {
 
         <button className="gradient-btn no-arrow rounded-btn w-fit ml-auto mt-[15px] " type="submit">Contact us</button>
       </form>
-
     );
-  };
-
-
-  return (
-    <>
-      <div >
-        <BannerThird data={bannerData} />
-        <BannerThird data={bannerData2} />
-        <TitleSection {...titleSectionData01} theme="dark" />
-        <Timeline theme="dark" />
-        <TitleSection {...titleSectionData01} theme="light" />
-        <Timeline theme="light" />
-        <ColTwoCard data={cardData} />
-        <ColTwoCard data={cardData} />
-        <ColTwoCard data={cardData2} />
-        <TitleSection {...titleSectionData} theme="dark" />
-        <TitleSection {...titleSectionData} theme="light" />
-        <TitleSection {...titleSectionData2} theme="dark" />
-        <ThreeColumns data={colThreeCardsDataDark} />
-        <ThreeColumns data={colThreeCardsDataLight} />
-        <TitleSection {...titleSectionData3} theme="dark" />
-        <ContactSection data={contactForm} theme="dark" rightSlot={<ContactForm />} />
-        <ContactSection data={contactForm} theme="light" rightSlot={<ContactForm />} />
-        <ContactSection
-          data={contactUsCalender}
-          theme="dark"
-          rightSlot={<CalendlyCalendar theme="dark" />}
-        />
-         <ContactSection
-          data={contactUsCalender}
-          theme="light"
-          rightSlot={<CalendlyCalendar theme="light" />}
-        />
-        <GridCards data={gridCardsDataDark} />
-        <GridCards data={gridCardsDataLight} />
-        <Cta data={ctaDataDark} />
-        <Cta data={ctaDataLight} />
-      </div>
-    </>
-  );
 };
 
 export default Demo;
