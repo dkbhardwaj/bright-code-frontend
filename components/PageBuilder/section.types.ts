@@ -44,6 +44,13 @@ export interface IntroductionBlade {
   buttonLink?: string;
   theme?: 'light' | 'dark';
   sectionPadding: string[];
+  link: {
+            classname:string;
+            fieldGroupName:string;
+            linkText:string;
+            linkUrl:string;
+            target:string;
+          }
 }
 
 export interface TimelineViewBlade {

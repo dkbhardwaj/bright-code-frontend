@@ -75,7 +75,6 @@ const BannerThird: React.FC<BannerThirdData> = ({ data }) => {
     return "";
   };
 
-  console.log(isDark)
 
   const bgImage =  isDark=="dark"?"/what-we-do-blades/BG_dark_theme.svg" : "/what-we-do-blades/bg_light.png";
   const leftIcons = isDark=="dark" ?  "/what-we-do-blades/hero_icons-dark-theme.svg" : "/what-we-do-blades/hero-left-icons-image.svg";

@@ -52,14 +52,12 @@ const defaultTimelineItems: TimelineItem[] = [
 ];
 
 const Timeline: FC<TimelineProps> = ({ data: bladeData, theme = "dark" }) => {
-  // console.log(bladeData);
 
   // Use theme from bladeData prop if available, otherwise fall back to the theme prop
   const activeTheme = bladeData?.theme || theme;
 
   // Use timelineItems from bladeData or fall back to default
   const timelineItems = bladeData?.timelineItems || defaultTimelineItems;
-  // console.log(timelineItems);
 
   // Get link data from bladeData
   const linkData = bladeData?.link;
@@ -214,7 +212,6 @@ const Timeline: FC<TimelineProps> = ({ data: bladeData, theme = "dark" }) => {
   };
 
   const buttonClass = linkData?.classname[0]
-  console.log(buttonClass)
 
   return (
     <section

@@ -14,6 +14,13 @@ interface IntroProps {
     buttonLink?: string;
     theme?: "light" | "dark";
     sectionPadding: string[];
+    link: {
+            classname:string;
+            fieldGroupName:string;
+            linkText:string;
+            linkUrl:string;
+            target:string;
+          }
   }
 }
 
@@ -23,12 +30,14 @@ const IntroSection: React.FC<IntroProps> = ({data}) => {
         sub,
         introTitle,
         textAlighment,
-        buttonText,
-        buttonLink = "#",
+        link,
         theme,
         sectionPadding
   } = data;
-  // console.log(sectionPadding)
+  console.log(data)
+
+  const buttonLink = link?.linkUrl 
+  const buttonText = link?.linkText 
   return (
     <section
       className={`title-section ${sectionPadding ? sectionPadding.join(" ") : "padding-medium"}  ${theme === "dark" ? "darkMode" : ""
@@ -57,6 +66,7 @@ const IntroSection: React.FC<IntroProps> = ({data}) => {
             <Link
               href={buttonLink}
               className="gradient-btn-blue mt-[20px] inline-block"
+              target={link.target ? "_blank" : "_self"}
             >
               {buttonText}
             </Link>
