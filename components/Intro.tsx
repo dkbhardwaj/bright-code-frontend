@@ -34,7 +34,7 @@ const IntroSection: React.FC<IntroProps> = ({data}) => {
         theme,
         sectionPadding
   } = data;
-  console.log(data)
+  // console.log(data)
 
   const buttonLink = link?.linkUrl 
   const buttonText = link?.linkText 
