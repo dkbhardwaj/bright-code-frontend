@@ -91,15 +91,15 @@ const GridCards: React.FC<GridCardsProps> = ({
                                     `}
                             >
 
-                                <div className="card h-full rounded-[24px] border border-[#E5E5EA] bg-white pb-[40px] flex flex-col justify-between overflow-hidden relative ">
+                                <div className="card h-full rounded-3xl border border-[#E5E5EA] bg-white pb-[40px] flex flex-col justify-between overflow-hidden relative ">
                                 <Link
                                     href={card.cta?.ctaUrl}
-                                    className="redirect rounded-[24px] overflow-hidden"
+                                    className="redirect rounded-3xl overflow-hidden"
                                 >
                                     {card.cta?.ctaLabel}
                                 </Link> 
                                     {/* Image */}
-                                    <div className="imageWrap mb-[24px] h-[220px]">
+                                    <div className="imageWrap mb-6 h-55">
                                         <Image
                                             src={card.cardImage?.node?.sourceUrl}
                                             alt={card.cardImage?.node?.altText}
@@ -111,7 +111,7 @@ const GridCards: React.FC<GridCardsProps> = ({
 
                                     {/* Content */}
                                     <div className="content px-[30px]">
-                                        <h4 className="font-[600] text-[20px] md:text-[16px] ">
+                                        <h4 className={`font-[600] text-[20px] md:text-[16px] ${data.theme == "dark" ? "text-[#f9fafb]" : "text-[#263238]"} `}>
                                             {card?.cardTitle}
                                         </h4>
                                         <p className="text-[16px] md:text-[12px] mt-[5px] text-[#6b7280]">
