@@ -74,12 +74,35 @@
     position: relative;
     transition: box-shadow 0.3s ease-in-out;
 }
+.GridCards .card .content h4{
+    font-size: 20px;
+    font-weight: 600;
+    color: #263238;
+}
 
 .GridCards .card:hover {
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
-
-.GridCards .card:hover .blue-link::before {
+.blue-link {
+    position: relative;
+    font-size: 12px;
+    margin-top: 10px;
+}
+.btn-wrap .blue-link::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -10px;
+    width: 8px;
+    height: 8px;
+    transform: translateY(-50%);
+    background-image: url("/blue_arrow.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transition: right .3s ease-in-out;
+}
+.GridCards .card:hover .btn-wrap .blue-link::before {
     right: -16px;
 }
 

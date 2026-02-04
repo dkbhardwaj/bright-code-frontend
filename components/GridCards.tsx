@@ -105,26 +105,26 @@ const GridCards: React.FC<GridCardsProps> = ({
                                             alt={card.cardImage?.node?.altText}
                                             width={500}
                                             height={300}
-                                            className={`${data.theme == "dark" ? "dark-image" : "light-image"} w-full h-full object-cover"`}
+                                            className={`${data.theme == "dark" ? "dark-image" : "light-image"} w-full h-full !object-cover`}
                                         />
                                     </div>
 
                                     {/* Content */}
-                                    <div className="content px-[30px]">
-                                        <h4 className={`font-[600] text-[20px] md:text-[16px] ${data.theme == "dark" ? "text-[#f9fafb]" : "text-[#263238]"} `}>
+                                    <div className="content px-7.5">
+                                        <h4 className={`font-semibold text-[20px] md:text-[16px] ${data.theme == "dark" ? "text-[#f9fafb]" : "text-[#263238]"} `}>
                                             {card?.cardTitle}
                                         </h4>
-                                        <p className="text-[16px] md:text-[12px] mt-[5px] text-[#6b7280]">
+                                        <p className="text-[16px] md:text-[12px] mt-1.25 text-[#6b7280]">
                                             {card?.cardDescription}
                                         </p>
                                     </div>
 
                                     {/* CTA */}
                                     {card.cta?.ctaLabel && card.cta?.ctaUrl && (
-                                        <div className="btn-wrap px-[30px]">
+                                        <div className="btn-wrap px-7.5">
                                             <Link
                                                 href={card.cta?.ctaUrl}
-                                                className="blue-link inline-block text-[#0044FF] text-[12px] mt-[10px]"
+                                                className="blue-link inline-block text-[#0044FF] text-[12px] mt-2.5"
                                             >
                                                 {card.cta?.ctaLabel}
                                             </Link>
