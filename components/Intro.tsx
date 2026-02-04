@@ -41,7 +41,7 @@ const IntroSection: React.FC<IntroProps> = ({data}) => {
           {eyebrowText && <span className="announcemnet-badge">{eyebrowText}</span>}
 
           {/* Title */}
-          <h3 className={`lg-up:text-[40px] font-[600] ${textAlighment == "left" ? "" : " mx-auto"}`}>
+          <h3 className={`lg-up:text-[40px] !font-[600] ${textAlighment == "left" ? "" : " mx-auto"}`}>
             {introTitle}
           </h3>
 

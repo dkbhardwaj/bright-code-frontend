@@ -6,7 +6,8 @@ export type ButtonVariant =
   | "rounded-blue"
   | "rounded-gray"
   | "rounded-white"
-  | "rounded-no-arrow";
+  | "rounded-no-arrow"
+  | "btn-blue-rect";
 
 type ButtonProps = {
   children: React.ReactNode;
@@ -29,6 +30,7 @@ export default function Button({
     "rounded-gray": "rounded-btn gray",
     "rounded-white": "rounded-btn white",
     "rounded-no-arrow": "rounded-btn no-arrow",
+    "btn-blue-rect" : "gradient-btn-blue",
   };
 
   return (

@@ -58,7 +58,7 @@ const BannerThird: React.FC<BannerThirdData> = ({ data }) => {
     "btn-blue-rect" : "gradient-btn-blue",
   }as const;
   
-  const isDark = varient === "dark";
+  const isDark = data.varient;
   type ThemeImage = { light: string; dark: string };
 
   const resolveImage = (
@@ -75,23 +75,19 @@ const BannerThird: React.FC<BannerThirdData> = ({ data }) => {
     return "";
   };
 
+  console.log(isDark)
 
-  const bgImage = "/what-we-do-blades/BG_dark_theme.svg"
-
-
-
-  const leftIcons = "/what-we-do-blades/hero_icons-dark-theme.svg"
+  const bgImage =  isDark=="dark"?"/what-we-do-blades/BG_dark_theme.svg" : "/what-we-do-blades/bg_light.png";
+  const leftIcons = isDark=="dark" ?  "/what-we-do-blades/hero_icons-dark-theme.svg" : "/what-we-do-blades/hero-left-icons-image.svg";
 
   const rightImage = image?.node?.sourceUrl
 
   return (
     <section
-      className={`banner-third relative min-h-[750px] lg:min-h-[600px] flex items-center overflow-hidden padding-medium ${isDark ? "darkMode" : ""
+      className={`banner-third relative min-h-[750px] lg:min-h-[600px] flex items-center overflow-hidden padding-medium ${isDark == "dark" ? "darkMode" : ""
         }`}
     >
       {/* Background */}
-
-      {bgImage && (
         <div className="absolute inset-0 -z-10">
           <Image
             src={bgImage}
@@ -101,7 +97,6 @@ const BannerThird: React.FC<BannerThirdData> = ({ data }) => {
             className="object-cover"
           />
         </div>
-      )}
 
       {/* Left Icons */}
       {leftIcons && (
@@ -155,7 +150,7 @@ const BannerThird: React.FC<BannerThirdData> = ({ data }) => {
         {(title?.titlePrefix || title?.titleGradient || title?.titleSuffix) && (
             <h1
               className={`lg-up:text-[56px] ${
-                isDark ? "text-white" : "text-[#000D20]"
+                isDark == "dark" ? "text-white" : "text-[#000D20]"
               }`}
             >
               {title.titlePrefix && <>{title.titlePrefix} </>}
@@ -174,7 +169,7 @@ const BannerThird: React.FC<BannerThirdData> = ({ data }) => {
 
           {subtitle &&
             <p
-              className={`mt-[10px] ${isDark ? "text-[#D1D1D6]" : "text-[#333333]"
+              className={`mt-[10px] ${isDark == "dark" ? "text-[#D1D1D6]" : "text-[#333333]"
                 }`}
             >
               {subtitle}
@@ -195,6 +190,7 @@ const BannerThird: React.FC<BannerThirdData> = ({ data }) => {
                         ? btnClass[classKey as keyof typeof btnClass]
                         : "rounded-btn blue"
                     }
+                    target={button?.link?.target ?"_self": "_blank"}
                   >
                     {button?.link?.linkText}
                   </Button>
@@ -204,7 +200,7 @@ const BannerThird: React.FC<BannerThirdData> = ({ data }) => {
           )}
 
           <span
-            className={`block mt-4 text-[14px] ${isDark ? "text-[#D1D1D6]" : "text-[#333333]"
+            className={`block mt-4 text-[14px] ${isDark == "dark" ? "text-[#D1D1D6]" : "text-[#333333]"
               }`}
           >
             {textUnderCta}

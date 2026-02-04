@@ -36,6 +36,8 @@ interface TimelineProps {
   theme?: "light" | "dark";
 }
 
+
+
 // Default fallback data
 const defaultTimelineItems: TimelineItem[] = [
   {
@@ -211,6 +213,9 @@ const Timeline: FC<TimelineProps> = ({ data: bladeData, theme = "dark" }) => {
     };
   };
 
+  const buttonClass = linkData?.classname[0]
+  console.log(buttonClass)
+
   return (
     <section
       className={`timeline grid__parallax padding-medium ${activeTheme === "dark" ? "darkMode" : ""
@@ -298,7 +303,7 @@ const Timeline: FC<TimelineProps> = ({ data: bladeData, theme = "dark" }) => {
             href={linkData?.linkUrl || "/"}
             className={linkData?.classname || ""}
             target={linkData?.target ? "_blank" : "_self"}
-            variant={linkData?.classname as ButtonVariant}
+            variant={buttonClass as ButtonVariant}
           >
             {linkData?.linkText || "Learn more"}
           </Button>
