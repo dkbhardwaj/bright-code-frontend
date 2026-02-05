@@ -53,7 +53,7 @@ const ColTwoCard: React.FC<ColTwoCardProps> = ({
             }`}
         >
           {/* Image Column */}
-          <div className="w-halfWidth lg:w-full mx-[10px]">
+          <div className="w-[var(--w-half)] lg:w-full mx-[10px]">
             <div className="w-full max-w-[541px] lg:mb-[20px] lg:mx-auto">
               <Image
                 src={image?.node?.sourceUrl}
@@ -66,7 +66,7 @@ const ColTwoCard: React.FC<ColTwoCardProps> = ({
           </div>
 
           {/* Content Column */}
-          <div className="w-halfWidth lg:w-full mx-[10px]">
+          <div className="w-[var(--w-half)] lg:w-full mx-[10px]">
             <div className="max-w-[641px] lg:max-w-none lg:mt-8 lg:text-center">
               {eyebrowText && (<span className="announcemnet-badge">{eyebrowText}</span>)}
 

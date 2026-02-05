@@ -115,6 +115,7 @@
     @slot;
   }
 }
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -125,6 +126,10 @@
   --carbon-blue: #3e4555;
   --white: #ffffff;
   --black: #000d20;
+  --w-half: calc(50% - 20px);
+    --w-three-card: calc(33.333333% - 20px);
+    --w-main-content: calc(100% + 550px);
+    --w-col-four: calc(25% - 20px);
 }
 
 @theme inline {
@@ -132,6 +137,11 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  /* Custom Width Utilities */
+    --width-half: calc(50% - 20px);
+    --width-three-card: calc(33.333333% - 20px);
+    --width-main-content: calc(100% + 550px);
+    --width-col-four: calc(25% - 20px);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -144,6 +154,7 @@
 main {
   min-height: calc(100vh - 474px);
 }
+
 body {
   /* background: var(--background); */
   /* color: var(--foreground); */
@@ -246,6 +257,7 @@ ol ol {
 /* Mobile Optimization */
 
 @media (max-width: 767px) {
+
   ul li,
   ol li {
     font-size: 14px;
@@ -256,7 +268,7 @@ ol ol {
 section {
   position: relative;
   width: 100%;
-    transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
 }
 
 .container {
