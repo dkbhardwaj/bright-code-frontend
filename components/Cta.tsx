@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import Button from "./buttons/button";
 
 type Theme = "light" | "dark";
 
@@ -61,7 +62,7 @@ export default function Cta({ data }: CtaProps) {
               {description}
             </p>
 
-            <Link
+            <Button
               href={buttonUrl}
               className={`mt-[20px] inline-block text-white no-arrow ${
                  buttonClass
@@ -69,9 +70,10 @@ export default function Cta({ data }: CtaProps) {
                         : "rounded-btn blue"
                     
               }`}
+              target={data.link?.target === "_blank" ? "_blank" : "_self"}
             >
               {buttonText}
-            </Link>
+            </Button>
           </div>
         </div>
       </div>

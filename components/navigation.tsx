@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Style from "../styles/navigation.module.css";
 import { NAV_DATA } from "./navigation-data";
+import Button from "./buttons/button";
 
 const Navigation = () => {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
@@ -315,12 +316,13 @@ const Navigation = () => {
 
             {/* CTA */}
             <div className={Style.btnWrap}>
-              <Link
+              <Button
                 href="/contact"
                 className="my-[10px] text-white no-arrow rounded-btn blue"
+                target="_self"
               >
                 Contact us
-              </Link>
+              </Button>
             </div>
           </ul>
 
@@ -341,12 +343,13 @@ const Navigation = () => {
 
           {/* CTA */}
           <div className={` ${Style.btnWrap} `}>
-            <Link
+            <Button
               href="/contact"
               className={`my-[10px] text-white no-arrow rounded-btn blue no-arrow `}
+              target="_self"
             >
               Contact us
-            </Link>
+            </Button>
           </div>
         </div>
       </div>

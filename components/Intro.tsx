@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Button from "./buttons/button";
 
 /**
  * Props contract for TitleSection component
@@ -63,13 +64,13 @@ const IntroSection: React.FC<IntroProps> = ({data}) => {
 
           {/* Button */}
           {buttonText && (
-            <Link
+            <Button
               href={buttonLink}
               className="gradient-btn-blue mt-[20px] inline-block"
               target={link.target ? "_blank" : "_self"}
             >
               {buttonText}
-            </Link>
+            </Button>
           )}
         </div>
       </div>
