@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "../styles/contactSection.module.css";
+import Button, { ButtonVariant } from "./buttons/button";
 import { ContactSectionBlade } from "./PageBuilder/section.types";
 import CalendlyCalendar from "./CalendlyCalendar";
 
@@ -49,63 +50,6 @@ const ContactSection: React.FC<Props> = ({
         subtitle: item?.subtitle ?? '',
     }));
 
-    const ContactForm = () => {
-        return (
-            <form className="contactForm" autoComplete="on">
-                <div className="row">
-                    <div className="field">
-                        <label htmlFor="firstName">First name</label>
-                        <input
-                            id="firstName"
-                            type="text"
-                            autoComplete="given-name"
-                        />
-                    </div>
-
-                    <div className="field">
-                        <label htmlFor="lastName">Last name</label>
-                        <input
-                            id="lastName"
-                            type="text"
-                            autoComplete="family-name"
-                        />
-                    </div>
-                </div>
-
-                <div className="row">
-                    <div className="field">
-                        <label htmlFor="email">Your mail</label>
-                        <input
-                            id="email"
-                            type="email"
-                            autoComplete="email"
-                        />
-                    </div>
-
-                    <div className="field">
-                        <label htmlFor="country">Country</label>
-                        <input
-                            id="country"
-                            type="text"
-                            autoComplete="country-name"
-                        />
-                    </div>
-                </div>
-
-                <div className="field">
-                    <label htmlFor="message">Message</label>
-                    <textarea
-                        id="message"
-                        autoComplete="off"
-                    />
-                </div>
-
-                <button className="gradient-btn no-arrow rounded-btn w-fit ml-auto mt-[15px] " type="submit">Contact us</button>
-            </form>
-
-        );
-    };
-
     return (
         <section className={`${styles.contactSection} ${styles[activeTheme]}`}>
             <div className="container">
@@ -113,19 +57,23 @@ const ContactSection: React.FC<Props> = ({
                     <div className={styles.left}>
                         <h2 className="mt-[20px]">{title}</h2>
                         <p className="mb-[20px]">{subtitle}</p>
-                        {
-                            activeTheme == "light" ? <button className={`rounded-btn gray no-arrow `}>
-                                {ctaText}
-                            </button> : <button className={`rounded-btn gray no-arrow blue-hover`}>
-                                    {ctaText}
-                            </button>
-                        }
+                        <Button
+                            href={data.link?.linkUrl || "#"}
+                            className={
+                                activeTheme === "light"
+                                    ? "rounded-btn gray no-arrow"
+                                    : "rounded-btn gray no-arrow blue-hover"
+                            }
+                            target={data.link?.target ? "_self" : "_blank"}
+                        >
+                            {ctaText}
+                        </Button>
                     </div>
 
 
                     <div className={styles.right}>
                         {/* {rightSlot} */}
-                        {formcalender == "contact_form" ? <ContactForm /> : <CalendlyCalendar theme={activeTheme} />}
+                        {formcalender == "contact_form" ? "" : <CalendlyCalendar theme={activeTheme} />}
 
                     </div>
                 </div>
