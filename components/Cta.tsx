@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import Button from "./buttons/button";
+import Button from "./buttons/Button";
 
 type Theme = "light" | "dark";
 

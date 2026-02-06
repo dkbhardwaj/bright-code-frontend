@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, FC } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Button, { ButtonVariant } from "./buttons/button";
+import Button, { ButtonVariant } from "./buttons/Button";
 import style from "../styles/timeline.module.css";
 
 gsap.registerPlugin(ScrollTrigger);

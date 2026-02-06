@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Style from "../styles/navigation.module.css";
 import { NAV_DATA } from "./navigation-data";
-import Button from "./buttons/button";
+import Button from "./buttons/Button";
 
 const Navigation = () => {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);

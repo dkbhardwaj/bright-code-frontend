@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styles from "../styles/contactSection.module.css";
-import Button, { ButtonVariant } from "./buttons/button";
+import Button, { ButtonVariant } from "./buttons/Button";
 import { ContactSectionBlade } from "./PageBuilder/section.types";
 import CalendlyCalendar from "./CalendlyCalendar";
 

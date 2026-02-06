@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import Button from "./buttons/button";
+import Button from "./buttons/Button";
 
 /**
  * Props contract for TitleSection component

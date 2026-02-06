@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import Button, { ButtonVariant } from "./buttons/button";
+import Button, { ButtonVariant } from "./buttons/Button";
 
 interface ThemeImage {
   light: string;
