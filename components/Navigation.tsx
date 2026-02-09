@@ -5,6 +5,8 @@ import Link from "next/link";
 import Style from "../styles/navigation.module.css";
 import { NAV_DATA } from "./navigation-data";
 import Button from "./buttons/Button";
+import { GraphQLClient } from 'graphql-request';
+import {GET_NAVIGATION} from "../lib/Navigation"
 
 const Navigation = () => {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
@@ -14,6 +16,21 @@ const Navigation = () => {
      HANDLERS
   ======================= */
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [menuData, setMenuData] = useState([]);
+  useEffect(() => {
+    const fetchMenu = async () => {
+      const client = new GraphQLClient(
+        "https://dev-bright-codeio.pantheonsite.io/graphql"
+      );
+
+      const data = await client.request(GET_NAVIGATION);
+      setMenuData(data.menu);
+      
+      console.log(data.menu);
+    };
+
+    fetchMenu();
+  }, []);
 
   useEffect(() => {
     if (!activeMenu && pendingMenu) {
@@ -119,14 +136,15 @@ const Navigation = () => {
           <ul
             className={`${Style.navList} ${isMobileMenuOpen ? Style.navOpen : ""}`}
           >
-            {NAV_DATA.menus.map((item) => {
+            {menuData?.menuItems?.nodes?.map((item) => {
               const hasMega =
-                item.mega &&
-                Array.isArray(item.mega.columns) &&
-                item.mega.columns.length > 0;
+                item.childItems &&
+                Array.isArray(item.childItems.nodes) &&
+                item.childItems.nodes.length > 0;
 
               return (
-                <li
+               item.parentId==null &&
+               ( <li
                   key={item.label}
                   className={Style.menuItem}
                   onMouseEnter={() => {
@@ -171,51 +189,53 @@ const Navigation = () => {
                     >
                       <div className={Style.megaGrid}>
                         {/* LEFT COLUMNS */}
-                        {item.mega.columns.map((column, colIndex) => (
-                          <ul key={colIndex} className={Style.megaColumn}>
-                            {column.map((link) => (
+                         <ul  className={Style.megaColumn}>
+                        {item.childItems.nodes.map((column, colIndex) => (
+                         
+                            
                               <li
-                                key={link.title}
+                                key={colIndex}
                                 className="list-none flex align-top"
                               >
                                 <div
                                   className={`${Style.iconBox} w-[40px] h-[40px] mr-[10px]`}
                                 >
-                                  {link.imageLight && link.imageDark && (
+                                  {column.menuIcon  && (
                                     <>
                                       <Image
-                                        src={link.imageLight}
-                                        alt={link.alt || link.title}
+                                        src={column.menuIcon}
+                                        alt={column.menuIconAlt || link.title}
                                         width={40}
                                         height={40}
                                         className={`${Style.icon} ${Style.iconLight}`}
                                       />
-                                      <Image
+                                      {/* <Image
                                         src={link.imageDark}
                                         alt={link.alt || link.title}
                                         width={40}
                                         height={40}
                                         className={`${Style.icon} ${Style.iconDark}`}
-                                      />
+                                      /> */}
                                     </>
                                   )}
                                 </div>
 
                                 <div className={Style.megaItem}>
                                   <Link
-                                    href={link.link}
+                                    href={column.path}
                                     className={`${Style.megaLink} block`}
                                   >
-                                    {link.title}
+                                    {column.label}
                                   </Link>
                                   <span className={Style.megaDesc}>
-                                    {link.desc}
+                                    {column.description}
                                   </span>
                                 </div>
                               </li>
-                            ))}
-                          </ul>
+                            
+                          
                         ))}
+                        </ul>
 
                         {/* SOCIAL COLUMN — now appears only for valid mega menus */}
                         <div className={Style.socialColumn}>
@@ -310,7 +330,7 @@ const Navigation = () => {
                       </div>
                     </div>
                   )}
-                </li>
+                </li>)
               );
             })}
 
