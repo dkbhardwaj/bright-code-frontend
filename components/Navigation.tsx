@@ -8,6 +8,28 @@ import Button from "./buttons/Button";
 import { GraphQLClient } from 'graphql-request';
 import {GET_NAVIGATION} from "../lib/Navigation"
 
+interface MenuData {
+  menuItems?: {
+    nodes?: Array<{
+      label: string;
+      path: string;
+      parentId: string | null;
+      menuIcon?: string;
+      menuIconAlt?: string;
+      description?: string;
+      childItems?: {
+        nodes?: Array<{
+          label: string;
+          path: string;
+          menuIcon?: string;
+          menuIconAlt?: string;
+          description?: string;
+        }>;
+      };
+    }>;
+  };
+}
+
 const Navigation = () => {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [pendingMenu, setPendingMenu] = useState<string | null>(null);
@@ -16,7 +38,7 @@ const Navigation = () => {
      HANDLERS
   ======================= */
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [menuData, setMenuData] = useState([]);
+  const [menuData, setMenuData] = useState<MenuData | null>(null);
   useEffect(() => {
     const fetchMenu = async () => {
       const client = new GraphQLClient(
@@ -189,53 +211,61 @@ const Navigation = () => {
                     >
                       <div className={Style.megaGrid}>
                         {/* LEFT COLUMNS */}
-                         <ul  className={Style.megaColumn}>
-                        {item.childItems.nodes.map((column, colIndex) => (
-                         
-                            
-                              <li
-                                key={colIndex}
-                                className="list-none flex align-top"
-                              >
-                                <div
-                                  className={`${Style.iconBox} w-[40px] h-[40px] mr-[10px]`}
-                                >
-                                  {column.menuIcon  && (
-                                    <>
-                                      <Image
-                                        src={column.menuIcon}
-                                        alt={column.menuIconAlt || link.title}
-                                        width={40}
-                                        height={40}
-                                        className={`${Style.icon} ${Style.iconLight}`}
-                                      />
-                                      {/* <Image
-                                        src={link.imageDark}
-                                        alt={link.alt || link.title}
-                                        width={40}
-                                        height={40}
-                                        className={`${Style.icon} ${Style.iconDark}`}
-                                      /> */}
-                                    </>
-                                  )}
-                                </div>
+                        {(() => {
+                          const childNodes = item.childItems?.nodes || [];
+                          const shouldSplit = childNodes.length > 3;
+                          const midPoint = shouldSplit ? Math.ceil(childNodes.length / 2) : childNodes.length;
+                          const firstColumn = childNodes.slice(0, midPoint);
+                          const secondColumn = shouldSplit ? childNodes.slice(midPoint) : [];
 
-                                <div className={Style.megaItem}>
-                                  <Link
-                                    href={column.path}
-                                    className={`${Style.megaLink} block`}
-                                  >
-                                    {column.label}
-                                  </Link>
-                                  <span className={Style.megaDesc}>
-                                    {column.description}
-                                  </span>
-                                </div>
-                              </li>
-                            
-                          
-                        ))}
-                        </ul>
+                          const renderMenuItem = (column: typeof childNodes[0], colIndex: number) => (
+                            <li
+                              key={colIndex}
+                              className="list-none flex align-top"
+                            >
+                              <div
+                                className={`${Style.iconBox} w-[40px] h-[40px] mr-[10px]`}
+                              >
+                                {column.menuIcon && (
+                                  <>
+                                    <Image
+                                      src={column.menuIcon}
+                                      alt={column.menuIconAlt || column.label}
+                                      width={40}
+                                      height={40}
+                                      className={`${Style.icon} ${Style.iconLight}`}
+                                    />
+                                  </>
+                                )}
+                              </div>
+
+                              <div className={Style.megaItem}>
+                                <Link
+                                  href={column.path}
+                                  className={`${Style.megaLink} block`}
+                                >
+                                  {column.label}
+                                </Link>
+                                <span className={Style.megaDesc}>
+                                  {column.description}
+                                </span>
+                              </div>
+                            </li>
+                          );
+
+                          return (
+                            <>
+                              <ul className={Style.megaColumn}>
+                                {firstColumn.map((column, colIndex) => renderMenuItem(column, colIndex))}
+                              </ul>
+                              {shouldSplit && (
+                                <ul className={Style.megaColumn}>
+                                  {secondColumn.map((column, colIndex) => renderMenuItem(column, midPoint + colIndex))}
+                                </ul>
+                              )}
+                            </>
+                          );
+                        })()}
 
                         {/* SOCIAL COLUMN — now appears only for valid mega menus */}
                         <div className={Style.socialColumn}>
