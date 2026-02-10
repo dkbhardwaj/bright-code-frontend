@@ -3,10 +3,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Style from "../styles/navigation.module.css";
-import { NAV_DATA } from "./navigation-data";
 import Button from "./buttons/Button";
-import { GraphQLClient } from 'graphql-request';
-import {GET_NAVIGATION} from "../lib/Navigation"
 
 interface MenuData {
   menuItems?: {
@@ -30,7 +27,11 @@ interface MenuData {
   };
 }
 
-const Navigation = () => {
+interface NavigationProps {
+  menuData: MenuData | null;
+}
+
+const Navigation = ({ menuData }: NavigationProps) => {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [pendingMenu, setPendingMenu] = useState<string | null>(null);
 
@@ -38,21 +39,6 @@ const Navigation = () => {
      HANDLERS
   ======================= */
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [menuData, setMenuData] = useState<MenuData | null>(null);
-  useEffect(() => {
-    const fetchMenu = async () => {
-      const client = new GraphQLClient(
-        "https://dev-bright-codeio.pantheonsite.io/graphql"
-      );
-
-      const data = await client.request(GET_NAVIGATION);
-      setMenuData(data.menu);
-      
-      console.log(data.menu);
-    };
-
-    fetchMenu();
-  }, []);
 
   useEffect(() => {
     if (!activeMenu && pendingMenu) {
