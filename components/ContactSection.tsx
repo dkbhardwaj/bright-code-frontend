@@ -51,7 +51,7 @@ const ContactSection: React.FC<Props> = ({
     }));
 
     return (
-        <section className={`${styles.contactSection} ${styles[activeTheme]}`}>
+        <section className={`${styles.contactSection} ${styles[activeTheme]} overflow-hidden`}>
             <div className="container">
                 <div className={styles.top}>
                     <div className={styles.left}>

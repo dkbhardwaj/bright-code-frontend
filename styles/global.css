@@ -74,7 +74,7 @@
     position: relative;
     transition: box-shadow 0.3s ease-in-out;
 }
-.GridCards .card .content h4{
+.GridCards .card .content h4 {
     font-size: 20px;
     font-weight: 600;
     color: #263238;
@@ -83,11 +83,13 @@
 .GridCards .card:hover {
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
+
 .blue-link {
     position: relative;
     font-size: 12px;
     margin-top: 10px;
 }
+
 .btn-wrap .blue-link::before {
     content: "";
     position: absolute;
@@ -102,6 +104,7 @@
     background-position: 50%;
     transition: right .3s ease-in-out;
 }
+
 .GridCards .card:hover .btn-wrap .blue-link::before {
     right: -16px;
 }
@@ -612,8 +615,25 @@
     left: 150%;
 }
 
-.rdp-months {
+.contactSection-module__SA8fRG__contactSection .rdp-months {
+    width: 100%;
     margin: 0 auto;
+}
+@media (max-width: 595px) {
+    .contactSection-module__SA8fRG__contactSection .rdp-months {
+        display: block;
+        overflow-x: scroll;
+    }
+
+    .contactSection-module__SA8fRG__contactSection .rdp-months::-webkit-scrollbar {
+        background-color: #0066ff;
+        height: 3px;
+    }
+
+    .contactSection-module__SA8fRG__contactSection .rdp-months::-webkit-scrollbar-thumb {
+        background-color: #0b1220;
+        height: 3px;
+    }
 }
 
 .contactForm .field {
@@ -628,6 +648,7 @@
     opacity: 0.7;
     font-family: "Inter", sans-serif;
 }
+
 .announcemnet-badge {
     position: relative;
     display: inline-block;

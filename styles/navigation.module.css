@@ -152,14 +152,14 @@
     transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 992px) {
     .megaMenu {
         opacity: 0;
     }
 }
 
 .menuItem:hover .megaMenu {
-    @media (min-width: 1025px) {
+    @media (min-width: 992px) {
         opacity: 1;
         visibility: visible;
         pointer-events: auto;
@@ -262,7 +262,7 @@
     color: #0f172a;
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 992px) {
 
     .light .menuLink:hover,
     .light .menuLink.menuLinkActive {
@@ -275,7 +275,7 @@
     background: #f8f9fa;
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 992px) {
     .light .megaMenu {
         box-shadow: none;
     }
@@ -298,7 +298,7 @@
     color: #ffffff;
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 992px) {
     .dark .menuLink:hover {
         background: rgba(255, 255, 255, 0.08);
     }
@@ -423,7 +423,7 @@
     transition: all 0.3s ease;
 }
 
-@media (max-width: 1439px) {
+@media (max-width: 991px) {
     .hamburger {
         display: flex;
         padding: 20px 0;
@@ -435,7 +435,7 @@
     }
 }
 
-@media (max-width: 1439px) {
+@media (max-width: 991px) {
     .navList {
         position: fixed;
         inset: 0;
