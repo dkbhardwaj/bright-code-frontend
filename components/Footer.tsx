@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useEffect,useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+
+import { GraphQLClient } from 'graphql-request';
+import {GET_FOOTER} from "../lib/Footer"
+
 
 
 interface FooterProps {
@@ -8,6 +12,24 @@ interface FooterProps {
 }
 
 const Footer: React.FC<FooterProps> = ({ theme = "light" }) => {
+
+  const [menuData, setMenuData] = useState([]);
+
+  useEffect(() => {
+      const fetchMenu = async () => {
+        const client = new GraphQLClient(
+          "https://dev-bright-codeio.pantheonsite.io/graphql"
+        );
+  
+        const data = await client.request(GET_FOOTER);
+        setMenuData(data.menu);
+        
+        // console.log(data.menu);
+      };
+  
+      fetchMenu();
+    }, []);
+
   return (
     <footer
       className={`new-footer ${theme === "dark" ? "darkMode" : ""}`}

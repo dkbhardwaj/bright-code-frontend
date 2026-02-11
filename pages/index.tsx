@@ -558,8 +558,8 @@ const Demo: React.FC = () => {
         <ThreeColumns data={colThreeCardsDataDark} />
         <ThreeColumns data={colThreeCardsDataLight} />
         <TitleSection {...titleSectionData3} theme="dark" />
-        <ContactSection data={contactForm} theme="dark" rightSlot={<ContactForm />} />
-        <ContactSection data={contactForm} theme="light" rightSlot={<ContactForm />} />
+        {/* <ContactSection data={contactForm} theme="dark" rightSlot={<ContactForm />} />
+        <ContactSection data={contactForm} theme="light" rightSlot={<ContactForm />} /> */}
         <ContactSection
           data={contactUsCalender}
           theme="dark"

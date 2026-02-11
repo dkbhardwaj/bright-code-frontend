@@ -10,7 +10,7 @@ import { Blade } from "../components/PageBuilder/section.types";
 export default function Page({ pages,data }: Props) {
     
   const sections = data?.pageBy?.pagebuilder?.sections || []
-  
+  console.log("========= object ==========",sections)
   return (
     <>
       <PageBuilder blades={sections} />
@@ -47,6 +47,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   );
 
   const data = await client.request(GET_PAGE, { uri: pages[0] });
+  console.log("--line 50--",data)
 
   return {
     props: {
