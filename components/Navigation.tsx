@@ -31,14 +31,28 @@ interface NavigationProps {
   menuData: MenuData | null;
 }
 
-const Navigation = ({ menuData }: NavigationProps) => {
+function Navigation({ menuData: initialMenuData }: NavigationProps) {
+  const [menuData, setMenuData] = useState<MenuData | null>(initialMenuData);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [pendingMenu, setPendingMenu] = useState<string | null>(null);
-
-  /* =======================
-     HANDLERS
-  ======================= */
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // Fetch navigation data on client side
+  useEffect(() => {
+    const fetchNavigationData = async () => {
+      try {
+        const response = await fetch('/api/navigation');
+        const data = await response.json();
+        setMenuData(data);
+      } catch (error) {
+        console.error('Failed to fetch navigation data:', error);
+      }
+    };
+
+    if (!initialMenuData) {
+      fetchNavigationData();
+    }
+  }, [initialMenuData]);
 
   useEffect(() => {
     if (!activeMenu && pendingMenu) {
@@ -86,20 +100,6 @@ const Navigation = ({ menuData }: NavigationProps) => {
 
   }, [isMobileMenuOpen]);
 
-
-
-  const handleMouseEnter = (label: string) => {
-    if (window.innerWidth > 1024) {
-      setActiveMenu(label);
-    }
-  };
-
-  const handleMouseLeave = () => {
-    if (window.innerWidth > 1024) {
-      setActiveMenu(null);
-    }
-  };
-
   useEffect(() => {
     const resize = () => {
       if (window.innerWidth > 1024) {
@@ -111,6 +111,21 @@ const Navigation = ({ menuData }: NavigationProps) => {
     window.addEventListener("resize", resize);
     return () => window.removeEventListener("resize", resize);
   }, []);
+
+  /* =======================
+   HANDLERS
+  ======================= */
+  const handleMouseEnter = (label: string) => {
+    if (window.innerWidth > 1024) {
+      setActiveMenu(label);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (window.innerWidth > 1024) {
+      setActiveMenu(null);
+    }
+  };
 
   const HEADER_THEME: "light" | "dark" = "light";
 
@@ -151,8 +166,8 @@ const Navigation = ({ menuData }: NavigationProps) => {
                 item.childItems.nodes.length > 0;
 
               return (
-               item.parentId==null &&
-               ( <li
+                item.parentId == null &&
+                (<li
                   key={item.label}
                   className={Style.menuItem}
                   onMouseEnter={() => {
@@ -374,9 +389,6 @@ const Navigation = ({ menuData }: NavigationProps) => {
             <span />
           </button>
 
-
-
-
           {/* CTA */}
           <div className={` ${Style.btnWrap} `}>
             <Button
@@ -391,6 +403,6 @@ const Navigation = ({ menuData }: NavigationProps) => {
       </div>
     </header>
   );
-};
+}
 
 export default Navigation;

@@ -15,21 +15,17 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-import { getNavigationData } from "../lib/getNavigation";
-
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const menuData = await getNavigationData();
-
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Navigation menuData={menuData} />
+        <Navigation menuData={null} />
         {children}
         <Footer />
       </body>
