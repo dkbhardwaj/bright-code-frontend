@@ -2,19 +2,37 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import styles from "../styles/footer.module.css";
 
 import { GraphQLClient } from 'graphql-request';
-import {GET_FOOTER} from "../lib/Footer"
+import { GET_FOOTER } from "../lib/Footer"
 
+interface MenuItem {
+  id: string;
+  label: string;
+  path: string | null;
+  uri: string | null;
+  url: string | null;
+  parentId: string | null;
+  parentDatabaseId: number;
+  databaseId: number;
+}
 
+interface MenuGroup {
+  parent: MenuItem;
+  children: MenuItem[];
+}
 
 interface FooterProps {
   theme?: "light" | "dark";
 }
 
 const Footer: React.FC<FooterProps> = ({ theme = "light" }) => {
+  const [menuData, setMenuData] = useState<{ menuItems?: { nodes?: MenuItem[] } } | null>(null);
+  const [groupedMenu, setGroupedMenu] = useState<MenuGroup[]>([]);
 
-  const [menuData, setMenuData] = useState([]);
+  // Get current year for copyright
+  const year = new Date().getFullYear();
 
   useEffect(() => {
       const fetchMenu = async () => {
@@ -30,6 +48,27 @@ const Footer: React.FC<FooterProps> = ({ theme = "light" }) => {
   
       fetchMenu();
     }, []);
+
+  // Group menu items by parent
+  useEffect(() => {
+    if (!menuData?.menuItems?.nodes) return;
+
+    const nodes = menuData.menuItems.nodes;
+
+    // Find all parent items (items without parentId)
+    const parents = nodes.filter(item => item.parentId === null);
+
+    // Group children under their parents
+    const grouped: MenuGroup[] = parents.map(parent => {
+      const children = nodes.filter(
+        item => item.parentId === parent.id
+      );
+      return { parent, children };
+    });
+
+    setGroupedMenu(grouped);
+    // console.log('Grouped menu:', grouped);
+  }, [menuData]);
 
   return (
     <footer
@@ -82,50 +121,21 @@ const Footer: React.FC<FooterProps> = ({ theme = "light" }) => {
 
           {/* ================= GRID ================= */}
           <div className="footer-grid">
-
-            <div className="footer-col">
-              <h4>Platform</h4>
-              <ul>
-                <li><Link href="/white-label-website">White Label Website</Link></li>
-                <li><Link href="/legacy-refraction">Legacy Refraction</Link></li>
-                <li><Link href="/care-optimization">Care & Optimization</Link></li>
-                <li><Link href="/dev-squad-support">Dev Squad Support</Link></li>
-                <li><Link href="/image-checker">Image Checker</Link></li>
-                <li><Link href="/link-tracker">Link Tracker</Link></li>
-              </ul>
-            </div>
-
-            <div className="footer-col">
-              <h4>Services</h4>
-              <ul>
-                <li><Link href="/white-label-website">White Label Website</Link></li>
-                <li><Link href="/legacy-refraction">Legacy Refraction</Link></li>
-                <li><Link href="/care-optimization">Care & Optimization</Link></li>
-                <li><Link href="/dev-squad-support">Dev Squad Support</Link></li>
-                <li><Link href="/image-checker">Image Checker</Link></li>
-                <li><Link href="/link-tracker">Link Tracker</Link></li>
-              </ul>
-            </div>
-
-            <div className="footer-col">
-              <h4>Try Our Tools</h4>
-              <ul>
-                <li><Link href="/security-header">Security Header</Link></li>
-                <li><Link href="/link-tracker">Link Tracker</Link></li>
-                <li><Link href="/image-checker">Image Checker</Link></li>
-              </ul>
-            </div>
-
-            <div className="footer-col">
-              <h4>Case Studies</h4>
-              <ul>
-                <li><Link href="/case-studies/amazon">Amazon</Link></li>
-                <li><Link href="/case-studies/google">Google</Link></li>
-                <li><Link href="/case-studies/flipkart">Flipkart</Link></li>
-                <li><Link href="/case-studies/paypal">Paypal</Link></li>
-                <li><Link href="/case-studies/paytm">Paytm</Link></li>
-              </ul>
-            </div>
+            {/* Dynamic Footer Columns */}
+            {groupedMenu.map((group) => (
+              <div key={group.parent.id} className="footer-col">
+                <h4>{group.parent.label}</h4>
+                <ul className={styles.footerList}>
+                  {group.children.map((child) => (
+                    <li key={child.id} className={styles.footerListItem}>
+                      <Link href={child.uri || child.url || child.path || '#'}>
+                        {child.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
 
             {/* Contact */}
             <div className="footer-contact">
@@ -217,9 +227,9 @@ const Footer: React.FC<FooterProps> = ({ theme = "light" }) => {
           </div>
 
           {/* ================= BOTTOM ================= */}
-          {/* <div className="footer-bottom">
+          <div className="footer-bottom">
             © {year} Bright Code Technologies Inc
-          </div> */}
+          </div>
 
         </div>
       </div>
