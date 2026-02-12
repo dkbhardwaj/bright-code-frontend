@@ -49,6 +49,67 @@ const ContactSection: React.FC<Props> = ({
         title: item?.title ?? '',
         subtitle: item?.subtitle ?? '',
     }));
+    const ContactForm = () => {
+        return (
+            <form className="contactForm" autoComplete="on">
+                <div className="row">
+                    <div className="field">
+                        <input
+                            id="firstName"
+                            type="text"
+                            autoComplete="given-name"
+                            placeholder=" "
+                        />
+                        <label htmlFor="firstName">First name</label>
+                    </div>
+
+                    <div className="field">
+                        <input
+                            id="lastName"
+                            type="text"
+                            autoComplete="family-name"
+                            placeholder=" "
+                        />
+                        <label htmlFor="lastName">Last name</label>
+                    </div>
+                </div>
+
+                <div className="row">
+                    <div className="field">
+                        <input
+                            id="email"
+                            type="email"
+                            autoComplete="email"
+                            placeholder=" "
+                        />
+                        <label htmlFor="email">Your mail</label>
+                    </div>
+
+                    <div className="field">
+                        <input
+                            id="country"
+                            type="text"
+                            autoComplete="country-name"
+                            placeholder=" "
+                        />
+                        <label htmlFor="country">Country</label>
+                    </div>
+                </div>
+
+                <div className="field">
+                    <textarea
+                        id="message"
+                        autoComplete="off"
+                        placeholder=" "
+                    />
+                    <label htmlFor="message">Message</label>
+                </div>
+
+                <button className="gradient-btn no-arrow rounded-btn w-fit ml-auto mt-[15px] " type="submit">Contact us</button>
+            </form>
+
+        );
+    };
 
     return (
         <section className={`${styles.contactSection} ${styles[activeTheme]} overflow-hidden`}>
@@ -75,9 +136,7 @@ const ContactSection: React.FC<Props> = ({
                         {/* {rightSlot} */}
                         {/* {formcalender == "contact_form" ? "" : <CalendlyCalendar theme={activeTheme} />} */}
                         {formcalender === "contact_form" ? (
-                            <form>
-                                <input type="text" />
-                            </form>
+                            <ContactForm />
                         ) : (
                             <CalendlyCalendar theme={activeTheme} />
                         )}
