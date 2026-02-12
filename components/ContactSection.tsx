@@ -73,7 +73,15 @@ const ContactSection: React.FC<Props> = ({
 
                     <div className={styles.right}>
                         {/* {rightSlot} */}
-                        {formcalender == "contact_form" ? "" : <CalendlyCalendar theme={activeTheme} />}
+                        {/* {formcalender == "contact_form" ? "" : <CalendlyCalendar theme={activeTheme} />} */}
+                        {formcalender === "contact_form" ? (
+                            <form>
+                                <input type="text" />
+                            </form>
+                        ) : (
+                            <CalendlyCalendar theme={activeTheme} />
+                        )}
+
 
                     </div>
                 </div>
