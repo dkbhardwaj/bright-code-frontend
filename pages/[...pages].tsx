@@ -63,7 +63,14 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const pages = params?.pages as string[];
 
   const client = new GraphQLClient(
-    process.env.WP_GRAPHQL_URL as string
+    process.env.WP_GRAPHQL_URL as string,
+    {
+      headers: preview && process.env.WORDPRESS_AUTH_REFRESH_TOKEN
+        ? {
+          Authorization: `Bearer ${process.env.WORDPRESS_AUTH_REFRESH_TOKEN}`
+        }
+        : {}
+    }
   );
 
   let data;

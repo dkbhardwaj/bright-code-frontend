@@ -11,6 +11,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     slug,
     timestamp: new Date().toISOString()
   });
+  console.log(process.env.NEXTJS_PREVIEW_SECRET);
+
 
   // Validate secret
   if (!secret) {
