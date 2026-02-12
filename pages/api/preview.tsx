@@ -22,6 +22,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
   }
 
+  // Debug: Log secret comparison details
+  const envSecret = process.env.NEXTJS_PREVIEW_SECRET;
+  console.log('[Preview API] Secret comparison:', {
+    receivedSecret: secret,
+    receivedSecretLength: typeof secret === 'string' ? secret.length : 'not a string',
+    envSecret: envSecret,
+    envSecretLength: envSecret?.length,
+    match: secret === envSecret
+  });
+
   if (secret !== process.env.NEXTJS_PREVIEW_SECRET) {
     console.error('[Preview API] Error: Invalid secret provided');
     return res.status(401).json({
