@@ -30,13 +30,22 @@ type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
 };
 
+import PreviewBanner from "../components/PreviewBanner";
+
 export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   // Use the layout defined at the page level, if available
   const getLayout = Component.getLayout ?? ((page) => page);
 
+  const { preview, data } = pageProps;
+  const pageStatus = data?.pageBy?.status;
+  const lastModified = data?.pageBy?.modified;
+
   return (
-    <main className={`${poppins.className} ${poppins.variable}`}>
-      <Navigation menuData={null} />
+    <main className={`${poppins.className} ${poppins.variable} pt-[101px]`}>
+      {preview && <PreviewBanner pageStatus={pageStatus} lastModified={lastModified} />}
+      <Navigation
+        menuData={null}
+      />
       {getLayout(<Component {...pageProps} />)}
       <Footer />
     </main>

@@ -4,7 +4,6 @@ import { GET_PAGE, GET_PAGE_PREVIEW } from "../lib/pages"
 import { GetServerSideProps } from 'next';
 import PageBuilder from "../components/PageBuilder"
 import { Blade } from "../components/PageBuilder/section.types";
-import PreviewBanner from "../components/PreviewBanner";
 import NotFoundContent from "../components/NotFoundContent";
 
 
@@ -12,15 +11,12 @@ import NotFoundContent from "../components/NotFoundContent";
 export default function Page({ pages, data, preview }: Props) {
     
   const sections = data?.pageBy?.pagebuilder?.sections || []
-  const pageStatus = data?.pageBy?.status;
-  const lastModified = data?.pageBy?.modified;
 
   // Handle case where page data is null
   if (!data?.pageBy) {
     const pagePath = pages?.[0] || '';
     return (
       <>
-        {preview && <PreviewBanner />}
         <NotFoundContent pagePath={pagePath} isPreview={preview} />
       </>
     );
@@ -28,7 +24,6 @@ export default function Page({ pages, data, preview }: Props) {
 
   return (
     <>
-      {preview && <PreviewBanner pageStatus={pageStatus} lastModified={lastModified} />}
       <PageBuilder blades={sections} />
     </>
   )

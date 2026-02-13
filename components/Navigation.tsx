@@ -29,9 +29,10 @@ interface MenuData {
 
 interface NavigationProps {
   menuData: MenuData | null;
+  className?: string;
 }
 
-function Navigation({ menuData: initialMenuData }: NavigationProps) {
+function Navigation({ menuData: initialMenuData, className }: NavigationProps) {
   const [menuData, setMenuData] = useState<MenuData | null>(initialMenuData);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [pendingMenu, setPendingMenu] = useState<string | null>(null);
@@ -126,12 +127,11 @@ function Navigation({ menuData: initialMenuData }: NavigationProps) {
       setActiveMenu(null);
     }
   };
-
   const HEADER_THEME: "light" | "dark" = "light";
 
   return (
     <header
-      className={`${Style.header} ${Style[HEADER_THEME]} absolute w-full top-0 z-[99]`}
+      className={`${Style.header} ${Style[HEADER_THEME]} ${className ?? 'absolute w-full top-0'} z-[99]`}
     >
       <div className="container relative">
         <div className="flex items-center justify-between">
