@@ -165,6 +165,8 @@ function Navigation({ menuData: initialMenuData, className }: NavigationProps) {
                 Array.isArray(item.childItems.nodes) &&
                 item.childItems.nodes.length > 0;
 
+              if (item.label === 'Book a call' || item.label === 'Contact us') return null;
+
               return (
                 item.parentId == null &&
                 (<li
@@ -366,15 +368,15 @@ function Navigation({ menuData: initialMenuData, className }: NavigationProps) {
             })}
 
             {/* CTA */}
-            <div className={Style.btnWrap}>
+            <li className={Style.btnWrap}>
               <Button
                 href="/contact"
                 className="my-[10px] text-white no-arrow rounded-btn blue"
                 target="_self"
               >
-                Contact us
+                Book a call
               </Button>
-            </div>
+            </li>
           </ul>
 
           {/* HAMBURGER */}
@@ -389,16 +391,6 @@ function Navigation({ menuData: initialMenuData, className }: NavigationProps) {
             <span />
           </button>
 
-          {/* CTA */}
-          <div className={` ${Style.btnWrap} `}>
-            <Button
-              href="/contact"
-              className={`my-[10px] text-white no-arrow rounded-btn blue no-arrow `}
-              target="_self"
-            >
-              Contact us
-            </Button>
-          </div>
         </div>
       </div>
     </header>
