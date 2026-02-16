@@ -390,11 +390,12 @@
 
 .chevron {
     margin-top: 3px;
-    background-image: url("/header/vector.svg");
+    background-image: url("/header/Vector.svg");
     width: 7px;
     height: 5.5px;
     background-size: 100%;
     background-repeat: no-repeat;
+    display: inline-block;
 }
 
 .dark .chevron {
