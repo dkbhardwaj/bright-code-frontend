@@ -3,33 +3,35 @@ import Image from "next/image";
 import Link from "next/link";
 
 interface ColTwoCardProps {
-  data:{imageOnLeft: boolean;
+  data: {
+    imageOnLeft: boolean;
 
-  image: {
-    node: {
-              altText:string;
-              sourceUrl:string;
-            }
-  };
-  eyebrowText: string;
-  imageWithContentTitle: string;
-  blurb: string;
-  link:{
-    target : boolean,
-    linkUrl : string,
-    linkText : string,
-    classname: string,
-  };
-  buttonText: string;
-  buttonLink: string;
-  theme?: "light" | "dark";
-  sectionPadding: string[];}
+    image: {
+      node: {
+        altText: string;
+        sourceUrl: string;
+      }
+    };
+    eyebrowText: string;
+    imageWithContentTitle: string;
+    blurb: string;
+    link: {
+      target: boolean,
+      linkUrl: string,
+      linkText: string,
+      classname: string,
+    };
+    buttonText: string;
+    buttonLink: string;
+    theme?: "light" | "dark";
+    sectionPadding: string[];
+  }
 }
 
 
 const ColTwoCard: React.FC<ColTwoCardProps> = ({
   data
-}) => { 
+}) => {
 
   const {
     imageOnLeft,
@@ -59,7 +61,7 @@ const ColTwoCard: React.FC<ColTwoCardProps> = ({
                 src={image?.node?.sourceUrl}
                 width={2500}
                 height={1200}
-                alt={image.node?.altText}
+                alt={image?.node?.altText}
                 className="w-full h-full"
               />
             </div>
