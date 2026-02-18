@@ -7,6 +7,9 @@
     color: #ffffff;
 }
 
+.darkMode.new-footer {
+    background-color: #000d20;
+}
 .darkMode.new-footer h4 {
     color: #ffffff;
 }
@@ -18,7 +21,7 @@
 .darkMode.new-footer .inner-wrap {
     /* background: radial-gradient(circle at top, #0f1c3a 0%, #050b1a 70%); */
     color: #ffffff;
-    background-color: #000D20;
+    background-color: #0d192b;
 }
 
 .darkMode.new-footer .footer-divider {
