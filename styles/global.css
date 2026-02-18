@@ -74,6 +74,7 @@
     position: relative;
     transition: box-shadow 0.3s ease-in-out;
 }
+
 .GridCards .card .content h4 {
     font-size: 20px;
     font-weight: 600;
@@ -199,6 +200,10 @@
     position: relative;
 }
 
+.footer-bottom {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
 .new-footer .footer-top {
     display: flex;
     justify-content: space-between;
@@ -207,17 +212,17 @@
 .new-footer .footer-logo-link {
     display: inline-flex;
     align-items: center;
-    width: 230px;
+    width: 190px;
 }
 
 .new-footer .footer-logo-link img {
-    width: 230px;
+    width: 190px;
 }
 
 .new-footer .footer-address-inline {
     margin-top: 10px;
     display: inline-block;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 @media (min-width: 1601px) {
@@ -255,7 +260,7 @@
 .new-footer h4 {
     font-size: 18px;
     font-weight: 600;
-    margin-bottom: 18px;
+    margin-bottom: 24px;
     letter-spacing: 0.02em;
     color: #0f172a;
 }
@@ -267,7 +272,7 @@
 }
 
 .new-footer ul li {
-    margin-bottom: 12px;
+    margin-bottom: 20px;
 }
 
 .new-footer ul li a {
@@ -303,6 +308,9 @@
 .new-footer .footer-contact {
     width: 220px;
     height: auto;
+    display: flex;
+        flex-direction: column;
+        justify-content: space-between;
 }
 
 .new-footer .footer-contact p {
@@ -329,10 +337,9 @@
 }
 
 .new-footer .footer-divider {
-    margin: 56px 0 32px;
+    margin: 42px 0 46px;
     height: 1px;
     background: #d1d5db;
-    opacity: 0.4;
 }
 
 .new-footer .footer-socials {
@@ -525,8 +532,8 @@
     .new-footer .footer-col,
     .new-footer .footer-contact {
         width: 100%;
-        padding-left: 20px;
-        padding-right: 20px;
+        /* padding-left: 20px; */
+            /* padding-right: 20px; */
         margin-bottom: 30px;
     }
 }
@@ -619,6 +626,7 @@
     width: 100%;
     margin: 0 auto;
 }
+
 @media (max-width: 595px) {
     .contactSection-module__SA8fRG__contactSection .rdp-months {
         display: block;

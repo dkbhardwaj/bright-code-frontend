@@ -35,19 +35,19 @@ const Footer: React.FC<FooterProps> = ({ theme = "light" }) => {
   const year = new Date().getFullYear();
 
   useEffect(() => {
-      const fetchMenu = async () => {
-        const client = new GraphQLClient(
-          "https://dev-bright-codeio.pantheonsite.io/graphql"
-        );
-  
-        const data = await client.request(GET_FOOTER);
-        setMenuData(data.menu);
-        
-        // console.log(data.menu);
-      };
-  
-      fetchMenu();
-    }, []);
+    const fetchMenu = async () => {
+      const client = new GraphQLClient(
+        "https://dev-bright-codeio.pantheonsite.io/graphql"
+      );
+
+      const data = await client.request(GET_FOOTER);
+      setMenuData(data.menu);
+
+      // console.log(data.menu);
+    };
+
+    fetchMenu();
+  }, []);
 
   // Group menu items by parent
   useEffect(() => {
@@ -113,7 +113,9 @@ const Footer: React.FC<FooterProps> = ({ theme = "light" }) => {
             </div>
 
             <div className="footer-top-right">
-              Sophisticated web solutions for smart agencies
+              <span className="">
+                Sophisticated web solutions for smart agencies
+              </span>
             </div>
           </div>
 
@@ -142,15 +144,15 @@ const Footer: React.FC<FooterProps> = ({ theme = "light" }) => {
               <Link href="mailto:contact@bright-code.io" className="mb-[40px] inline-block">
                 <Image
                   src="/footer-icon-light.svg"
-                  width={44}
-                  height={44}
+                  width={37}
+                  height={37}
                   alt=""
                   className="footer-icon footer-icon--light"
                 />
                 <Image
                   src="/footer-icon-dark.svg"
-                  width={44}
-                  height={44}
+                  width={37}
+                  height={37}
                   alt=""
                   className="footer-icon footer-icon--dark"
                 />
@@ -225,14 +227,14 @@ const Footer: React.FC<FooterProps> = ({ theme = "light" }) => {
               </div>
             </div>
           </div>
-
-          {/* ================= BOTTOM ================= */}
-          <div className="footer-bottom">
-            © {year} Bright Code Technologies Inc
-          </div>
-
         </div>
       </div>
+      {/* ================= BOTTOM ================= */}
+      {/* <div className="footer-bottom">
+        <div className="container">
+          © {year} Bright Code Technologies Inc
+        </div>
+      </div> */}
     </footer>
   );
 };
