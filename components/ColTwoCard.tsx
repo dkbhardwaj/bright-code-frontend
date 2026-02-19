@@ -25,6 +25,7 @@ interface ColTwoCardProps {
     buttonLink: string;
     theme?: "light" | "dark";
     sectionPadding: string[];
+    sectionId?: string;
   }
 }
 
@@ -42,12 +43,13 @@ const ColTwoCard: React.FC<ColTwoCardProps> = ({
     link,
     theme,
     sectionPadding,
+    sectionId,
   } = data;
 
   return (
     <section
-      className={`colTwoCard ${sectionPadding ? sectionPadding.join(" ") : "padding-large"}  ${theme === "dark" ? "darkMode" : ""
-        }`}
+      id={sectionId}
+      className={`image-with-content ${sectionPadding ? sectionPadding.join(" ") : "padding-medium"} ${theme === "dark" ? "darkMode" : ""}`}
     >
       <div className="container">
         <div

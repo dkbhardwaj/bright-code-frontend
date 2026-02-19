@@ -7,37 +7,38 @@ import Link from "next/link";
 ========================= */
 
 
- 
 
-  export interface GridCardsProps {
+
+export interface GridCardsProps {
     data: {
-        fieldGroupName : 'PagebuilderSectionsGridCardsSectionLayout';
-        theme:string;
-          gridCards: {
-            cardTitle:string;
-            cardDescription:string;
+        fieldGroupName: 'PagebuilderSectionsGridCardsSectionLayout';
+        theme: string;
+        gridCards: {
+            cardTitle: string;
+            cardDescription: string;
             cardImage: {
-              node: {
-                altText:string;
-                sourceUrl:string;
-              }
+                node: {
+                    altText: string;
+                    sourceUrl: string;
+                }
             }
             cta: {
-              ctaLabel:string;
-              ctaUrl:string;
-              openInNewTab:boolean;
+                ctaLabel: string;
+                ctaUrl: string;
+                openInNewTab: boolean;
             }
-          }[];
-          sectionPadding:string[];
-          link: {
-            target:string;
-            linkUrl:string;
-            linkText:string;
-            classname:string[];
-          }
+        }[];
+        sectionPadding: string[];
+        link: {
+            target: string;
+            linkUrl: string;
+            linkText: string;
+            classname: string[];
+        };
+        sectionId?: string;
     }
-  }
-  
+}
+
 
 /* =========================
    Component
@@ -45,18 +46,21 @@ import Link from "next/link";
 
 const GridCards: React.FC<GridCardsProps> = ({
     data,
-  }) => {
+}) => {
 
-    const gridCards = data?.gridCards
-    const btntext = data?.link?.linkText
-    const btnUrl = data?.link?.linkUrl
+    const {
+        theme,
+        gridCards,
+        sectionPadding,
+        sectionId,
+        link
+    } = data;
+
+    const btntext = link?.linkText
+    const btnUrl = link?.linkUrl
     return (
-      <section
-        className={`GridCards padding-medium ${
-          data?.theme === "dark" ? "darkMode" : ""
-        }`}
-      >
-  
+        <section id={sectionId} className={`grid-cards-section ${sectionPadding ? sectionPadding.join(" ") : "padding-medium"} ${theme === "dark" ? "darkMode" : ""}`}>
+
             <div className="container">
 
                 {/* Grid */}
@@ -92,12 +96,12 @@ const GridCards: React.FC<GridCardsProps> = ({
                             >
 
                                 <div className="card h-full rounded-3xl border border-[#E5E5EA] bg-white pb-[40px] flex flex-col justify-between overflow-hidden relative ">
-                                <Link
-                                    href={card.cta?.ctaUrl}
-                                    className="redirect rounded-3xl overflow-hidden"
-                                >
-                                    {card.cta?.ctaLabel}
-                                </Link> 
+                                    <Link
+                                        href={card.cta?.ctaUrl}
+                                        className="redirect rounded-3xl overflow-hidden"
+                                    >
+                                        {card.cta?.ctaLabel}
+                                    </Link>
                                     {/* Image */}
                                     <div className="imageWrap mb-6 h-55">
                                         <Image

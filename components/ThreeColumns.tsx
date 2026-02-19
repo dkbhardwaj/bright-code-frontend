@@ -35,32 +35,33 @@ type BladeTheme = "light" | "dark";
 
 interface ThreeColumnsProps {
   data: {
-    fieldGroupName : 'PagebuilderSectionsColThreeCardsLayout';
-   theme : string;
-   sectionPadding : string[];
-   cards : {
-     cardTitle : string;
-     fieldGroupName :string ; 
-     subtitle : string;
-     cta: {
-       fieldGroupName : string;
-       linkPath: string;
-       linkText: string;
-     }
-     cardImage: {
-       node: {
-         altText: string;
-         sourceUrl: string;
-       }
-     }
-   }[];
-   link: {
-            classname:string;
-            fieldGroupName:string;
-            linkText:string;
-            linkUrl:string;
-            target:string;
-          }
+    fieldGroupName: 'PagebuilderSectionsColThreeCardsLayout';
+    theme: string;
+    sectionPadding: string[];
+    cards: {
+      cardTitle: string;
+      fieldGroupName: string;
+      subtitle: string;
+      cta: {
+        fieldGroupName: string;
+        linkPath: string;
+        linkText: string;
+      }
+      cardImage: {
+        node: {
+          altText: string;
+          sourceUrl: string;
+        }
+      }
+    }[];
+    link: {
+      classname: string;
+      fieldGroupName: string;
+      linkText: string;
+      linkUrl: string;
+      target: string;
+    };
+    sectionId?: string;
   }
 }
 
@@ -68,12 +69,13 @@ interface ThreeColumnsProps {
 const ThreeColumns: React.FC<ThreeColumnsProps> = ({
   data,
 }) => {
-  const threeCards = data?.cards
-  
+  const { theme, sectionPadding, cards, link, sectionId } = data;
+  const threeCards = cards;
+
   return (
     <section
-      className={`ThreeColumns padding-medium ${data.theme === "dark" ? "darkMode" : ""
-        }`}
+      id={sectionId}
+      className={`three-column-section ${sectionPadding ? sectionPadding.join(" ") : "padding-medium"} ${theme === "dark" ? "darkMode" : ""}`}
     >
       <div className="container">
         <div className="w-[calc(100%+24px)] ml-[-12px] flex flex-wrap justify-center">
@@ -83,17 +85,17 @@ const ThreeColumns: React.FC<ThreeColumnsProps> = ({
               className="colThree relative w-[calc(33.3%-24px)] tablet:w-[calc(50%-24px)] phablet:w-[calc(100%-24px)] sm:w-[calc(100%-24px)] mx-[12px] mb-[24px]"
             >
               {
-                card?.cta.linkPath && 
+                card?.cta.linkPath &&
                 (
-                    <Link
-                  href={card?.cta.linkPath}
-                  className="redirect rounded-[24px] overflow-hidden"
-                >
-                  {card?.cta?.linkText}
-                </Link>
+                  <Link
+                    href={card?.cta.linkPath}
+                    className="redirect rounded-[24px] overflow-hidden"
+                  >
+                    {card?.cta?.linkText}
+                  </Link>
                 )
               }
-              
+
               <div className="card flex flex-col justify-between bg-white text-center rounded-[24px] overflow-hidden py-[40px] border border-[#E5E5EA] h-full">
                 <div className="wrapper">
                   {/* Images */}

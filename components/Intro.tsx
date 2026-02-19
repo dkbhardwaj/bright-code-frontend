@@ -6,7 +6,7 @@ import Button from "./buttons/Button";
  * Props contract for TitleSection component
  */
 interface IntroProps {
-  data : {
+  data: {
     eyebrowText?: string;
     introTitle: string;
     textAlighment: string;
@@ -16,31 +16,35 @@ interface IntroProps {
     theme?: "light" | "dark";
     sectionPadding: string[];
     link: {
-            classname:string;
-            fieldGroupName:string;
-            linkText:string;
-            linkUrl:string;
-            target:string;
-          }
+      classname: string;
+      fieldGroupName: string;
+      linkText: string;
+      linkUrl: string;
+      target: string;
+    };
+    cssId?: string;
+    sectionId?: string;
   }
 }
 
-const IntroSection: React.FC<IntroProps> = ({data}) => {
-    const {
-            eyebrowText,
-        sub,
-        introTitle,
-        textAlighment,
-        link,
-        theme,
-        sectionPadding
+const IntroSection: React.FC<IntroProps> = ({ data }) => {
+  const {
+    eyebrowText,
+    sub,
+    introTitle,
+    textAlighment,
+    link,
+    theme,
+    sectionPadding,
+    sectionId
   } = data;
   // console.log(data)
 
-  const buttonLink = link?.linkUrl 
-  const buttonText = link?.linkText 
+  const buttonLink = link?.linkUrl
+  const buttonText = link?.linkText
   return (
     <section
+      id={sectionId}
       className={`title-section ${sectionPadding ? sectionPadding.join(" ") : "padding-medium"}  ${theme === "dark" ? "darkMode" : ""
         }`}
     >

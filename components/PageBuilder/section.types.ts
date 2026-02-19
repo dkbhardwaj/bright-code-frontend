@@ -36,6 +36,7 @@ export interface HeroBannerBlade {
 
 export interface IntroductionBlade {
   fieldGroupName: 'PagebuilderSectionsIntroductionLayout';
+  sectionId?: string;
   eyebrowText?: string;
   introTitle: string;
   textAlighment: string;
@@ -45,16 +46,17 @@ export interface IntroductionBlade {
   theme?: 'light' | 'dark';
   sectionPadding: string[];
   link: {
-            classname:string;
-            fieldGroupName:string;
-            linkText:string;
-            linkUrl:string;
-            target:string;
-          }
+    classname: string;
+    fieldGroupName: string;
+    linkText: string;
+    linkUrl: string;
+    target: string;
+  }
 }
 
 export interface TimelineViewBlade {
   fieldGroupName: 'PagebuilderSectionsTimelineViewLayout';
+  sectionId?: string;
   theme?: 'light' | 'dark';
   link?: {
     classname: string;
@@ -71,21 +73,22 @@ export interface TimelineViewBlade {
 export interface ImageWithContentBlade {
   imageOnLeft: boolean;
   fieldGroupName: 'PagebuilderSectionsImageWithContentLayout';
+  sectionId?: string;
   timageOnLeft: boolean;
 
   image: {
     node: {
-              altText:string;
-              sourceUrl:string;
-            }
+      altText: string;
+      sourceUrl: string;
+    }
   };
   eyebrowText: string;
   imageWithContentTitle: string;
   blurb: string;
-  link:{
-    target : boolean,
-    linkUrl : string,
-    linkText : string,
+  link: {
+    target: boolean,
+    linkUrl: string,
+    linkText: string,
     classname: string,
   };
   buttonText: string;
@@ -95,64 +98,67 @@ export interface ImageWithContentBlade {
 }
 
 export interface ColThreeCardsBlade {
-   fieldGroupName : 'PagebuilderSectionsColThreeCardsLayout';
-   theme : string;
-   sectionPadding : string[];
-   cards : {
-     cardTitle : string;
-     fieldGroupName :string ; 
-     subtitle : string;
-     cta: {
-       fieldGroupName : string;
-       linkPath: string;
-       linkText: string;
-     }
-     cardImage: {
-       node: {
-         altText: string;
-         sourceUrl:string;
-       }
-     }
-   }[];
-   link: {
-     classname: string;
-     fieldGroupName: string;
-     linkText: string;
-     linkUrl: string;
-     target: string;
-   }
+  fieldGroupName: 'PagebuilderSectionsColThreeCardsLayout';
+  sectionId?: string;
+  theme: string;
+  sectionPadding: string[];
+  cards: {
+    cardTitle: string;
+    fieldGroupName: string;
+    subtitle: string;
+    cta: {
+      fieldGroupName: string;
+      linkPath: string;
+      linkText: string;
+    }
+    cardImage: {
+      node: {
+        altText: string;
+        sourceUrl: string;
+      }
+    }
+  }[];
+  link: {
+    classname: string;
+    fieldGroupName: string;
+    linkText: string;
+    linkUrl: string;
+    target: string;
+  }
 }
 
 export interface GridCardsBlade {
-   fieldGroupName : 'PagebuilderSectionsGridCardsSectionLayout';
-          theme:string;
-          gridCards: {
-            cardTitle:string;
-            cardDescription:string;
-            cardImage: {
-              node: {
-                altText:string;
-                sourceUrl:string;
-              }
-            }
-            cta: {
-              ctaLabel:string;
-              ctaUrl:string;
-              openInNewTab:boolean;
-            }
-          }[];
-          sectionPadding:string[];
-          link: {
-            target:string;
-            linkUrl:string;
-            linkText:string;
-            classname:string[];
-          }
+  fieldGroupName: 'PagebuilderSectionsGridCardsSectionLayout';
+  sectionId?: string;
+  theme: string;
+  gridCards: {
+    cardTitle: string;
+    cardDescription: string;
+    cardImage: {
+      node: {
+        altText: string;
+        sourceUrl: string;
+      }
+    }
+    cta: {
+      ctaLabel: string;
+      ctaUrl: string;
+      openInNewTab: boolean;
+    }
+  }[];
+  sectionPadding: string[];
+  link: {
+    target: string;
+    linkUrl: string;
+    linkText: string;
+    classname: string[];
+  }
 }
 
 
 export interface ContactSectionBlade {
   fieldGroupName: 'PagebuilderSectionsContentWithFormOrCalanderLayout';
+  sectionId?: string;
   theme?: "light" | "dark";
   contactTitle: string;
   subtitle: string;
@@ -180,17 +186,18 @@ export interface ContactSectionBlade {
 }
 
 export interface FooterCtaBlade {
-  fieldGroupName:"PagebuilderSectionsFooterCtaLayout";
-  subtitle:string;
-  sectionPadding:string[];
-  theme:string;
-  footerCtaTitle:string;
+  fieldGroupName: "PagebuilderSectionsFooterCtaLayout";
+  sectionId?: string;
+  subtitle: string;
+  sectionPadding: string[];
+  theme: string;
+  footerCtaTitle: string;
   link: {
-    target:string;
-    linkUrl:string;
-    linkText:string;
-    fieldGroupName:string;
-    classname:string;
+    target: string;
+    linkUrl: string;
+    linkText: string;
+    fieldGroupName: string;
+    classname: string;
   }
 }
 

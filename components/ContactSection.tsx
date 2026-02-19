@@ -40,6 +40,7 @@ const ContactSection: React.FC<Props> = ({
     const formcalender = data.formcalender;
     const subtitle = data.subtitle;
     const ctaText = data.link?.linkText || "Learn more";
+    const sectionId = data.sectionId; // Destructure sectionId
     // Use 'as any' just for this line — safe because we checked console
     const rawCards = (data.iconWithTextCards as { card?: CardItem[] } | undefined)?.card ?? [];
 
@@ -112,7 +113,7 @@ const ContactSection: React.FC<Props> = ({
     };
 
     return (
-        <section className={`${styles.contactSection} ${styles[activeTheme]} overflow-hidden`}>
+        <section id={sectionId} className={`${styles.contactSection} ${styles[activeTheme]} overflow-hidden`}>
             <div className="container">
                 <div className={styles.top}>
                     <div className={styles.left}>
