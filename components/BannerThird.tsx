@@ -145,7 +145,7 @@ const BannerThird: React.FC<BannerThirdData> = ({ data }) => {
 
       {/* Content */}
       <div className="container relative z-10">
-        <div className="w-full lg-up:max-w-[700px] lg:pt-[100px]">
+        <div className="w-full lg-up:max-w-[800px] lg:pt-[100px]">
         {(title?.titlePrefix || title?.titleGradient || title?.titleSuffix) && (
             <h1
               className={`lg-up:text-[56px] ${
