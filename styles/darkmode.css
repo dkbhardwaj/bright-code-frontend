@@ -7,6 +7,12 @@
     color: #ffffff;
 }
 
+.darkMode .announcemnet-badge{
+    color: #ffffff;
+}
+.darkMode .announcemnet-badge::before {
+    background-image: url("/what-we-do-blades/megaphone-white.svg");
+}
 .darkMode.new-footer {
     background-color: #000d20;
 }
@@ -45,7 +51,8 @@
 .darkMode.colTwoCard,
 .darkMode.title-section,
 .darkMode.GridCards,
-.darkMode.ThreeColumns {
+.darkMode.ThreeColumns,
+.darkMode.image-with-content {
     background-color: #0f172a;
     /* $carbonBlue */
 }
@@ -75,7 +82,11 @@
 .darkMode.colTwoCard p,
 .darkMode.title-section p,
 .darkMode.GridCards p,
-.darkMode.ThreeColumns p {
+.darkMode.ThreeColumns p
+.darkMode.image-with-content h2,
+.darkMode.image-with-content h3,
+.darkMode.image-with-content p
+ {
     color: #ffffff;
 }
 
