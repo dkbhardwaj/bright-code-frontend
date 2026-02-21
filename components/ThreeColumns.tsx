@@ -84,6 +84,8 @@ const ThreeColumns: React.FC<ThreeColumnsProps> = ({
               key={card?.cardTitle}
               className="colThree relative w-[calc(33.3%-24px)] tablet:w-[calc(50%-24px)] phablet:w-[calc(100%-24px)] sm:w-[calc(100%-24px)] mx-[12px] mb-[24px]"
             >
+
+              <div className="card flex flex-col justify-between text-center rounded-[24px] overflow-hidden py-[40px] border border-[#E5E5EA] h-full relative">
               {
                 card?.cta.linkPath &&
                 (
@@ -95,8 +97,6 @@ const ThreeColumns: React.FC<ThreeColumnsProps> = ({
                   </Link>
                 )
               }
-
-              <div className="card flex flex-col justify-between bg-white text-center rounded-[24px] overflow-hidden py-[40px] border border-[#E5E5EA] h-full">
                 <div className="wrapper">
                   {/* Images */}
                   {card?.cardImage?.node?.sourceUrl && (

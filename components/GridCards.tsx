@@ -95,7 +95,7 @@ const GridCards: React.FC<GridCardsProps> = ({
                                     `}
                             >
 
-                                <div className="card h-full rounded-3xl border border-[#E5E5EA] bg-white pb-[40px] flex flex-col justify-between overflow-hidden relative ">
+                                <div className="card h-full rounded-3xl border border-[#E5E5EA] pb-[40px] flex flex-col justify-between overflow-hidden relative ">
                                     <Link
                                         href={card.cta?.ctaUrl}
                                         className="redirect rounded-3xl overflow-hidden"
