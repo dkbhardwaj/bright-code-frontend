@@ -5,7 +5,6 @@ interface ThemeImage {
 
 export interface HeroBannerBlade {
   fieldGroupName: 'PagebuilderSectionsHeroBannerLayout';
-  sectionId?: string;
   theme?: 'light' | 'dark';
   image: {
     bg?: ThemeImage;
