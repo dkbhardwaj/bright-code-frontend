@@ -18,6 +18,15 @@
 }
 .darkMode.new-footer h4 {
     color: #ffffff;
+    background: linear-gradient(to right, #ffffff, #ffffff);
+        background-size: 0% 2px;
+        background-repeat: no-repeat;
+        background-position: left bottom;
+        transition: background-size 0.35s ease;
+    }
+    
+    .darkMode.new-footer h4:hover {
+        background-size: 100% 2px;
 }
 
 .darkMode.new-footer ul li a {

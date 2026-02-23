@@ -263,6 +263,16 @@
     margin-bottom: 24px;
     letter-spacing: 0.02em;
     color: #0f172a;
+    display: inline-block;
+        background: linear-gradient(to right, #0066ff, #0066ff);
+        background-size: 0% 2px;
+        background-repeat: no-repeat;
+        background-position: left bottom;
+        transition: background-size 0.35s ease;
+    }
+    
+    .new-footer h4:hover {
+        background-size: 100% 2px;
 }
 
 @media (min-width: 1601px) {
@@ -284,7 +294,7 @@
 }
 
 .new-footer ul li a:hover {
-    text-decoration: underline;
+    /* text-decoration: underline; */
     opacity: 1;
 }
 
