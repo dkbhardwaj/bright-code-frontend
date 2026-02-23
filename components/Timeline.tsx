@@ -20,6 +20,7 @@ interface TimelineLink {
 
 interface TimelineViewBlade {
   fieldGroupName: 'PagebuilderSectionsTimelineViewLayout';
+  sectionId?: string;
   theme?: "light" | "dark";
   link?: TimelineLink;
   sectionPadding?: string[];
@@ -215,6 +216,7 @@ const Timeline: FC<TimelineProps> = ({ data: bladeData, theme = "dark" }) => {
 
   return (
     <section
+      id={bladeData?.sectionId || undefined}
       className={`timeline grid__parallax padding-medium ${activeTheme === "dark" ? "darkMode" : ""
         }`}
     >
