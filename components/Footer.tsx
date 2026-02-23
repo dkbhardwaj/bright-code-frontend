@@ -125,8 +125,9 @@ const Footer: React.FC<FooterProps> = ({ theme = "light" }) => {
           <div className="footer-grid">
             {/* Dynamic Footer Columns */}
             {groupedMenu.map((group) => (
+              console.log(group),
               <div key={group.parent.id} className="footer-col">
-                <Link href={'#'}>
+                  <Link href={group.parent.uri || group.parent.url || group.parent.path || '#'}>
                   <h4>{group.parent.label}</h4>
                 </Link>
                 <ul className={styles.footerList}>
