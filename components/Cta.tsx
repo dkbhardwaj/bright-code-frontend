@@ -24,10 +24,10 @@ interface CtaProps {
 }
 
 const btnClass = {
-  "rounded-blue": "rounded-btn blue",
-  "rounded-gray": "rounded-btn gray",
-  "rounded-white": "rounded-btn white",
-  "btn-blue-rect": "gradient-btn-blue",
+  "rounded-blue": "btn-primary",
+  "rounded-gray": "btn-tertiary",
+  "rounded-white": "btn-secondary",
+  "btn-blue-rect": "btn-primary",
 } as const;
 
 export default function Cta({ data }: CtaProps) {
@@ -75,7 +75,7 @@ export default function Cta({ data }: CtaProps) {
               href={buttonUrl}
               className={`mt-[20px] inline-block text-white no-arrow ${buttonClass
                 ? btnClass[buttonClass as keyof typeof btnClass]
-                : "rounded-btn blue"
+                : "btn-primary"
 
                 }`}
               target={data.link?.target === "_blank" ? "_blank" : "_self"}

@@ -86,17 +86,17 @@ const ThreeColumns: React.FC<ThreeColumnsProps> = ({
             >
 
               <div className="card flex flex-col justify-between text-center rounded-[24px] overflow-hidden py-[40px] border border-[#E5E5EA] h-full relative">
-              {
-                card?.cta.linkPath &&
-                (
-                  <Link
-                    href={card?.cta.linkPath}
-                    className="redirect rounded-[24px] overflow-hidden"
-                  >
-                    {card?.cta?.linkText}
-                  </Link>
-                )
-              }
+                {
+                  card?.cta.linkPath &&
+                  (
+                    <Link
+                      href={card?.cta.linkPath}
+                      className="redirect rounded-[24px] overflow-hidden"
+                    >
+                      {card?.cta?.linkText}
+                    </Link>
+                  )
+                }
                 <div className="wrapper">
                   {/* Images */}
                   {card?.cardImage?.node?.sourceUrl && (
@@ -144,7 +144,7 @@ const ThreeColumns: React.FC<ThreeColumnsProps> = ({
         {/* Bottom Button */}
         {data.link.linkText && data.link?.linkUrl && (
           <div className="text-center mt-[40px]">
-            <Link href={data.link?.linkUrl} className="gradient-btn-blue">
+            <Link href={data.link?.linkUrl} className="btn-primary no-arrow">
               {data.link.linkText}
             </Link>
           </div>

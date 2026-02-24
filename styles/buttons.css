@@ -1,40 +1,8 @@
-/* Blue Gradient Button */
+/* Standardized Buttons */
 
-.gradient-btn-blue {
-  position: relative;
-  width: fit-content;
-  height: fit-content;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 14px;
-  padding: 10px 60px 10px 22px;
-  background: linear-gradient(90deg, var(--vivid-blue) 0%, #002999 100%);
-  border-radius: 9px;
-  color: var(--white);
-  transition: all 0.5s ease-in-out;
-}
-
-.gradient-btn-blue::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 28px;
-  width: 16px;
-  height: 16px;
-  background-image: url("/buttons/white_arrow.svg");
-  background-repeat: no-repeat;
-  background-size: 100%;
-  transition: right 0.5s ease-in-out;
-}
-
-.gradient-btn-blue:hover::after {
-  right: 18px;
-}
-
-/* Rounded Button */
-
-.rounded-btn {
+.btn-primary,
+.btn-secondary,
+.btn-tertiary {
   position: relative;
   width: fit-content;
   height: fit-content;
@@ -42,12 +10,22 @@
   display: inline-block;
   font-size: 18px;
   padding: 15px 30px;
-  border-radius: 99px;
   text-align: left;
   transition: all 0.3s ease-in-out;
+  border-radius: 0;
+  /* Rectangular */
+  border: none;
+  cursor: pointer;
 }
 
-.rounded-btn::after {
+.btn-primary {
+  background: linear-gradient(90deg, var(--vivid-blue) 0%, #0088ff 100%);
+  color: var(--white);
+  padding: 15px 60px 15px 30px;
+  /* With space for arrow if needed */
+}
+
+.btn-primary::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -62,88 +40,65 @@
   transition: right 0.3s ease-in-out;
 }
 
-.rounded-btn:hover::after {
+.btn-primary:hover::after {
   right: 30px;
 }
 
-/* Desktop range (≈ 992px – 1279px) */
-@media (min-width: 992px) and (max-width: 1279px) {
-  .rounded-btn {
-    font-size: 18px;
-  }
+.btn-primary.no-arrow {
+  padding: 15px 30px;
 }
 
-/* Tablet range (≈ 768px – 991px) */
-@media (min-width: 768px) and (max-width: 991px) {
-  .rounded-btn {
-    font-size: 16px;
-  }
+.btn-primary.no-arrow::after {
+  display: none;
 }
 
-/* Mobile / md and below (≤ 767px) */
-@media (max-width: 767px) {
-  .rounded-btn {
-    font-size: 15px;
-  }
-}
-/* Blue Variant */
-
-.rounded-btn.blue {
-  padding: 15px 60px 15px 30px;
-  background: linear-gradient(90deg, var(--vivid-blue) 0%, #0088ff 100%);
-  color: var(--white);
-}
-
-/* White Variant */
-
-.rounded-btn.white {
+.btn-secondary {
   background: var(--white);
   color: var(--black);
+  border: 1px solid var(--black);
 }
 
-.rounded-btn.white:hover {
+.btn-secondary:hover {
   background: var(--black);
   color: var(--white);
 }
 
-/* Gray Variant */
-
-.rounded-btn.gray {
+.btn-tertiary {
   background: var(--gray);
   color: var(--black);
-
+  border: 1px solid var(--black);
   box-shadow: 0px 2px 6px 2px #3c404326;
 }
 
-.rounded-btn.gray:hover {
+.btn-tertiary:hover {
   background: var(--white);
   color: var(--black);
 }
 
-.rounded-btn.gray::after,
-.rounded-btn.white::after {
-  display: none;
+/* Responsive Font Sizes */
+@media (min-width: 992px) and (max-width: 1279px) {
+
+  .btn-primary,
+  .btn-secondary,
+  .btn-tertiary {
+    font-size: 18px;
+  }
 }
 
-/* Blue Hover Variant */
+@media (min-width: 768px) and (max-width: 991px) {
 
-.rounded-btn.gray.blue-hover:hover {
-  background: linear-gradient(90deg, #0044ff 0%, #002999 100%);
-  color: var(--white);
+  .btn-primary,
+  .btn-secondary,
+  .btn-tertiary {
+    font-size: 16px;
+  }
 }
 
-/* No Arrow */
+@media (max-width: 767px) {
 
-.rounded-btn.no-arrow {
-  padding: 10px 30px;
-  background-size: 100% 200%;
-  background-position: 0% 0%;
-}
-
-.rounded-btn.no-arrow:hover {
-  background-position: 0% 100%;
-}
-
-.rounded-btn.no-arrow::after {
-  display: none;
+  .btn-primary,
+  .btn-secondary,
+  .btn-tertiary {
+    font-size: 15px;
+  }
 }

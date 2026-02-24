@@ -70,7 +70,7 @@ const IntroSection: React.FC<IntroProps> = ({ data }) => {
           {buttonText && (
             <Button
               href={buttonLink}
-              className="gradient-btn-blue mt-[20px] inline-block"
+              className="mt-[20px] inline-block no-arrow"
               target={link.target ? "_blank" : "_self"}
             >
               {buttonText}

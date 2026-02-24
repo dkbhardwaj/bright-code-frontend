@@ -50,7 +50,7 @@ const TitleSection: React.FC<TitleSectionProps> = ({
           {buttonText && (
             <Link
               href={buttonLink}
-              className="gradient-btn-blue mt-[20px] inline-block"
+              className="btn-primary mt-[20px] inline-block no-arrow"
             >
               {buttonText}
             </Link>

@@ -82,7 +82,7 @@ const ColTwoCard: React.FC<ColTwoCardProps> = ({
                 {blurb}
               </p>
 
-              <Link href={link.linkUrl} className="gradient-btn-blue mt-[20px]">
+              <Link href={link.linkUrl} className="btn-primary mt-[20px] no-arrow">
                 {link.linkText}
               </Link>
             </div>

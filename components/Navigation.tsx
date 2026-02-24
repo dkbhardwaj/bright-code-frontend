@@ -371,7 +371,7 @@ function Navigation({ menuData: initialMenuData, className }: NavigationProps) {
             <li className={Style.btnWrap}>
               <Button
                 href="/contact"
-                className="my-[10px] text-white no-arrow rounded-btn blue"
+                className="my-[10px] no-arrow btn-primary"
                 target="_self"
               >
                 Book a call

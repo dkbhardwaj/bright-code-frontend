@@ -145,13 +145,13 @@ const GridCards: React.FC<GridCardsProps> = ({
                 {/* Bottom Button */}
                 {btntext && btnUrl && (
                     <div className="text-center mt-[48px]">
-                        <Link href={btnUrl} className="gradient-btn-blue">
+                        <Link href={data.link?.linkUrl} className="btn-primary no-arrow">
                             {btntext}
                         </Link>
                     </div>
                 )}
             </div>
-        </section>
+        </section >
     );
 };
 
