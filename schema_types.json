@@ -1,0 +1,24 @@
+{
+  "errors": [
+    {
+      "message": "GraphQL introspection is not allowed, but the query contained __schema or __type",
+      "extensions": {
+        "category": "graphql"
+      },
+      "locations": [
+        {
+          "line": 1,
+          "column": 3
+        }
+      ]
+    }
+  ],
+  "extensions": {
+    "debug": [
+      {
+        "type": "DEBUG_LOGS_INACTIVE",
+        "message": "GraphQL Debug logging is not active. To see debug logs, GRAPHQL_DEBUG must be enabled."
+      }
+    ]
+  }
+}

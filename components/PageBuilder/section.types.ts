@@ -5,6 +5,7 @@ interface ThemeImage {
 
 export interface HeroBannerBlade {
   fieldGroupName: 'PagebuilderSectionsHeroBannerLayout';
+  sectionId?: string;
   theme?: 'light' | 'dark';
   image: {
     bg?: ThemeImage;
@@ -201,6 +202,24 @@ export interface FooterCtaBlade {
   }
 }
 
+export interface IconWithTextCardBlade {
+  fieldGroupName: 'PagebuilderSectionsIconWithTextCardLayout';
+  sectionId?: string;
+  theme?: "light" | "dark";
+  sectionPadding?: string[];
+  topDivider?: boolean;
+  cards?: {
+    cardTitle?: string;
+    subtitle?: string;
+    cardImage?: {
+      node?: {
+        sourceUrl?: string;
+        altText?: string;
+      };
+    };
+  }[];
+}
+
 export type Blade =
   | HeroBannerBlade
   | IntroductionBlade
@@ -209,4 +228,5 @@ export type Blade =
   | ColThreeCardsBlade
   | GridCardsBlade
   | ContactSectionBlade
-  | FooterCtaBlade;
+  | FooterCtaBlade
+  | IconWithTextCardBlade;

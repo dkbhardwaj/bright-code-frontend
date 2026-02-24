@@ -1,4 +1,3 @@
-import Image from "next/image";
 import styles from "../styles/contactSection.module.css";
 import Button, { ButtonVariant } from "./buttons/Button";
 import { ContactSectionBlade } from "./PageBuilder/section.types";
@@ -134,8 +133,6 @@ const ContactSection: React.FC<Props> = ({
 
 
                     <div className={styles.right}>
-                        {/* {rightSlot} */}
-                        {/* {formcalender == "contact_form" ? "" : <CalendlyCalendar theme={activeTheme} />} */}
                         {formcalender === "contact_form" ? (
                             <ContactForm />
                         ) : (
@@ -144,17 +141,6 @@ const ContactSection: React.FC<Props> = ({
 
 
                     </div>
-                </div>
-
-                <div className={styles.cards}>
-                    {cards.map((card, idx) => (
-                        <div key={idx} className={styles.card}>
-                            <Image src={card.icon}
-                                alt={card.alt} width={24} height={24} />
-                            <h4 className="mt-[10px]">{card.title}</h4>
-                            <p>{card.subtitle}</p>
-                        </div>
-                    ))}
                 </div>
             </div>
         </section>

@@ -7,6 +7,7 @@ import ThreeColumns from '../ThreeColumns';
 import GridCards from '../GridCards';
 import ContactSection from '../ContactSection';
 import Cta from '../Cta';
+import IconWithTextCard from '../IconWithTextCard';
 import {
   Blade, HeroBannerBlade,
   IntroductionBlade,
@@ -16,6 +17,7 @@ import {
   GridCardsBlade,
   ContactSectionBlade,
   FooterCtaBlade,
+  IconWithTextCardBlade
 } from './section.types';
 
 
@@ -26,8 +28,6 @@ interface IndexProps {
 }
 
 const Index: React.FC<IndexProps> = ({ blades, data }) => {
-  console.log(data);
-
   return <>{pageBuilder(blades)}</>;
 };
 
@@ -42,7 +42,8 @@ type BladeComponentMap = {
   PagebuilderSectionsColThreeCardsLayout: React.FC<{ data: ColThreeCardsBlade }>;
   PagebuilderSectionsGridCardsSectionLayout: React.FC<{ data: GridCardsBlade }>;
   PagebuilderSectionsContentWithFormOrCalanderLayout: React.FC<{ data: ContactSectionBlade }>;
-  PagebuilderSectionsFooterCtaLayout: React.FC<{ data: FooterCtaBlade }>
+  PagebuilderSectionsFooterCtaLayout: React.FC<{ data: FooterCtaBlade }>;
+  PagebuilderSectionsIconWithTextCardLayout: React.FC<{ data: IconWithTextCardBlade }>;
 };
 
 const layoutMap: BladeComponentMap = {
@@ -54,6 +55,7 @@ const layoutMap: BladeComponentMap = {
   PagebuilderSectionsGridCardsSectionLayout: GridCards,
   PagebuilderSectionsContentWithFormOrCalanderLayout: ContactSection,
   PagebuilderSectionsFooterCtaLayout: Cta,
+  PagebuilderSectionsIconWithTextCardLayout: IconWithTextCard as any,
 };
 
 function pageBuilder(data: Blade[]): ReactNode[] {

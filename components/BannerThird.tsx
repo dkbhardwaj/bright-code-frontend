@@ -9,6 +9,7 @@ interface ThemeImage {
 
 export interface BannerThirdData {
   data: {
+    sectionId?: string;
     theme?: "light" | "dark";
     image:{
       bg?: ThemeImage;
@@ -41,6 +42,8 @@ export interface BannerThirdData {
 }
 
 const BannerThird: React.FC<BannerThirdData> = ({ data }) => {
+  console.log(data);
+
   const {
     varient,
     image,
@@ -48,6 +51,7 @@ const BannerThird: React.FC<BannerThirdData> = ({ data }) => {
     textUnderCta,
     subtitle,
     cta,
+    sectionId,
   } = data;
 
 
@@ -83,6 +87,7 @@ const BannerThird: React.FC<BannerThirdData> = ({ data }) => {
 
   return (
     <section
+      id={sectionId}
       className={`banner-third relative min-h-[750px] lg:min-h-[600px] flex items-center overflow-hidden padding-medium ${isDark == "dark" ? "darkMode" : ""
         }`}
     >
