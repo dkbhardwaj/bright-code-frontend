@@ -37,7 +37,7 @@ const Footer: React.FC<FooterProps> = ({ theme = "light" }) => {
   useEffect(() => {
     const fetchMenu = async () => {
       const client = new GraphQLClient(
-        "https://dev-bright-codeio.pantheonsite.io/graphql"
+        process.env.NEXT_PUBLIC_WP_GRAPHQL_URL || "https://dev-bright-codeio.pantheonsite.io/graphql"
       );
 
       const data = await client.request(GET_FOOTER);
