@@ -42,7 +42,6 @@ export interface BannerThirdData {
 }
 
 const BannerThird: React.FC<BannerThirdData> = ({ data }) => {
-  console.log(data);
 
   const {
     varient,
