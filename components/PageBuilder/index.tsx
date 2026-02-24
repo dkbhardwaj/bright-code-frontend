@@ -22,9 +22,12 @@ import {
 
 interface IndexProps {
   blades: Blade[];
+  data?: any;
 }
 
-const Index: React.FC<IndexProps> = ({ blades }) => {
+const Index: React.FC<IndexProps> = ({ blades, data }) => {
+  console.log(data);
+
   return <>{pageBuilder(blades)}</>;
 };
 

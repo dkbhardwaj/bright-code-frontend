@@ -37,8 +37,13 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout ?? ((page) => page);
 
   const { preview, data } = pageProps;
-  const pageStatus = data?.pageBy?.status;
-  const lastModified = data?.pageBy?.modified;
+
+  // pageProps data could be from GET_PAGE (pageBy) or GET_PAGE_PREVIEW (page)
+  const pageNode = data?.pageBy || data?.page;
+
+  const pageStatus = pageNode?.status;
+  const lastModified = pageNode?.modified;
+  const footerTheme = pageNode?.pagebuilder?.footerTheme || "light";
 
   return (
     <main className={`${poppins.className} ${poppins.variable} pt-[101px]`}>
@@ -47,7 +52,7 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
         menuData={null}
       />
       {getLayout(<Component {...pageProps} />)}
-      <Footer />
+      <Footer theme={footerTheme as "light" | "dark"} />
     </main>
   );
 }

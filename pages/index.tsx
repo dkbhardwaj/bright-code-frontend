@@ -20,7 +20,7 @@ export default function Home({ pages, data, preview }: Props) {
 
   return (
     <>
-      <PageBuilder blades={sections} />
+      <PageBuilder data={data} blades={sections} />
     </>
   )
 }
