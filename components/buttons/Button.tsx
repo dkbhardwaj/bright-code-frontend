@@ -5,6 +5,9 @@ export type ButtonVariant =
   | "primary"
   | "secondary"
   | "tertiary"
+  | "primary-small"
+  | "secondary-small"
+  | "tertiary-small"
   | "gradient-blue"
   | "rounded-blue"
   | "rounded-gray"
@@ -31,6 +34,9 @@ export default function Button({
     "primary": "btn-primary",
     "secondary": "btn-secondary",
     "tertiary": "btn-tertiary",
+    "primary-small": "btn-primary btn-small",
+    "secondary-small": "btn-secondary btn-small",
+    "tertiary-small": "btn-tertiary btn-small",
     "gradient-blue": "btn-primary",
     "rounded-blue": "btn-primary",
     "rounded-gray": "btn-tertiary",

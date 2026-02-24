@@ -12,8 +12,8 @@
   padding: 15px 30px;
   text-align: left;
   transition: all 0.3s ease-in-out;
-  border-radius: 0;
-  /* Rectangular */
+  border-radius: 9px;
+  /* Rounded Corners */
   border: none;
   cursor: pointer;
 }
@@ -73,6 +73,30 @@
 .btn-tertiary:hover {
   background: var(--white);
   color: var(--black);
+}
+
+/* Small Variants */
+.btn-small {
+  font-size: 14px;
+  padding: 10px 20px;
+}
+
+.btn-primary.btn-small {
+  padding: 10px 50px 10px 22px;
+}
+
+.btn-primary.btn-small::after {
+  width: 8px;
+  height: 16px;
+  right: 25px;
+}
+
+.btn-primary.btn-small:hover::after {
+  right: 15px;
+}
+
+.btn-primary.btn-small.no-arrow {
+  padding: 10px 20px;
 }
 
 /* Responsive Font Sizes */
