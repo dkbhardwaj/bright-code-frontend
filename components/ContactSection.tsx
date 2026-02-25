@@ -105,7 +105,7 @@ const ContactSection: React.FC<Props> = ({
                     <label htmlFor="message">Message</label>
                 </div>
 
-                <button className="gradient-btn no-arrow rounded-btn w-fit ml-auto mt-[15px] " type="submit">Contact us</button>
+                <button className="btn-primary no-arrow w-fit ml-auto mt-[15px] " type="submit">Contact us</button>
             </form>
 
         );
@@ -120,11 +120,7 @@ const ContactSection: React.FC<Props> = ({
                         <p className="mb-[20px]">{subtitle}</p>
                         <Button
                             href={data.link?.linkUrl || "#"}
-                            className={
-                                activeTheme === "light"
-                                    ? "rounded-btn gray no-arrow"
-                                    : "rounded-btn gray no-arrow blue-hover"
-                            }
+                            className="btn-tertiary no-arrow"
                             target={data.link?.target ? "_self" : "_blank"}
                         >
                             {ctaText}

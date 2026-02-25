@@ -96,12 +96,14 @@ const GridCards: React.FC<GridCardsProps> = ({
                             >
 
                                 <div className="card h-full rounded-3xl border border-[#E5E5EA] pb-[40px] flex flex-col justify-between overflow-hidden relative ">
-                                    <Link
-                                        href={card.cta?.ctaUrl}
-                                        className="redirect rounded-3xl overflow-hidden"
-                                    >
-                                        {card.cta?.ctaLabel}
-                                    </Link>
+                                    {card.cta?.ctaUrl && (
+                                        <Link
+                                            href={card.cta?.ctaUrl}
+                                            className="redirect rounded-3xl overflow-hidden"
+                                        >
+                                            {card.cta?.ctaLabel}
+                                        </Link>
+                                    )}
                                     {/* Image */}
                                     <div className="imageWrap mb-6 h-55">
                                         <Image
@@ -145,13 +147,13 @@ const GridCards: React.FC<GridCardsProps> = ({
                 {/* Bottom Button */}
                 {btntext && btnUrl && (
                     <div className="text-center mt-[48px]">
-                        <Link href={btnUrl} className="gradient-btn-blue">
+                        <Link href={btnUrl} className="btn-primary no-arrow">
                             {btntext}
                         </Link>
                     </div>
                 )}
             </div>
-        </section>
+        </section >
     );
 };
 

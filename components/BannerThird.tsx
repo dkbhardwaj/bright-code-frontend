@@ -11,26 +11,26 @@ export interface BannerThirdData {
   data: {
     sectionId?: string;
     theme?: "light" | "dark";
-    image:{
+    image: {
       bg?: ThemeImage;
       leftIcons?: ThemeImage;
       rightImg?: ThemeImage,
-      node : {
-        altText : string,
-        guid : string,
-        sourceUrl : string,
+      node: {
+        altText: string,
+        guid: string,
+        sourceUrl: string,
       }
     };
     title: {
       titlePrefix: string;
-    titleGradient: string;
-    titleSuffix: string;
+      titleGradient: string;
+      titleSuffix: string;
     }
-    varient:string;
+    varient: string;
     subtitle: string;
     textUnderCta: string;
     cta: {
-      link:{
+      link: {
         target: boolean;
         linkUrl: string;
         linkText: string;
@@ -55,12 +55,12 @@ const BannerThird: React.FC<BannerThirdData> = ({ data }) => {
 
 
   const btnClass = {
-    "rounded-blue" : "rounded-btn blue",
-    "rounded-gray" : "rounded-btn gray",
-    "rounded-white" : "rounded-btn white",
-    "btn-blue-rect" : "gradient-btn-blue",
-  }as const;
-  
+    "rounded-blue": "btn-primary",
+    "rounded-gray": "btn-tertiary",
+    "rounded-white": "btn-secondary",
+    "btn-blue-rect": "btn-primary",
+  } as const;
+
   const isDark = data.varient;
   type ThemeImage = { light: string; dark: string };
 
@@ -79,8 +79,8 @@ const BannerThird: React.FC<BannerThirdData> = ({ data }) => {
   };
 
 
-  const bgImage =  isDark=="dark"?"/what-we-do-blades/BG_dark_theme.svg" : "/what-we-do-blades/bg_light.png";
-  const leftIcons = isDark=="dark" ?  "/what-we-do-blades/hero_icons-dark-theme.svg" : "/what-we-do-blades/hero-left-icons-image.svg";
+  const bgImage = isDark == "dark" ? "/what-we-do-blades/BG_dark_theme.svg" : "/what-we-do-blades/bg_light.png";
+  const leftIcons = isDark == "dark" ? "/what-we-do-blades/hero_icons-dark-theme.svg" : "/what-we-do-blades/hero-left-icons-image.svg";
 
   const rightImage = image?.node?.sourceUrl
 
@@ -91,15 +91,15 @@ const BannerThird: React.FC<BannerThirdData> = ({ data }) => {
         }`}
     >
       {/* Background */}
-        <div className="absolute inset-0 -z-10">
-          <Image
-            src={bgImage}
-            fill
-            priority
-            alt="Banner background"
-            className="object-cover"
-          />
-        </div>
+      <div className="absolute inset-0 -z-10">
+        <Image
+          src={bgImage}
+          fill
+          priority
+          alt="Banner background"
+          className="object-cover"
+        />
+      </div>
 
       {/* Left Icons */}
       {leftIcons && (
@@ -150,11 +150,10 @@ const BannerThird: React.FC<BannerThirdData> = ({ data }) => {
       {/* Content */}
       <div className="container relative z-10">
         <div className="w-full lg-up:max-w-[800px] lg:pt-[100px]">
-        {(title?.titlePrefix || title?.titleGradient || title?.titleSuffix) && (
+          {(title?.titlePrefix || title?.titleGradient || title?.titleSuffix) && (
             <h1
-              className={`lg-up:text-[56px] ${
-                isDark == "dark" ? "text-white" : "text-[#000D20]"
-              }`}
+              className={`lg-up:text-[56px] ${isDark == "dark" ? "text-white" : "text-[#000D20]"
+                }`}
             >
               {title.titlePrefix && <>{title.titlePrefix} </>}
 
@@ -183,19 +182,23 @@ const BannerThird: React.FC<BannerThirdData> = ({ data }) => {
             <div className="flex gap-4 mt-[42px] lg:mt-5 flex-wrap">
               {cta.map((button, key) => {
                 const classKey = button?.link?.classname;
+                const linkLabel = button?.link?.linkText;
+                const linkUrl = button?.link?.linkUrl;
+
+                if (!linkLabel || !linkUrl) return null;
 
                 return (
                   <Button
                     key={key}
-                    href={button?.link?.linkUrl}
+                    href={linkUrl}
                     className={
                       classKey && classKey in btnClass
                         ? btnClass[classKey as keyof typeof btnClass]
-                        : "rounded-btn blue"
+                        : "btn-primary"
                     }
-                    target={button?.link?.target ?"_self": "_blank"}
+                    target={button?.link?.target ? "_self" : "_blank"}
                   >
-                    {button?.link?.linkText}
+                    {linkLabel}
                   </Button>
                 );
               })}
