@@ -84,6 +84,8 @@ const BannerThird: React.FC<BannerThirdData> = ({ data }) => {
 
   const rightImage = image?.node?.sourceUrl
 
+  console.log(data);
+
   return (
     <section
       id={sectionId}
@@ -181,7 +183,8 @@ const BannerThird: React.FC<BannerThirdData> = ({ data }) => {
           {cta?.length > 0 && (
             <div className="flex gap-4 mt-[42px] lg:mt-5 flex-wrap">
               {cta.map((button, key) => {
-                const classKey = button?.link?.classname;
+                const classnameProp = button?.link?.classname;
+                const classKey = Array.isArray(classnameProp) ? classnameProp[0] : classnameProp;
                 const linkLabel = button?.link?.linkText;
                 const linkUrl = button?.link?.linkUrl;
 
@@ -191,11 +194,8 @@ const BannerThird: React.FC<BannerThirdData> = ({ data }) => {
                   <Button
                     key={key}
                     href={linkUrl}
-                    className={
-                      classKey && classKey in btnClass
-                        ? btnClass[classKey as keyof typeof btnClass]
-                        : "btn-primary"
-                    }
+                    variant={classKey as ButtonVariant}
+                    className={!classKey ? "btn-primary" : ""}
                     target={button?.link?.target ? "_self" : "_blank"}
                   >
                     {linkLabel}
