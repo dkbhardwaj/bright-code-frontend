@@ -227,7 +227,7 @@ function Navigation({ menuData: initialMenuData, className }: NavigationProps) {
                               className="list-none flex align-top"
                             >
                               <div
-                                className={`${Style.iconBox} max-w-[40px] max-h-[40px] w-full h-full mr-[10px]`}
+                                className={`${Style.iconBox} w-[40px] h-[40px] mr-[10px]`}
                               >
                                 {column.menuIcon && (
                                   <>
