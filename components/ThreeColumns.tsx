@@ -126,7 +126,7 @@ const ThreeColumns: React.FC<ThreeColumnsProps> = ({
                 </div>
 
                 {/* CTA */}
-                {card?.cta?.linkText && card?.cta.linkText && (
+                {card?.cta?.linkText && card?.cta?.linkPath && (
                   <div className="btn-wrap">
                     <Link
                       href={card?.cta.linkPath}

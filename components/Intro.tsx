@@ -67,7 +67,7 @@ const IntroSection: React.FC<IntroProps> = ({ data }) => {
           )}
 
           {/* Button */}
-          {buttonText && (
+          {buttonText && buttonLink && (
             <Button
               href={buttonLink}
               className="mt-[20px] inline-block no-arrow"

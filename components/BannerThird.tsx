@@ -182,11 +182,15 @@ const BannerThird: React.FC<BannerThirdData> = ({ data }) => {
             <div className="flex gap-4 mt-[42px] lg:mt-5 flex-wrap">
               {cta.map((button, key) => {
                 const classKey = button?.link?.classname;
+                const linkLabel = button?.link?.linkText;
+                const linkUrl = button?.link?.linkUrl;
+
+                if (!linkLabel || !linkUrl) return null;
 
                 return (
                   <Button
                     key={key}
-                    href={button?.link?.linkUrl}
+                    href={linkUrl}
                     className={
                       classKey && classKey in btnClass
                         ? btnClass[classKey as keyof typeof btnClass]
@@ -194,7 +198,7 @@ const BannerThird: React.FC<BannerThirdData> = ({ data }) => {
                     }
                     target={button?.link?.target ? "_self" : "_blank"}
                   >
-                    {button?.link?.linkText}
+                    {linkLabel}
                   </Button>
                 );
               })}

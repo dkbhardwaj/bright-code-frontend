@@ -44,8 +44,8 @@ export default function Cta({ data }: CtaProps) {
   const isDark = theme;
   const buttonLink = link?.linkUrl
   const buttonText = link?.linkText
-  const buttonClass = link?.classname[0]
   const buttonUrl = link?.linkUrl
+  const buttonClassValue = typeof link?.classname === 'string' ? link.classname : (Array.isArray(link?.classname) ? link.classname[0] : "");
 
   return (
     <section
@@ -71,17 +71,19 @@ export default function Cta({ data }: CtaProps) {
               {description}
             </p>
 
-            <Button
-              href={buttonUrl}
-              className={`mt-[20px] inline-block text-white no-arrow ${buttonClass
-                ? btnClass[buttonClass as keyof typeof btnClass]
-                : "btn-primary"
+            {buttonText && buttonUrl && (
+              <Button
+                href={buttonUrl}
+                className={`mt-[20px] inline-block text-white no-arrow ${buttonClassValue
+                  ? btnClass[buttonClassValue as keyof typeof btnClass]
+                  : "btn-primary"
 
-                }`}
-              target={data.link?.target === "_blank" ? "_blank" : "_self"}
-            >
-              {buttonText}
-            </Button>
+                  }`}
+                target={data.link?.target === "_blank" ? "_blank" : "_self"}
+              >
+                {buttonText}
+              </Button>
+            )}
           </div>
         </div>
       </div>

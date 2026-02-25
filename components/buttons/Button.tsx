@@ -45,6 +45,17 @@ export default function Button({
     "btn-blue-rect": "btn-primary",
   };
 
+  if (!href) {
+    return (
+      <button
+        type="button"
+        className={`${variants[variant]} ${className}`}
+      >
+        <span>{children}</span>
+      </button>
+    );
+  }
+
   return (
     <Link
       href={href}
