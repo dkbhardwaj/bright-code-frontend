@@ -69,6 +69,10 @@
   padding: 15px 30px;
 }
 
+.blue-link.no-arrow::before {
+  display: none;
+}
+
 .btn-primary.no-arrow::after {
   display: none;
 }

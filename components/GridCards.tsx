@@ -130,7 +130,7 @@ const GridCards: React.FC<GridCardsProps> = ({
                                         <div className="btn-wrap px-7.5">
                                             <Link
                                                 href={card.cta?.ctaUrl}
-                                                className="blue-link inline-block text-[#0044FF] text-[12px] mt-2.5"
+                                                className="blue-link inline-block text-[#0044FF] text-[12px] mt-2.5 no-arrow"
                                             >
                                                 {card.cta?.ctaLabel}
                                             </Link>
