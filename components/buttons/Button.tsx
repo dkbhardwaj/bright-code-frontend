@@ -2,6 +2,12 @@ import React from "react";
 import Link from "next/link";
 
 export type ButtonVariant =
+  | "primary"
+  | "secondary"
+  | "tertiary"
+  | "primary-small"
+  | "secondary-small"
+  | "tertiary-small"
   | "gradient-blue"
   | "rounded-blue"
   | "rounded-gray"
@@ -21,17 +27,34 @@ export default function Button({
   children,
   href,
   target = "_self",
-  variant = "gradient-blue",
+  variant = "primary",
   className = "",
 }: ButtonProps) {
   const variants: Record<ButtonVariant, string> = {
-    "gradient-blue": "gradient-btn-blue",
-    "rounded-blue": "rounded-btn blue",
-    "rounded-gray": "rounded-btn gray",
-    "rounded-white": "rounded-btn white",
-    "rounded-no-arrow": "rounded-btn no-arrow",
-    "btn-blue-rect" : "gradient-btn-blue",
+    "primary": "btn-primary",
+    "secondary": "btn-secondary",
+    "tertiary": "btn-tertiary",
+    "primary-small": "btn-primary btn-small",
+    "secondary-small": "btn-secondary btn-small",
+    "tertiary-small": "btn-tertiary btn-small",
+    "gradient-blue": "btn-primary",
+    "rounded-blue": "btn-primary",
+    "rounded-gray": "btn-tertiary",
+    "rounded-white": "btn-secondary",
+    "rounded-no-arrow": "btn-primary no-arrow",
+    "btn-blue-rect": "btn-primary",
   };
+
+  if (!href) {
+    return (
+      <button
+        type="button"
+        className={`${variants[variant]} ${className}`}
+      >
+        <span>{children}</span>
+      </button>
+    );
+  }
 
   return (
     <Link

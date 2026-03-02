@@ -227,7 +227,7 @@ function Navigation({ menuData: initialMenuData, className }: NavigationProps) {
                               className="list-none flex align-top"
                             >
                               <div
-                                className={`${Style.iconBox} w-[40px] h-[40px] mr-[10px]`}
+                                className={`${Style.iconBox} max-w-[40px] max-h-[40px] w-full h-full mr-[10px]`}
                               >
                                 {column.menuIcon && (
                                   <>
@@ -371,7 +371,7 @@ function Navigation({ menuData: initialMenuData, className }: NavigationProps) {
             <li className={Style.btnWrap}>
               <Button
                 href="/contact"
-                className="my-[10px] text-white no-arrow rounded-btn blue"
+                className="my-[10px] no-arrow btn-primary"
                 target="_self"
               >
                 Book a call
