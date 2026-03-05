@@ -84,8 +84,6 @@ const BannerThird: React.FC<BannerThirdData> = ({ data }) => {
 
   const rightImage = image?.node?.sourceUrl
 
-  console.log(data);
-
   return (
     <section
       id={sectionId}

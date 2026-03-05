@@ -132,20 +132,23 @@ export interface GridCardsBlade {
   fieldGroupName: 'PagebuilderSectionsGridCardsSectionLayout';
   sectionId?: string;
   theme: string;
-  gridCards: {
-    cardTitle: string;
-    cardDescription: string;
-    cardImage: {
-      node: {
-        altText: string;
-        sourceUrl: string;
+  rows: {
+    columnLayout: "equal" | "leftLarge" | "rightLarge" | null;
+    cards: {
+      cardTitle: string;
+      cardDescription: string;
+      cardImage: {
+        node: {
+          altText: string;
+          sourceUrl: string;
+        }
       }
-    }
-    cta: {
-      ctaLabel: string;
-      ctaUrl: string;
-      openInNewTab: boolean;
-    }
+      cta: {
+        ctaLabel: string;
+        ctaUrl: string;
+        openInNewTab: boolean;
+      }
+    }[];
   }[];
   sectionPadding: string[];
   link: {
