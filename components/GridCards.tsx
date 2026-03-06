@@ -81,7 +81,7 @@ const GridCards: React.FC<GridCardsProps> = ({ data }) => {
         link
     } = data;
 
-    console.log(data);
+    // console.log(data);
 
     const btntext = link?.linkText;
     const btnUrl = link?.linkUrl;
