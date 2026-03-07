@@ -86,10 +86,12 @@ const GridCards: React.FC<GridCardsProps> = ({ data }) => {
     const btntext = link?.linkText;
     const btnUrl = link?.linkUrl;
 
+    const safePadding = Array.isArray(sectionPadding) ? sectionPadding.join(" ") : "padding-medium";
+
     return (
         <section
             id={sectionId}
-            className={`grid-cards-section ${sectionPadding ? sectionPadding.join(" ") : "padding-medium"} ${theme === "dark" ? "darkMode" : ""}`}
+            className={`grid-cards-section ${safePadding} ${theme === "dark" ? "darkMode" : ""}`}
         >
             <div className="container">
 

@@ -58,7 +58,17 @@ const layoutMap: BladeComponentMap = {
   PagebuilderSectionsIconWithTextCardLayout: IconWithTextCard as any,
 };
 
+const SafeSection: React.FC<{ children: React.ReactNode, name: string }> = ({ children, name }) => {
+  try {
+    return <>{children}</>;
+  } catch (error) {
+    console.error(`Error rendering section ${name}:`, error);
+    return null;
+  }
+};
+
 function pageBuilder(data: Blade[]): ReactNode[] {
+  if (!data || !Array.isArray(data)) return [];
 
   return data.map((blade, index) => {
     const Component = layoutMap[blade.fieldGroupName];
@@ -66,10 +76,11 @@ function pageBuilder(data: Blade[]): ReactNode[] {
     if (!Component) return null;
 
     return (
-      <Component
-        key={index}
-        data={blade as never}
-      />
+      <SafeSection key={`${blade.fieldGroupName}-${index}`} name={blade.fieldGroupName}>
+        <Component
+          data={blade as never}
+        />
+      </SafeSection>
     );
   }).filter(Boolean);
 }

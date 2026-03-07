@@ -42,11 +42,12 @@ const IntroSection: React.FC<IntroProps> = ({ data }) => {
 
   const buttonLink = link?.linkUrl
   const buttonText = link?.linkText
+  const safePadding = Array.isArray(sectionPadding) ? sectionPadding.join(" ") : "padding-medium";
+
   return (
     <section
       id={sectionId}
-      className={`title-section ${sectionPadding ? sectionPadding.join(" ") : "padding-medium"}  ${theme === "dark" ? "darkMode" : ""
-        }`}
+      className={`title-section ${safePadding} ${theme === "dark" ? "darkMode" : ""}`}
     >
 
       <div className="container">

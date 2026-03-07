@@ -72,10 +72,12 @@ const ThreeColumns: React.FC<ThreeColumnsProps> = ({
   const { theme, sectionPadding, cards, link, sectionId } = data;
   const threeCards = cards;
 
+  const safePadding = Array.isArray(sectionPadding) ? sectionPadding.join(" ") : "padding-medium";
+
   return (
     <section
       id={sectionId}
-      className={`three-column-section ${sectionPadding ? sectionPadding.join(" ") : "padding-medium"} ${theme === "dark" ? "darkMode" : ""}`}
+      className={`three-column-section ${safePadding} ${theme === "dark" ? "darkMode" : ""}`}
     >
       <div className="container">
         <div className="w-[calc(100%+24px)] ml-[-12px] flex flex-wrap justify-center">
