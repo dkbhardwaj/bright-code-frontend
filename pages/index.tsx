@@ -52,7 +52,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const { preview = false, previewData } = context;
 
   const client = new GraphQLClient(
-    process.env.WP_GRAPHQL_URL as string,
+    (process.env.WP_GRAPHQL_URL || process.env.NEXT_PUBLIC_WP_GRAPHQL_URL || 'https://dev-bright-codeio.pantheonsite.io/graphql') as string,
     {
       headers: preview && process.env.WORDPRESS_AUTH_REFRESH_TOKEN
         ? {
@@ -62,24 +62,29 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     }
   );
 
-  let data;
+  let data = null;
 
-  // Check if we're in preview mode and have preview data
-  if (preview && previewData && (previewData as any).id) {
-    // Fetch preview/draft content using the post ID
-    console.log('Preview mode: fetching draft content for ID:', (previewData as any).id);
-    data = await client.request(GET_PAGE_PREVIEW, {
-      id: (previewData as any).id
-    });
-    // Wrap the response in pageBy if needed
-    if (data.page && !data.pageBy) {
-      data = { pageBy: data.page };
+  try {
+    // Check if we're in preview mode and have preview data
+    if (preview && previewData && (previewData as any).id) {
+      // Fetch preview/draft content using the post ID
+      console.log('Preview mode: fetching draft content for ID:', (previewData as any).id);
+      data = await client.request(GET_PAGE_PREVIEW, {
+        id: (previewData as any).id
+      });
+      // Wrap the response in pageBy if needed
+      if (data.page && !data.pageBy) {
+        data = { pageBy: data.page };
+      }
+    } else {
+      // Fetch published content (normal mode)
+      // Assuming the homepage has a URI of "/" or "home".
+      // Adjust logic if your WP instance uses a specific slug for home.
+      data = await client.request(GET_PAGE, { uri: "/" });
     }
-  } else {
-    // Fetch published content (normal mode)
-    // Assuming the homepage has a URI of "/" or "home".
-    // Adjust logic if your WP instance uses a specific slug for home.
-    data = await client.request(GET_PAGE, { uri: "/" });
+  } catch (error) {
+    console.error("Error fetching homepage data:", error);
+  // data remains null, which is handled in the component
   }
 
   console.log("--getServerSideProps home data--", data);
