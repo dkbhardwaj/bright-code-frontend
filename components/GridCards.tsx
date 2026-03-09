@@ -120,15 +120,17 @@ const GridCards: React.FC<GridCardsProps> = ({ data }) => {
                                         )}
 
                                         {/* Image */}
+                                        {card.cardImage?.node?.sourceUrl && (
                                         <div className="imageWrap mb-6 h-55">
                                             <Image
-                                                src={card.cardImage?.node?.sourceUrl}
-                                                alt={card.cardImage?.node?.altText}
+                                                    src={card.cardImage.node.sourceUrl}
+                                                    alt={card.cardImage.node.altText || ""}
                                                 width={500}
                                                 height={300}
                                                 className={`${theme === "dark" ? "dark-image" : "light-image"} w-full h-full !object-cover`}
                                             />
                                         </div>
+                                        )}
 
                                         {/* Content */}
                                         <div className="content px-7.5">
