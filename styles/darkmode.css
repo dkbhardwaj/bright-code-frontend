@@ -7,26 +7,29 @@
     color: #ffffff;
 }
 
-.darkMode .announcemnet-badge{
+.darkMode .announcemnet-badge {
     color: #ffffff;
 }
+
 .darkMode .announcemnet-badge::before {
     background-image: url("/what-we-do-blades/megaphone-white.svg");
 }
+
 .darkMode.new-footer {
     background-color: #000d20;
 }
+
 .darkMode.new-footer h4 {
     color: #ffffff;
     background: linear-gradient(to right, #ffffff, #ffffff);
-        background-size: 0% 2px;
-        background-repeat: no-repeat;
-        background-position: left bottom;
-        transition: background-size 0.35s ease;
-    }
-    
-    .darkMode.new-footer h4:hover {
-        background-size: 100% 2px;
+    background-size: 0% 2px;
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    transition: background-size 0.35s ease;
+}
+
+.darkMode.new-footer h4:hover {
+    background-size: 100% 2px;
 }
 
 .darkMode.new-footer ul li a {
@@ -81,9 +84,11 @@
 .darkMode.three-column-section .dark-image {
     display: block;
 }
-.darkMode{
+
+.darkMode {
     color: #ffffff;
 }
+
 .darkMode.colTwoCard h1,
 .darkMode.title-section h1,
 .darkMode.grid-cards-section h1,
@@ -95,14 +100,12 @@
 .darkMode.colTwoCard p,
 .darkMode.title-section p,
 .darkMode.grid-cards-section p,
-.darkMode.three-column-section p
-.darkMode.image-with-content h2,
+.darkMode.three-column-section p .darkMode.image-with-content h2,
 .darkMode.image-with-content h3,
 .darkMode.image-with-content p,
 .darkMode.three-column-section h2,
 .darkMode.three-column-section h3,
-.darkMode.three-column-section p
- {
+.darkMode.three-column-section p {
     color: #ffffff;
 }
 
@@ -133,10 +136,12 @@
     transition: all 0.3s ease-in-out;
     /* $indigoBlue */
 }
+
 .darkMode.grid-cards-section .card:hover,
 .darkMode.three-column-section .card:hover {
     box-shadow: 0 8px 24px hsla(210, 8%, 62%, 0.2);
 }
+
 .darkMode.grid-cards-section .card h4,
 .darkMode.three-column-section .card h4 {
     color: #f8fafc;
@@ -149,14 +154,16 @@
     /* $borderLight – light gray-blue */
 }
 
-.darkMode.grid-cards-section .card .link,
-.darkMode.three-column-section .card .link {
-    color: #f8fafc;
+.darkMode.grid-cards-section .card .redirect,
+.darkMode.three-column-section .card .redirect,
+.darkMode.grid-cards-section .card .blue-link,
+.darkMode.three-column-section .card .blue-link {
+    color: #ffffff !important;
 }
 
-.darkMode.grid-cards-section .card .link::before,
-.darkMode.three-column-section .card .link::before {
-    background-image: url(/what-we-do-blades/white_arrow.svg);
+.darkMode.grid-cards-section .card .blue-link::before,
+.darkMode.three-column-section .card .blue-link::before {
+    background-image: url(/what-we-do-blades/white_arrow.svg) !important;
 }
 
 /* Timeline in dark mode */

@@ -47,11 +47,12 @@ export default function Cta({ data }: CtaProps) {
   const buttonUrl = link?.linkUrl
   const buttonClassValue = typeof link?.classname === 'string' ? link.classname : (Array.isArray(link?.classname) ? link.classname[0] : "");
 
+  const safePadding = Array.isArray(sectionPadding) ? sectionPadding.join(" ") : "padding-medium";
+
   return (
     <section
       id={sectionId}
-      className={`cta-section ${sectionPadding ? sectionPadding.join(" ") : "padding-medium"} ${isDark == "dark" ? "darkMode" : ""
-        }`}
+      className={`cta-section ${safePadding} ${isDark == "dark" ? "darkMode" : ""}`}
     >
       <div className="container">
         <div className="wrap relative rounded-[32px] py-[100px] lg:py-[60px] overflow-hidden">

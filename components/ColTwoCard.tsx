@@ -46,10 +46,13 @@ const ColTwoCard: React.FC<ColTwoCardProps> = ({
     sectionId,
   } = data;
 
+  const safePadding = Array.isArray(sectionPadding) ? sectionPadding.join(" ") : "padding-medium";
+  const imageSrc = image?.node?.sourceUrl || "";
+
   return (
     <section
       id={sectionId}
-      className={`image-with-content ${sectionPadding ? sectionPadding.join(" ") : "padding-medium"} ${theme === "dark" ? "darkMode" : ""}`}
+      className={`image-with-content ${safePadding} ${theme === "dark" ? "darkMode" : ""}`}
     >
       <div className="container">
         <div

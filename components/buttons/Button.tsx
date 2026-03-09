@@ -27,7 +27,7 @@ export default function Button({
   children,
   href,
   target = "_self",
-  variant = "primary",
+  variant,
   className = "",
 }: ButtonProps) {
   const variants: Record<ButtonVariant, string> = {
@@ -45,11 +45,14 @@ export default function Button({
     "btn-blue-rect": "btn-primary",
   };
 
+  const variantClass = variant ? variants[variant] : "";
+  const finalClassName = `${variantClass} ${className}`.trim();
+
   if (!href) {
     return (
       <button
         type="button"
-        className={`${variants[variant]} ${className}`}
+        className={finalClassName}
       >
         <span>{children}</span>
       </button>
@@ -60,7 +63,7 @@ export default function Button({
     <Link
       href={href}
       target={target}
-      className={`${variants[variant]} ${className}`}
+      className={finalClassName}
     >
       <span>{children}</span>
     </Link>

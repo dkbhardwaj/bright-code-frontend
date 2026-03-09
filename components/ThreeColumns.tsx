@@ -72,10 +72,12 @@ const ThreeColumns: React.FC<ThreeColumnsProps> = ({
   const { theme, sectionPadding, cards, link, sectionId } = data;
   const threeCards = cards;
 
+  const safePadding = Array.isArray(sectionPadding) ? sectionPadding.join(" ") : "padding-medium";
+
   return (
     <section
       id={sectionId}
-      className={`three-column-section ${sectionPadding ? sectionPadding.join(" ") : "padding-medium"} ${theme === "dark" ? "darkMode" : ""}`}
+      className={`three-column-section ${safePadding} ${theme === "dark" ? "darkMode" : ""}`}
     >
       <div className="container">
         <div className="w-[calc(100%+24px)] ml-[-12px] flex flex-wrap justify-center">
@@ -87,10 +89,10 @@ const ThreeColumns: React.FC<ThreeColumnsProps> = ({
 
               <div className="card flex flex-col justify-between text-center rounded-[24px] overflow-hidden py-[40px] border border-[#E5E5EA] h-full relative">
                 {
-                  card?.cta.linkPath &&
+                  card?.cta?.linkPath &&
                   (
                     <Link
-                      href={card?.cta.linkPath}
+                      href={card?.cta?.linkPath}
                       className="redirect rounded-[24px] overflow-hidden"
                     >
                       {card?.cta?.linkText}
@@ -129,7 +131,7 @@ const ThreeColumns: React.FC<ThreeColumnsProps> = ({
                 {card?.cta?.linkText && card?.cta?.linkPath && (
                   <div className="btn-wrap">
                     <Link
-                      href={card?.cta.linkPath}
+                      href={card?.cta?.linkPath}
                       className="blue-link inline-block text-[#0044FF] text-[12px] mt-[10px]"
                     >
                       {card?.cta?.linkText}
@@ -142,10 +144,10 @@ const ThreeColumns: React.FC<ThreeColumnsProps> = ({
         </div>
 
         {/* Bottom Button */}
-        {data.link.linkText && data.link?.linkUrl && (
+        {data.link?.linkText && data.link?.linkUrl && (
           <div className="text-center mt-[40px]">
             <Link href={data.link?.linkUrl} className="btn-primary no-arrow">
-              {data.link.linkText}
+              {data.link?.linkText}
             </Link>
           </div>
         )}

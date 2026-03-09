@@ -4,7 +4,7 @@ import IntroSection from '../Intro';
 import Timeline from '../Timeline';
 import ColTwoCard from '../ColTwoCard';
 import ThreeColumns from '../ThreeColumns';
-import GridCards from '../GridCards';
+// import GridCards from '../GridCards';
 import ContactSection from '../ContactSection';
 import Cta from '../Cta';
 import IconWithTextCard from '../IconWithTextCard';
@@ -14,7 +14,7 @@ import {
   TimelineViewBlade,
   ImageWithContentBlade,
   ColThreeCardsBlade,
-  GridCardsBlade,
+  // GridCardsBlade,
   ContactSectionBlade,
   FooterCtaBlade,
   IconWithTextCardBlade
@@ -40,7 +40,7 @@ type BladeComponentMap = {
   PagebuilderSectionsTimelineViewLayout: React.FC<{ data: TimelineViewBlade }>;
   PagebuilderSectionsImageWithContentLayout: React.FC<{ data: ImageWithContentBlade }>;
   PagebuilderSectionsColThreeCardsLayout: React.FC<{ data: ColThreeCardsBlade }>;
-  PagebuilderSectionsGridCardsSectionLayout: React.FC<{ data: GridCardsBlade }>;
+  // PagebuilderSectionsGridCardsSectionLayout: React.FC<{ data: GridCardsBlade }>;
   PagebuilderSectionsContentWithFormOrCalanderLayout: React.FC<{ data: ContactSectionBlade }>;
   PagebuilderSectionsFooterCtaLayout: React.FC<{ data: FooterCtaBlade }>;
   PagebuilderSectionsIconWithTextCardLayout: React.FC<{ data: IconWithTextCardBlade }>;
@@ -52,13 +52,23 @@ const layoutMap: BladeComponentMap = {
   PagebuilderSectionsTimelineViewLayout: Timeline,
   PagebuilderSectionsImageWithContentLayout: ColTwoCard,
   PagebuilderSectionsColThreeCardsLayout: ThreeColumns,
-  PagebuilderSectionsGridCardsSectionLayout: GridCards,
+  // PagebuilderSectionsGridCardsSectionLayout: GridCards,
   PagebuilderSectionsContentWithFormOrCalanderLayout: ContactSection,
   PagebuilderSectionsFooterCtaLayout: Cta,
   PagebuilderSectionsIconWithTextCardLayout: IconWithTextCard as any,
 };
 
+const SafeSection: React.FC<{ children: React.ReactNode, name: string }> = ({ children, name }) => {
+  try {
+    return <>{children}</>;
+  } catch (error) {
+    console.error(`Error rendering section ${name}:`, error);
+    return null;
+  }
+};
+
 function pageBuilder(data: Blade[]): ReactNode[] {
+  if (!data || !Array.isArray(data)) return [];
 
   return data.map((blade, index) => {
     const Component = layoutMap[blade.fieldGroupName];
@@ -66,10 +76,11 @@ function pageBuilder(data: Blade[]): ReactNode[] {
     if (!Component) return null;
 
     return (
-      <Component
-        key={index}
-        data={blade as never}
-      />
+      <SafeSection key={`${blade.fieldGroupName}-${index}`} name={blade.fieldGroupName}>
+        <Component
+          data={blade as never}
+        />
+      </SafeSection>
     );
   }).filter(Boolean);
 }

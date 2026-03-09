@@ -33,7 +33,7 @@ const IconWithTextCard: React.FC<Props> = ({ data }) => {
         <div className={styles.cards}>
           {cards.map((card, idx) => (
             <div key={idx} className={styles.card}>
-              {card.icon && (
+              {card.icon && card.icon.startsWith('http') && (
                 <Image
                   src={card.icon}
                   alt={card.alt}
