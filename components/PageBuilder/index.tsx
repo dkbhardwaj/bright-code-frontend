@@ -4,7 +4,7 @@ import IntroSection from '../Intro';
 import Timeline from '../Timeline';
 import ColTwoCard from '../ColTwoCard';
 import ThreeColumns from '../ThreeColumns';
-import GridCards from '../GridCards';
+// import GridCards from '../GridCards';
 import ContactSection from '../ContactSection';
 import Cta from '../Cta';
 import IconWithTextCard from '../IconWithTextCard';
@@ -14,7 +14,7 @@ import {
   TimelineViewBlade,
   ImageWithContentBlade,
   ColThreeCardsBlade,
-  GridCardsBlade,
+  // GridCardsBlade,
   ContactSectionBlade,
   FooterCtaBlade,
   IconWithTextCardBlade
@@ -40,7 +40,7 @@ type BladeComponentMap = {
   PagebuilderSectionsTimelineViewLayout: React.FC<{ data: TimelineViewBlade }>;
   PagebuilderSectionsImageWithContentLayout: React.FC<{ data: ImageWithContentBlade }>;
   PagebuilderSectionsColThreeCardsLayout: React.FC<{ data: ColThreeCardsBlade }>;
-  PagebuilderSectionsGridCardsSectionLayout: React.FC<{ data: GridCardsBlade }>;
+  // PagebuilderSectionsGridCardsSectionLayout: React.FC<{ data: GridCardsBlade }>;
   PagebuilderSectionsContentWithFormOrCalanderLayout: React.FC<{ data: ContactSectionBlade }>;
   PagebuilderSectionsFooterCtaLayout: React.FC<{ data: FooterCtaBlade }>;
   PagebuilderSectionsIconWithTextCardLayout: React.FC<{ data: IconWithTextCardBlade }>;
@@ -52,7 +52,7 @@ const layoutMap: BladeComponentMap = {
   PagebuilderSectionsTimelineViewLayout: Timeline,
   PagebuilderSectionsImageWithContentLayout: ColTwoCard,
   PagebuilderSectionsColThreeCardsLayout: ThreeColumns,
-  PagebuilderSectionsGridCardsSectionLayout: GridCards,
+  // PagebuilderSectionsGridCardsSectionLayout: GridCards,
   PagebuilderSectionsContentWithFormOrCalanderLayout: ContactSection,
   PagebuilderSectionsFooterCtaLayout: Cta,
   PagebuilderSectionsIconWithTextCardLayout: IconWithTextCard as any,
