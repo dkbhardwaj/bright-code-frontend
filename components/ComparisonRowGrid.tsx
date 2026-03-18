@@ -42,33 +42,31 @@ const ComparisonRowGrid: React.FC<ComparisonRowGridProps> = ({ data }) => {
     return (
         <section id={sectionId} className={`${styles.section} ${safePadding}`}>
             <div className="container">
-                <div className={styles.grid}>
+                <div className={styles.table}>
 
-                    {/* Column Headers */}
-                    <div className={styles.header}>
-                        <span className={styles.colLabel}>{leftColumnLabel}</span>
-                    </div>
-                    <div className={`${styles.header} ${styles.headerRight}`}>
-                        <span className={styles.colLabel}>{rightColumnLabel}</span>
+                    {/* Header row */}
+                    <div className={styles.row}>
+                        <div className={styles.headerCell}>
+                            <span className={styles.colLabel}>{leftColumnLabel}</span>
+                        </div>
+                        <div className={`${styles.headerCell} ${styles.rightCol}`}>
+                            <span className={styles.colLabel}>{rightColumnLabel}</span>
+                        </div>
                     </div>
 
-                    {/* Comparison Rows */}
+                    {/* Data rows — both cells in same row wrapper = equal height */}
                     {rows?.map((row, i) => (
-                        <React.Fragment key={i}>
+                        <div key={i} className={styles.row}>
                             <div className={styles.cell}>
-                                <div className={styles.cellInnerLeft}>
-                                    <p>{row.goodFit}</p>
-                                </div>
+                                <p>{row.goodFit}</p>
                             </div>
-                            <div className={`${styles.cell} ${styles.cellRight}`}>
-                                <div className={styles.cellInnerRight}>
-                                    <p>{row.notFit}</p>
-                                </div>
+                            <div className={`${styles.cell} ${styles.rightCol}`}>
+                                <p>{row.notFit}</p>
                             </div>
-                        </React.Fragment>
+                        </div>
                     ))}
 
-                    {/* Footer Row */}
+                    {/* Footer */}
                     {(footerText || link?.linkText) && (
                         <div className={styles.footer}>
                             {footerText && (
