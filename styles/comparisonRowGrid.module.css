@@ -1,0 +1,89 @@
+.section {
+    width: 100%;
+}
+
+/* Grid container — no outer border */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+}
+
+/* Column headers */
+.header {
+    padding: 14px 20px;
+}
+
+.headerRight {
+    border-left: 1.5px solid #c8d0dc;
+    padding-left: 40px;
+}
+
+.colLabel {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #8d97ad;
+}
+
+/* Data cells */
+.cell {
+    padding: 24px 40px 24px 20px;
+    border-bottom: 1.5px solid #c8d0dc;
+}
+
+.cell p {
+    font-size: 15px;
+    line-height: 1.55;
+    color: #263238;
+    margin: 0;
+}
+
+.cellRight {
+    border-left: 1.5px solid #c8d0dc;
+    padding-left: 40px;
+}
+
+/* Footer row — spans both columns */
+.footer {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 20px;
+    gap: 16px;
+}
+
+.footerText {
+    font-size: 15px;
+    font-style: italic;
+    font-weight: 700;
+    color: #263238;
+    margin: 0;
+    flex: 1;
+}
+
+.footerBtn {
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 767px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .headerRight,
+    .cellRight {
+        border-left: none;
+        border-top: 1.5px solid #c8d0dc;
+    }
+
+    .footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+}

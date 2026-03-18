@@ -51,7 +51,7 @@ const IntroSection: React.FC<IntroProps> = ({ data }) => {
     >
 
       <div className="container">
-        <div className={`wrap mx-auto ${textAlighment == "left" ? "text-left max-w-[480px] ml-0 mr-auto" : "text-center max-w-[928px]"} `}>
+        <div className={`wrap mx-auto ${textAlighment == "left" ? "text-left max-w-[700px] ml-0 mr-auto" : "text-center max-w-[928px]"} `}>
           {/* Badge */}
           {eyebrowText && <span className="announcemnet-badge">{eyebrowText}</span>}
 
