@@ -217,6 +217,13 @@
 .darkMode.process-timeline p {
   color: #e5e5ea;
 }
+.darkMode.pricing p{
+    color: #C7C7CC;
+}
+.darkMode.pricing .diff-on-dark-mode{
+    color: #F9FAFB;
+}
+
 @media (max-width: 1024px) {
   .darkMode.timeline .left_content_wrap {
     box-shadow: 0px 2px 5px 0px rgba(255, 255, 255, 0.38);

@@ -696,3 +696,21 @@
     background-repeat: no-repeat;
     background-position: center;
 }
+.btn-primary.dark-gradint{
+    background: linear-gradient(to right, #0044FF, #000D20);
+    color: #ffffff;
+    padding: 10px 50px 10px 25px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: opacity 0.3s ease;
+}
+.btn-primary.dark-gradint:hover {
+    opacity: 0.9;
+}
+.btn-primary.dark-gradint::after{
+    right: 30px;
+}
+.btn-primary.dark-gradint:hover::after{
+    right: 20px;
+}
