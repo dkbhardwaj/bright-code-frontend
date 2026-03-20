@@ -26,7 +26,7 @@ const ProcessTimeline: FC<ProcessTimelineProps> = ({ data }) => {
         : "py-16 md:py-24"; 
 
     return (
-        <section id={sectionId} className={`w-full ${safePadding}`}>
+        <section id={sectionId} className={`process-timeline w-full ${safePadding}`}>
             <div className="container mx-auto px-4 md:px-8 max-w-[900px]">
                 <div className="flex flex-col w-full overflow-hidden">
                     {steps.map((step, index) => {
@@ -36,13 +36,11 @@ const ProcessTimeline: FC<ProcessTimelineProps> = ({ data }) => {
                                 {/* Left Column: Number & Vertical Line */}
                                 <div className="relative flex flex-col items-center mr-6 md:mr-12 shrink-0">
                                     {/* The Circle */}
-                                    <div className="flex items-center justify-center w-[40px] h-[40px] md:w-[48px] md:h-[48px] rounded-full border border-[#e2e8f0] bg-white text-black text-[12px] font-[500] z-10 relative mt-1">
+                                    <div className="flex items-center justify-center w-[32px] h-[32px] rounded-full border border-[#e2e8f0] bg-white text-black text-[12px] font-[500] z-10 relative mt-2">
                                         {step.id}
                                     </div>
                                     {/* The Connecting Line */}
-                                    {/* {!isLast && ( */}
-                                        <div className="absolute top-[40px] md:top-[56px] bottom-[-32px] md:bottom-[-48px] left-1/2 -translate-x-1/2 w-[1px] bg-[#e2e8f0]" />
-                                    {/* )} */}
+                                        <div className="absolute top-[32px] bottom-[-32px] md:bottom-[-48px] left-1/2 -translate-x-1/2 w-[1px] bg-[#e2e8f0]" />
                                 </div>
 
                                 {/* Right Column: Content */}
