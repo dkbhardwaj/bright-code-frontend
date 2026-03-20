@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import styles from "../styles/comparisonRowGrid.module.css";
 
@@ -35,6 +35,17 @@ const ComparisonRowGrid: React.FC<ComparisonRowGridProps> = ({ data }) => {
         link,
     } = data;
 
+    const [isMobile, setIsMobile] = useState(false);
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+        const handleResize = () => setIsMobile(window.innerWidth < 992);
+        handleResize();
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
     const safePadding = Array.isArray(sectionPadding)
         ? sectionPadding.join(" ")
         : "padding-medium";
@@ -44,27 +55,53 @@ const ComparisonRowGrid: React.FC<ComparisonRowGridProps> = ({ data }) => {
             <div className="container">
                 <div className={styles.table}>
 
-                    {/* Header row */}
-                    <div className={styles.row}>
-                        <div className={styles.headerCell}>
-                            <span className={styles.colLabel}>{leftColumnLabel}</span>
-                        </div>
-                        <div className={`${styles.headerCell} ${styles.rightCol}`}>
-                            <span className={styles.colLabel}>{rightColumnLabel}</span>
-                        </div>
-                    </div>
+                    {(!mounted || !isMobile) ? (
+                        <div className={styles.desktopView}>
+                            <div className={styles.row}>
+                                <div className={styles.headerCell}>
+                                    <span className={styles.colLabel}>{leftColumnLabel}</span>
+                                </div>
+                                <div className={`${styles.headerCell} ${styles.rightCol}`}>
+                                    <span className={styles.colLabel}>{rightColumnLabel}</span>
+                                </div>
+                            </div>
 
-                    {/* Data rows — both cells in same row wrapper = equal height */}
-                    {rows?.map((row, i) => (
-                        <div key={i} className={styles.row}>
-                            <div className={styles.cell}>
-                                <p>{row.goodFit}</p>
+                            {rows?.map((row, i) => (
+                                <div key={i} className={styles.row}>
+                                    <div className={styles.cell}>
+                                        <p>{row.goodFit}</p>
+                                    </div>
+                                    <div className={`${styles.cell} ${styles.rightCol}`}>
+                                        <p>{row.notFit}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    ) : (
+                        <div className={styles.mobileView}>
+                            <div className={styles.mobileColumn}>
+                                <div className={styles.headerCell}>
+                                    <span className={styles.colLabel}>{leftColumnLabel}</span>
+                                </div>
+                                {rows?.map((row, i) => (
+                                    <div key={`left-${i}`} className={styles.cell}>
+                                        <p>{row.goodFit}</p>
+                                    </div>
+                                ))}
                             </div>
-                            <div className={`${styles.cell} ${styles.rightCol}`}>
-                                <p>{row.notFit}</p>
+
+                            <div className={`${styles.mobileColumn}`}>
+                                <div className={`${styles.headerCell} ${styles.rightCol}`}>
+                                    <span className={styles.colLabel}>{rightColumnLabel}</span>
+                                </div>
+                                {rows?.map((row, i) => (
+                                    <div key={`right-${i}`} className={`${styles.cell} ${styles.rightCol}`}>
+                                        <p>{row.notFit}</p>
+                                    </div>
+                                ))}
                             </div>
                         </div>
-                    ))}
+                    )}
 
                     {/* Footer */}
                     {(footerText || link?.linkText) && (
