@@ -51,7 +51,7 @@ const ComparisonRowGrid: React.FC<ComparisonRowGridProps> = ({ data }) => {
         : "padding-medium";
 
     return (
-        <section id={sectionId} className={`${styles.section} ${safePadding}`}>
+        <section id={sectionId} className={`comparison-row-grid ${styles.section} ${safePadding}`}>
             <div className="container">
                 <div className={styles.table}>
 

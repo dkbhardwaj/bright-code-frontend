@@ -4,60 +4,59 @@
 
 /* Footer in dark mode */
 .darkMode.new-footer .footer-top-right {
-    color: #ffffff;
+  color: #ffffff;
 }
 
 .darkMode .announcemnet-badge {
-    color: #ffffff;
+  color: #ffffff;
 }
 
 .darkMode .announcemnet-badge::before {
-    background-image: url("/what-we-do-blades/megaphone-white.svg");
+  background-image: url("/what-we-do-blades/megaphone-white.svg");
 }
 
 .darkMode.new-footer {
-    background-color: #000d20;
+  background-color: #000d20;
 }
 
 .darkMode.new-footer h4 {
-    color: #ffffff;
-    background: linear-gradient(to right, #ffffff, #ffffff);
-    background-size: 0% 2px;
-    background-repeat: no-repeat;
-    background-position: left bottom;
-    transition: background-size 0.35s ease;
+  color: #ffffff;
+  background: linear-gradient(to right, #ffffff, #ffffff);
+  background-size: 0% 2px;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  transition: background-size 0.35s ease;
 }
 
 .darkMode.new-footer h4:hover {
-    background-size: 100% 2px;
+  background-size: 100% 2px;
 }
 
 .darkMode.new-footer ul li a {
-    color: #ffffff;
+  color: #ffffff;
 }
 
 .darkMode.new-footer .inner-wrap {
-    /* background: radial-gradient(circle at top, #0f1c3a 0%, #050b1a 70%); */
-    color: #ffffff;
-    background-color: #0d192b;
+  /* background: radial-gradient(circle at top, #0f1c3a 0%, #050b1a 70%); */
+  color: #ffffff;
+  background-color: #0d192b;
 }
 
 .darkMode.new-footer .footer-divider {
-    background: #ffffff;
-    opacity: 0.3;
+  background: #ffffff;
+  opacity: 0.3;
 }
 
 .darkMode.new-footer .footer-logo--light,
 .darkMode.new-footer .footer-icon--light,
 .darkMode.new-footer .social-light {
-    display: none;
+  display: none;
 }
-
 
 .darkMode.new-footer .footer-logo--dark,
 .darkMode.new-footer .footer-icon--dark,
 .darkMode.new-footer .social-dark {
-    display: inline-block;
+  display: inline-block;
 }
 
 /* Cards / Sections with light ↔ dark image swap + bg/text */
@@ -68,25 +67,25 @@
 .darkMode.three-column-section,
 .darkMode.image-with-content,
 .darkMode.three-column-section {
-    background-color: #0f172a;
+  background-color: #0f172a;
 }
 
 .darkMode.colTwoCard .light-image,
 .darkMode.title-section .light-image,
 .darkMode.grid-cards-section .light-image,
 .darkMode.three-column-section .light-image {
-    display: none;
+  display: none;
 }
 
 .darkMode.colTwoCard .dark-image,
 .darkMode.title-section .dark-image,
 .darkMode.grid-cards-section .dark-image,
 .darkMode.three-column-section .dark-image {
-    display: block;
+  display: block;
 }
 
 .darkMode {
-    color: #ffffff;
+  color: #ffffff;
 }
 
 .darkMode.colTwoCard h1,
@@ -106,104 +105,115 @@
 .darkMode.three-column-section h2,
 .darkMode.three-column-section h3,
 .darkMode.three-column-section p {
-    color: #ffffff;
+  color: #ffffff;
 }
 
 /* Third banner variant */
 .darkMode.banner-third h1 {
-    color: #f8fafc;
-    /* $cloudWhite – very light off-white */
+  color: #f8fafc;
+  /* $cloudWhite – very light off-white */
 }
 
 /* Announcement badge in dark mode */
 .darkMode.announcemnet-badge {
-    color: #ffffff;
-    background: linear-gradient(90deg,
-            rgba(255, 255, 255, 0.1) 0%,
-            rgba(255, 255, 255, 0.1) 100%);
+  color: #ffffff;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
 }
 
 .darkMode.announcemnet-badge::before {
-    background-image: url(/what-we-do-blades/megaphone-white.svg);
+  background-image: url(/what-we-do-blades/megaphone-white.svg);
 }
 
 /* grid-cards-section + three-column-section card styling in dark mode */
 .darkMode.grid-cards-section .card,
 .darkMode.three-column-section .card {
-    background-color: #ffffff0d;
-    border: 1.5px solid #222b59a1;
-    box-shadow: none;
-    transition: all 0.3s ease-in-out;
-    /* $indigoBlue */
+  background-color: #ffffff0d;
+  border: 1.5px solid #222b59a1;
+  box-shadow: none;
+  transition: all 0.3s ease-in-out;
+  /* $indigoBlue */
 }
 
 .darkMode.grid-cards-section .card:hover,
 .darkMode.three-column-section .card:hover {
-    box-shadow: 0 8px 24px hsla(210, 8%, 62%, 0.2);
+  box-shadow: 0 8px 24px hsla(210, 8%, 62%, 0.2);
 }
 
 .darkMode.grid-cards-section .card h4,
 .darkMode.three-column-section .card h4 {
-    color: #f8fafc;
-    /* $cloudWhite */
+  color: #f8fafc;
+  /* $cloudWhite */
 }
 
 .darkMode.grid-cards-section .card p,
 .darkMode.three-column-section .card p {
-    color: #cbd5e1;
-    /* $borderLight – light gray-blue */
+  color: #cbd5e1;
+  /* $borderLight – light gray-blue */
 }
 
 .darkMode.grid-cards-section .card .redirect,
 .darkMode.three-column-section .card .redirect,
 .darkMode.grid-cards-section .card .blue-link,
 .darkMode.three-column-section .card .blue-link {
-    color: #ffffff !important;
+  color: #ffffff !important;
 }
 
 .darkMode.grid-cards-section .card .blue-link::before,
 .darkMode.three-column-section .card .blue-link::before {
-    background-image: url(/what-we-do-blades/white_arrow.svg) !important;
+  background-image: url(/what-we-do-blades/white_arrow.svg) !important;
 }
 
 /* Timeline in dark mode */
 .darkMode.timeline {
-    background-color: #0f172a;
-    /* $carbonBlue */
+  background-color: #0f172a;
+  /* $carbonBlue */
 }
 
 .darkMode.timeline .row {
-    border-color: #f2f2f7;
+  border-color: #f2f2f7;
 }
 
 .darkMode.timeline .scroll_line_one {
-    background: linear-gradient(180deg,
-            rgba(255, 255, 255, 0.05) 0%,
-            rgba(255, 255, 255, 0.4) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.4) 100%
+  );
 }
 
 .darkMode.timeline .left_content_wrap,
 .darkMode.timeline .right_content_wrap {
-    background-color: rgba(255, 255, 255, 0.05);
-    box-shadow: 0px 1px 3px -1px rgba(0, 0, 0, 0.8);
-    border: 1px solid #1e40af;
-    /* $indigoBlue */
+  background-color: rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 1px 3px -1px rgba(0, 0, 0, 0.8);
+  border: 1px solid #1e40af;
+  /* $indigoBlue */
 }
 
 .darkMode.timeline .left_content_wrap h3,
 .darkMode.timeline .left_content_wrap h4,
 .darkMode.timeline .right_content_wrap h3,
 .darkMode.timeline .right_content_wrap h4 {
-    color: #f8fafc;
+  color: #f8fafc;
 }
 
 .darkMode.timeline .left_content_wrap p,
 .darkMode.timeline .right_content_wrap p {
-    color: #cbd5e1;
+  color: #cbd5e1;
+}
+.darkMode.comparison-row-grid p,
+.darkMode.comparison-row-grid span {
+  color: #fff;
+}
+.darkMode.comparison-row-grid .comparisonRowGrid-module__RhNLfa__mobileColumn {
+  border-color: #f9fafb;
 }
 
 @media (max-width: 1024px) {
-    .darkMode.timeline .left_content_wrap {
-        box-shadow: 0px 2px 5px 0px rgba(255, 255, 255, 0.38);
-    }
+  .darkMode.timeline .left_content_wrap {
+    box-shadow: 0px 2px 5px 0px rgba(255, 255, 255, 0.38);
+  }
 }
