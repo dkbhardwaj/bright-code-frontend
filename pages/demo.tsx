@@ -5,6 +5,92 @@ import ProcessTimeline from "../components/ProcessTimeline";
 import PricingSection from "@/components/PricingSection";
 import RecognitionSection from "@/components/RecognitionSection";
 import FeaturedHighlights from "../components/FeaturedHighlights";
+import GridLayout from "../components/GridLayout";
+import { GridLayoutBlade } from "../components/PageBuilder/section.types";
+
+const gridLayoutData: GridLayoutBlade = {
+    fieldGroupName: "PagebuilderSectionsGridLayoutSectionLayout",
+    theme: "dark",
+    sectionPadding: ["padding-medium"],
+    rows: [
+        {
+            columnLayout: "leftLarge",
+            cards: [
+                {
+                    cardTitle: "Large Left Card",
+                    cardDescription: "This is a demonstration of the leftLarge layout, stretching this card out more horizontally and presenting a larger image.",
+                    cardImage: {
+                        node: {
+                            altText: "Sample Image",
+                            sourceUrl: "/embedded.svg",
+                        },
+                    },
+                    cta: {
+                        ctaLabel: "Learn more",
+                        ctaUrl: "#",
+                        openInNewTab: false,
+                    },
+                },
+                {
+                    cardTitle: "Small Right Card",
+                    cardDescription: "This card sits next to the large one, taking up less space in a 8/4 grid split on desktop.",
+                    cardImage: {
+                        node: {
+                            altText: "Sample Image",
+                            sourceUrl: "/embedded.svg",
+                        },
+                    },
+                    cta: {
+                        ctaLabel: "View details",
+                        ctaUrl: "#",
+                        openInNewTab: false,
+                    },
+                },
+            ],
+        },
+        {
+            columnLayout: "rightLarge",
+            cards: [
+                {
+                    cardTitle: "Small Left Card",
+                    cardDescription: "This is a demonstration of the rightLarge layout, stretching this card out more horizontally and presenting a larger image.",
+                    cardImage: {
+                        node: {
+                            altText: "Sample Image",
+                            sourceUrl: "/embedded.svg",
+                        },
+                    },
+                    cta: {
+                        ctaLabel: "Learn more",
+                        ctaUrl: "#",
+                        openInNewTab: false,
+                    },
+                },
+                {
+                    cardTitle: "Large Right Card",
+                    cardDescription: "This card sits next to the large one, taking up less space in a 8/4 grid split on desktop.",
+                    cardImage: {
+                        node: {
+                            altText: "Sample Image",
+                            sourceUrl: "/embedded.svg",
+                        },
+                    },
+                    cta: {
+                        ctaLabel: "View details",
+                        ctaUrl: "#",
+                        openInNewTab: false,
+                    },
+                },
+            ],
+        },
+    ],
+    link: {
+        target: "",
+        linkUrl: "#",
+        linkText: "View all features",
+        classname: [],
+    },
+};
 
 const introData = {
     eyebrowText: "Check your fit",
@@ -163,6 +249,7 @@ export default function DemoPage() {
             <IntroSection data={introData2} />
             <ProcessTimeline data={processTimelineData} />
             <FeaturedHighlights data={featureHighlightsData} />
+            <GridLayout data={gridLayoutData} />
             <IntroSection data={introData} />
             <ComparisonRowGrid data={comparisonData} />
             <PricingSection data={pricingData}/>
