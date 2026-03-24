@@ -211,6 +211,37 @@ export interface FeatureHighlightsBlade {
   };
 }
 
+export interface GridLayoutBlade {
+  fieldGroupName: 'PagebuilderSectionsGridLayoutSectionLayout';
+  sectionId?: string;
+  theme: string;
+  rows?: {
+    columnLayout: "equal" | "leftLarge" | "rightLarge" | null;
+    cards?: {
+      cardTitle: string;
+      cardDescription: string;
+      cardImage: {
+        node: {
+          altText: string;
+          sourceUrl: string;
+        }
+      }
+      cta: {
+        ctaLabel: string;
+        ctaUrl: string;
+        openInNewTab: boolean;
+      }
+    }[];
+  }[];
+  sectionPadding: string[];
+  link?: {
+    target: string;
+    linkUrl: string;
+    linkText: string;
+    classname: string[];
+  }
+}
+
 export type Blade =
   | HeroBannerBlade
   | IntroductionBlade
@@ -220,4 +251,5 @@ export type Blade =
   | ContactSectionBlade
   | FooterCtaBlade
   | IconWithTextCardBlade
-  | FeatureHighlightsBlade;
+  | FeatureHighlightsBlade
+  | GridLayoutBlade;

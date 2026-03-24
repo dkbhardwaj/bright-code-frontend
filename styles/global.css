@@ -58,13 +58,31 @@
     transition: transform 0.3s ease;
 }
 
-/* Light / Dark image switching (works in .ThreeColumns) */
-.ThreeColumns .light-image {
+/* Light / Dark image switching (works in .ThreeColumns and .GridLayout) */
+.ThreeColumns .light-image,
+.GridLayout .light-image {
     display: block;
 }
 
-.ThreeColumns .dark-image {
+.ThreeColumns .dark-image,
+.GridLayout .dark-image {
     display: none;
+}
+
+/* GridLayout specific hover magic */
+.GridLayout .card {
+    position: relative;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.GridLayout .card .content h4 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #263238;
+}
+
+.GridLayout .card:hover {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 
@@ -88,6 +106,10 @@
     background-repeat: no-repeat;
     background-position: 50%;
     transition: right .3s ease-in-out;
+}
+
+.GridLayout .card:hover .btn-wrap .blue-link::before {
+    right: -16px;
 }
 
 

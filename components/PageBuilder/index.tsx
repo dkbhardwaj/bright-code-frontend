@@ -9,6 +9,7 @@ import ContactSection from '../ContactSection';
 import Cta from '../Cta';
 import IconWithTextCard from '../IconWithTextCard';
 import FeaturedHighlights from '../FeaturedHighlights';
+import GridLayout from '../GridLayout';
 import {
   Blade, HeroBannerBlade,
   IntroductionBlade,
@@ -18,7 +19,8 @@ import {
   ContactSectionBlade,
   FooterCtaBlade,
   IconWithTextCardBlade,
-  FeatureHighlightsBlade
+  FeatureHighlightsBlade,
+  GridLayoutBlade
 } from './section.types';
 
 
@@ -45,6 +47,7 @@ type BladeComponentMap = {
   PagebuilderSectionsFooterCtaLayout: React.FC<{ data: FooterCtaBlade }>;
   PagebuilderSectionsIconWithTextCardLayout: React.FC<{ data: IconWithTextCardBlade }>;
   PagebuilderSectionsFeatureHighlightsLayout: React.FC<{ data: FeatureHighlightsBlade }>;
+  PagebuilderSectionsGridLayoutSectionLayout: React.FC<{ data: GridLayoutBlade }>;
 };
 
 const layoutMap: BladeComponentMap = {
@@ -57,6 +60,7 @@ const layoutMap: BladeComponentMap = {
   PagebuilderSectionsFooterCtaLayout: Cta,
   PagebuilderSectionsIconWithTextCardLayout: IconWithTextCard as any,
   PagebuilderSectionsFeatureHighlightsLayout: FeaturedHighlights,
+  PagebuilderSectionsGridLayoutSectionLayout: GridLayout,
 };
 
 const SafeSection: React.FC<{ children: React.ReactNode, name: string }> = ({ children, name }) => {
