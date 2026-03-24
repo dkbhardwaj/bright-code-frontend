@@ -128,36 +128,6 @@ export interface ColThreeCardsBlade {
   }
 }
 
-export interface GridCardsBlade {
-  fieldGroupName: 'PagebuilderSectionsGridCardsSectionLayout';
-  sectionId?: string;
-  theme: string;
-  rows: {
-    columnLayout: "equal" | "leftLarge" | "rightLarge" | null;
-    cards: {
-      cardTitle: string;
-      cardDescription: string;
-      cardImage: {
-        node: {
-          altText: string;
-          sourceUrl: string;
-        }
-      }
-      cta: {
-        ctaLabel: string;
-        ctaUrl: string;
-        openInNewTab: boolean;
-      }
-    }[];
-  }[];
-  sectionPadding: string[];
-  link: {
-    target: string;
-    linkUrl: string;
-    linkText: string;
-    classname: string[];
-  }
-}
 
 
 export interface ContactSectionBlade {
@@ -247,7 +217,6 @@ export type Blade =
   | TimelineViewBlade
   | ImageWithContentBlade
   | ColThreeCardsBlade
-  | GridCardsBlade
   | ContactSectionBlade
   | FooterCtaBlade
   | IconWithTextCardBlade

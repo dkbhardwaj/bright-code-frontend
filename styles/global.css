@@ -58,32 +58,16 @@
     transition: transform 0.3s ease;
 }
 
-/* Light / Dark image switching (works in both .ThreeColumns and .GridCards) */
-.ThreeColumns .light-image,
-.GridCards .light-image {
+/* Light / Dark image switching (works in .ThreeColumns) */
+.ThreeColumns .light-image {
     display: block;
 }
 
-.ThreeColumns .dark-image,
-.GridCards .dark-image {
+.ThreeColumns .dark-image {
     display: none;
 }
 
-/* GridCards specific hover magic */
-.GridCards .card {
-    position: relative;
-    transition: box-shadow 0.3s ease-in-out;
-}
 
-.GridCards .card .content h4 {
-    font-size: 20px;
-    font-weight: 600;
-    color: #263238;
-}
-
-.GridCards .card:hover {
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-}
 
 .blue-link {
     position: relative;
@@ -106,9 +90,6 @@
     transition: right .3s ease-in-out;
 }
 
-.GridCards .card:hover .btn-wrap .blue-link::before {
-    right: -16px;
-}
 
 /* ────────────────────────────────────────────────
    Timeline / Scroll Animation Section

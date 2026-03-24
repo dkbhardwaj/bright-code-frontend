@@ -63,7 +63,6 @@
 .darkMode,
 .darkMode.colTwoCard,
 .darkMode.title-section,
-.darkMode.grid-cards-section,
 .darkMode.three-column-section,
 .darkMode.image-with-content,
 .darkMode.three-column-section {
@@ -72,14 +71,12 @@
 
 .darkMode.colTwoCard .light-image,
 .darkMode.title-section .light-image,
-.darkMode.grid-cards-section .light-image,
 .darkMode.three-column-section .light-image {
   display: none;
 }
 
 .darkMode.colTwoCard .dark-image,
 .darkMode.title-section .dark-image,
-.darkMode.grid-cards-section .dark-image,
 .darkMode.three-column-section .dark-image {
   display: block;
 }
@@ -90,15 +87,12 @@
 
 .darkMode.colTwoCard h1,
 .darkMode.title-section h1,
-.darkMode.grid-cards-section h1,
 .darkMode.three-column-section h1,
 .darkMode.colTwoCard h3,
 .darkMode.title-section h3,
-.darkMode.grid-cards-section h3,
 .darkMode.three-column-section h3,
 .darkMode.colTwoCard p,
 .darkMode.title-section p,
-.darkMode.grid-cards-section p,
 .darkMode.three-column-section p .darkMode.image-with-content h2,
 .darkMode.image-with-content h3,
 .darkMode.image-with-content p,
@@ -128,8 +122,7 @@
   background-image: url(/what-we-do-blades/megaphone-white.svg);
 }
 
-/* grid-cards-section + three-column-section card styling in dark mode */
-.darkMode.grid-cards-section .card,
+/* three-column-section card styling in dark mode */
 .darkMode.three-column-section .card {
   background-color: #ffffff0d;
   border: 1.5px solid #222b59a1;
@@ -138,31 +131,25 @@
   /* $indigoBlue */
 }
 
-.darkMode.grid-cards-section .card:hover,
 .darkMode.three-column-section .card:hover {
   box-shadow: 0 8px 24px hsla(210, 8%, 62%, 0.2);
 }
 
-.darkMode.grid-cards-section .card h4,
 .darkMode.three-column-section .card h4 {
   color: #f8fafc;
   /* $cloudWhite */
 }
 
-.darkMode.grid-cards-section .card p,
 .darkMode.three-column-section .card p {
   color: #cbd5e1;
   /* $borderLight – light gray-blue */
 }
 
-.darkMode.grid-cards-section .card .redirect,
 .darkMode.three-column-section .card .redirect,
-.darkMode.grid-cards-section .card .blue-link,
 .darkMode.three-column-section .card .blue-link {
   color: #ffffff !important;
 }
 
-.darkMode.grid-cards-section .card .blue-link::before,
 .darkMode.three-column-section .card .blue-link::before {
   background-image: url(/what-we-do-blades/white_arrow.svg) !important;
 }
