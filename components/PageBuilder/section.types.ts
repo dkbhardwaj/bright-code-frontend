@@ -223,6 +223,24 @@ export interface IconWithTextCardBlade {
   }[];
 }
 
+export interface FeatureHighlightsBlade {
+  fieldGroupName: 'PagebuilderSectionsFeatureHighlightsLayout';
+  sectionId?: string;
+  theme?: 'light' | 'dark';
+  sectionPadding?: string[];
+  items?: {
+    title: string;
+    description: string;
+    bulletColor?: 'blue' | 'white';
+  }[];
+  link?: {
+    linkText: string;
+    linkUrl: string;
+    target?: boolean;
+    classname?: string;
+  };
+}
+
 export type Blade =
   | HeroBannerBlade
   | IntroductionBlade
@@ -232,4 +250,5 @@ export type Blade =
   | GridCardsBlade
   | ContactSectionBlade
   | FooterCtaBlade
-  | IconWithTextCardBlade;
+  | IconWithTextCardBlade
+  | FeatureHighlightsBlade;

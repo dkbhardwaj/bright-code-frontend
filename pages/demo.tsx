@@ -4,6 +4,7 @@ import ComparisonRowGrid from "../components/ComparisonRowGrid";
 import ProcessTimeline from "../components/ProcessTimeline";
 import PricingSection from "@/components/PricingSection";
 import RecognitionSection from "@/components/RecognitionSection";
+import FeaturedHighlights from "../components/FeaturedHighlights";
 
 const introData = {
     eyebrowText: "Check your fit",
@@ -120,11 +121,48 @@ const recognitionData = {
     sectionPadding: ["padding-medium"],
     textAlignment: "center" as const,
 };
+
+const featureHighlightsData = {
+    fieldGroupName: "PagebuilderSectionsFeatureHighlightsLayout" as const,
+    sectionPadding: ["padding-medium"],
+    theme: "light" as const,
+    items: [
+        {
+            title: "Scope Before Sprint",
+            description:
+                "We don't open a ticket until the edges of the problem are understood. That means a short written brief, agreed constraints, and a named outcome — before a single line of code is planned.",
+            bulletColor: "white" as const,
+        },
+        {
+            title: "Decisions in Writing",
+            description:
+                "Every meaningful technical choice produces a brief record of what was decided and why. Not documentation for its own sake — a transfer mechanism, so context survives personnel changes.",
+            bulletColor: "blue" as const,
+        },
+        {
+            title: "Reviews as Checkpoints",
+            description:
+                "We build review into the process at fixed intervals, not as a final gate. Catching a wrong turn at week two costs a fraction of what it costs at week eight.",
+            // no bulletColor — defaults to blue
+        },
+        {
+            title: "Outcomes Over Output",
+            description:
+                "Velocity is a proxy. We track whether the system is getting more capable and more reliable over time — not whether the team looks busy. The metrics follow from that framing.",
+            // bulletColor: "white" as const,
+        },
+    ],
+    link: {
+        linkText: "Book an intro call",
+        linkUrl: "#",
+    },
+};
 export default function DemoPage() {
     return (
         <>
             <IntroSection data={introData2} />
             <ProcessTimeline data={processTimelineData} />
+            <FeaturedHighlights data={featureHighlightsData} />
             <IntroSection data={introData} />
             <ComparisonRowGrid data={comparisonData} />
             <PricingSection data={pricingData}/>
