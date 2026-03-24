@@ -4,6 +4,7 @@ const wpUrl = process.env.NEXT_PUBLIC_WP_GRAPHQL_URL ? new URL(process.env.NEXT_
 
 
 const nextConfig: NextConfig = {
+  // @ts-ignore
   eslint: {
     // Warning: This allows production builds to successfully complete even if
     // your project has ESLint errors.
