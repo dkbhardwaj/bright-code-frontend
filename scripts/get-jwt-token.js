@@ -23,7 +23,7 @@ if (args.length < 2) {
 }
 
 const [username, password] = args;
-const graphqlUrl = process.env.WP_GRAPHQL_URL || 'https://dev-bright-codeio.pantheonsite.io/graphql';
+const graphqlUrl = process.env.WP_GRAPHQL_URL || 'https://sun-3-bright-codeio.pantheonsite.io/graphql';
 
 const mutation = `
   mutation LoginUser {

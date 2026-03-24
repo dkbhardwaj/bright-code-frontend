@@ -126,7 +126,7 @@ node scripts/get-jwt-token.js admin MySecurePassword123
 ```
 🔐 Attempting to authenticate with WordPress...
 
-GraphQL URL: https://dev-bright-codeio.pantheonsite.io/graphql
+GraphQL URL: https://sun-3-bright-codeio.pantheonsite.io/graphql
 Username: admin
 
 ✅ Authentication successful!
@@ -152,7 +152,7 @@ User Information:
 
 If you prefer a visual interface:
 
-1. Navigate to: `https://dev-bright-codeio.pantheonsite.io/graphql`
+1. Navigate to: `https://sun-3-bright-codeio.pantheonsite.io/graphql`
 2. Paste this mutation:
 
 ```graphql
@@ -190,9 +190,9 @@ mutation LoginUser {
 
 2. **Add the refresh token:**
    ```bash
-   NEXT_PUBLIC_WORDPRESS_API_URL=https://dev-bright-codeio.pantheonsite.io/wp-json/wp/v2
-   WP_GRAPHQL_URL=https://dev-bright-codeio.pantheonsite.io/graphql
-   NEXT_PUBLIC_WP_GRAPHQL_URL=https://dev-bright-codeio.pantheonsite.io/graphql
+   NEXT_PUBLIC_WORDPRESS_API_URL=https://sun-3-bright-codeio.pantheonsite.io/wp-json/wp/v2
+   WP_GRAPHQL_URL=https://sun-3-bright-codeio.pantheonsite.io/graphql
+   NEXT_PUBLIC_WP_GRAPHQL_URL=https://sun-3-bright-codeio.pantheonsite.io/graphql
    NEXTJS_PREVIEW_SECRET=mC0QfIGWXZW01JHzlBEio2yeOMTK9jJOeAejft76Kg
    WORDPRESS_AUTH_REFRESH_TOKEN=paste-your-refresh-token-here
    ```
@@ -224,7 +224,7 @@ node scripts/test-jwt-auth.js
    Length: 245 characters
 
 🔍 Testing GraphQL query with authentication...
-   Endpoint: https://dev-bright-codeio.pantheonsite.io/graphql
+   Endpoint: https://sun-3-bright-codeio.pantheonsite.io/graphql
 
 ✅ Authentication Successful!
 

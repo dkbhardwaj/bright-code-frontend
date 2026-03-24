@@ -38,7 +38,7 @@ try {
 }
 
 const refreshToken = process.env.WORDPRESS_AUTH_REFRESH_TOKEN;
-const graphqlUrl = process.env.WP_GRAPHQL_URL || 'https://dev-bright-codeio.pantheonsite.io/graphql';
+const graphqlUrl = process.env.WP_GRAPHQL_URL || 'https://sun-3-bright-codeio.pantheonsite.io/graphql';
 
 console.log('🧪 Testing JWT Authentication...\n');
 console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n');

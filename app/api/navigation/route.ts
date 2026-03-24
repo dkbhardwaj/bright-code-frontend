@@ -5,7 +5,7 @@ import { GET_NAVIGATION } from '@/lib/Navigation';
 export async function GET() {
   try {
     const client = new GraphQLClient(
-      process.env.WP_GRAPHQL_URL || "https://dev-bright-codeio.pantheonsite.io/graphql"
+      process.env.WP_GRAPHQL_URL || "https://sun-3-bright-codeio.pantheonsite.io/graphql"
     );
 
     const data = await client.request(GET_NAVIGATION);

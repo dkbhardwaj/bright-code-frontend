@@ -14,7 +14,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'dev-bright-codeio.pantheonsite.io',
+        hostname: 'sun-3-bright-codeio.pantheonsite.io',
       },
       ...(wpUrl
         ? [

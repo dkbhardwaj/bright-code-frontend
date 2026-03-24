@@ -58,7 +58,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const pages = params?.pages as string[];
 
   const client = new GraphQLClient(
-    (process.env.WP_GRAPHQL_URL || process.env.NEXT_PUBLIC_WP_GRAPHQL_URL || 'https://dev-bright-codeio.pantheonsite.io/graphql') as string,
+    (process.env.WP_GRAPHQL_URL || process.env.NEXT_PUBLIC_WP_GRAPHQL_URL || 'https://sun-3-bright-codeio.pantheonsite.io/graphql') as string,
     {
       headers: preview && process.env.WORDPRESS_AUTH_REFRESH_TOKEN
         ? {

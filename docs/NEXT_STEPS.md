@@ -102,9 +102,9 @@ node scripts/get-jwt-token.js admin MyPassword123
 
 3. Your complete `.env.local` should look like:
    ```bash
-   NEXT_PUBLIC_WORDPRESS_API_URL=https://dev-bright-codeio.pantheonsite.io/wp-json/wp/v2
-   WP_GRAPHQL_URL=https://dev-bright-codeio.pantheonsite.io/graphql
-   NEXT_PUBLIC_WP_GRAPHQL_URL=https://dev-bright-codeio.pantheonsite.io/graphql
+   NEXT_PUBLIC_WORDPRESS_API_URL=https://sun-3-bright-codeio.pantheonsite.io/wp-json/wp/v2
+   WP_GRAPHQL_URL=https://sun-3-bright-codeio.pantheonsite.io/graphql
+   NEXT_PUBLIC_WP_GRAPHQL_URL=https://sun-3-bright-codeio.pantheonsite.io/graphql
    NEXTJS_PREVIEW_SECRET=mC0QfIGWXZW01JHzlBEio2yeOMTK9jJOeAejft76Kg
    WORDPRESS_AUTH_REFRESH_TOKEN=your-actual-refresh-token-here
    ```
