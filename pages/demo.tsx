@@ -155,22 +155,18 @@ const processTimelineData = {
     sectionPadding: ["pt-16 pb-16 md:pt-24 md:pb-24"],
     steps: [
         {
-            id: 1,
             title: "DIAGNOSE",
             description: "The first conversation is a structured intake — current state, constraints, what's already been tried. By the end, both sides know whether there's a fit worth pursuing and what the shape of it might be."
         },
         {
-            id: 2,
             title: "SCOPE",
             description: "A short written document sets the boundaries: deliverables, timeline, decision rights, and what success looks like. Ambiguity at this stage is expensive. Clarity here makes the rest fast."
         },
         {
-            id: 3,
             title: "EXECUTE",
             description: "Progress is visible from day one. Weekly checkpoints are short and focused on decisions, not status updates. You stay close enough to redirect; distant enough to let the work breathe."
         },
         {
-            id: 4,
             title: "TRANSFER",
             description: "Every engagement ends with documentation, a handoff session, and a clear owner on your side. The goal is that the work stands on its own — and that next time, you need less help, not more."
         }

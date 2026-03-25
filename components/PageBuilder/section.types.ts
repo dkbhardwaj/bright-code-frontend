@@ -261,6 +261,16 @@ export interface ComparisonRowGridBlade {
   };
 }
 
+export interface ProcessTimelineBlade {
+  fieldGroupName: 'PagebuilderSectionsProcessTimelineLayout';
+  sectionId?: string;
+  sectionPadding?: string[];
+  steps?: {
+    title: string;
+    description: string;
+  }[];
+}
+
 export type Blade =
   | HeroBannerBlade
   | IntroductionBlade
@@ -272,4 +282,5 @@ export type Blade =
   | IconWithTextCardBlade
   | FeatureHighlightsBlade
   | GridLayoutBlade
-  | ComparisonRowGridBlade;
+  | ComparisonRowGridBlade
+  | ProcessTimelineBlade;
