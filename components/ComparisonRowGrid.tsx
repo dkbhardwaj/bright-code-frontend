@@ -3,17 +3,18 @@ import Link from "next/link";
 import styles from "../styles/comparisonRowGrid.module.css";
 
 export interface ComparisonRow {
-    goodFit: string;
-    notFit: string;
+    leftText: string;
+    rightText: string;
 }
 
 export interface ComparisonRowGridProps {
     data: {
+        fieldGroupName?: string;
         sectionId?: string;
         sectionPadding?: string[];
         leftColumnLabel?: string;
         rightColumnLabel?: string;
-        rows: ComparisonRow[];
+        comparisonRows?: ComparisonRow[];
         footerText?: string;
         link?: {
             linkText: string;
@@ -30,7 +31,7 @@ const ComparisonRowGrid: React.FC<ComparisonRowGridProps> = ({ data }) => {
         sectionPadding,
         leftColumnLabel = "GOOD FIT IF",
         rightColumnLabel = "NOT A FIT IF",
-        rows,
+        comparisonRows,
         footerText,
         link,
     } = data;
@@ -66,13 +67,13 @@ const ComparisonRowGrid: React.FC<ComparisonRowGridProps> = ({ data }) => {
                                 </div>
                             </div>
 
-                            {rows?.map((row, i) => (
+                            {comparisonRows?.map((row, i) => (
                                 <div key={i} className={styles.row}>
                                     <div className={styles.cell}>
-                                        <p>{row.goodFit}</p>
+                                        <p>{row.leftText}</p>
                                     </div>
                                     <div className={`${styles.cell} ${styles.rightCol}`}>
-                                        <p>{row.notFit}</p>
+                                        <p>{row.rightText}</p>
                                     </div>
                                 </div>
                             ))}
@@ -83,9 +84,9 @@ const ComparisonRowGrid: React.FC<ComparisonRowGridProps> = ({ data }) => {
                                 <div className={styles.headerCell}>
                                     <span className={styles.colLabel}>{leftColumnLabel}</span>
                                 </div>
-                                {rows?.map((row, i) => (
+                                {comparisonRows?.map((row, i) => (
                                     <div key={`left-${i}`} className={styles.cell}>
-                                        <p>{row.goodFit}</p>
+                                        <p>{row.leftText}</p>
                                     </div>
                                 ))}
                             </div>
@@ -94,9 +95,9 @@ const ComparisonRowGrid: React.FC<ComparisonRowGridProps> = ({ data }) => {
                                 <div className={`${styles.headerCell} ${styles.rightCol}`}>
                                     <span className={styles.colLabel}>{rightColumnLabel}</span>
                                 </div>
-                                {rows?.map((row, i) => (
+                                {comparisonRows?.map((row, i) => (
                                     <div key={`right-${i}`} className={`${styles.cell} ${styles.rightCol}`}>
-                                        <p>{row.notFit}</p>
+                                        <p>{row.rightText}</p>
                                     </div>
                                 ))}
                             </div>

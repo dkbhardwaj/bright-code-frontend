@@ -10,6 +10,7 @@ import Cta from '../Cta';
 import IconWithTextCard from '../IconWithTextCard';
 import FeaturedHighlights from '../FeaturedHighlights';
 import GridLayout from '../GridLayout';
+import ComparisonRowGrid from '../ComparisonRowGrid';
 import {
   Blade, HeroBannerBlade,
   IntroductionBlade,
@@ -20,7 +21,8 @@ import {
   FooterCtaBlade,
   IconWithTextCardBlade,
   FeatureHighlightsBlade,
-  GridLayoutBlade
+  GridLayoutBlade,
+  ComparisonRowGridBlade
 } from './section.types';
 
 
@@ -48,6 +50,7 @@ type BladeComponentMap = {
   PagebuilderSectionsIconWithTextCardLayout: React.FC<{ data: IconWithTextCardBlade }>;
   PagebuilderSectionsFeatureHighlightsLayout: React.FC<{ data: FeatureHighlightsBlade }>;
   PagebuilderSectionsGridLayoutSectionLayout: React.FC<{ data: GridLayoutBlade }>;
+  PagebuilderSectionsComparisonRowGridLayout: React.FC<{ data: ComparisonRowGridBlade }>;
 };
 
 const layoutMap: BladeComponentMap = {
@@ -61,6 +64,7 @@ const layoutMap: BladeComponentMap = {
   PagebuilderSectionsIconWithTextCardLayout: IconWithTextCard as any,
   PagebuilderSectionsFeatureHighlightsLayout: FeaturedHighlights,
   PagebuilderSectionsGridLayoutSectionLayout: GridLayout,
+  PagebuilderSectionsComparisonRowGridLayout: ComparisonRowGrid,
 };
 
 const SafeSection: React.FC<{ children: React.ReactNode, name: string }> = ({ children, name }) => {

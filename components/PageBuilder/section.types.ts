@@ -242,6 +242,25 @@ export interface GridLayoutBlade {
   }
 }
 
+export interface ComparisonRowGridBlade {
+  fieldGroupName: 'PagebuilderSectionsComparisonRowGridLayout';
+  sectionId?: string;
+  sectionPadding?: string[];
+  leftColumnLabel?: string;
+  rightColumnLabel?: string;
+  comparisonRows?: {
+    leftText: string;
+    rightText: string;
+  }[];
+  footerText?: string;
+  link?: {
+    linkText: string;
+    linkUrl: string;
+    target?: string;
+    classname?: string;
+  };
+}
+
 export type Blade =
   | HeroBannerBlade
   | IntroductionBlade
@@ -252,4 +271,5 @@ export type Blade =
   | FooterCtaBlade
   | IconWithTextCardBlade
   | FeatureHighlightsBlade
-  | GridLayoutBlade;
+  | GridLayoutBlade
+  | ComparisonRowGridBlade;
