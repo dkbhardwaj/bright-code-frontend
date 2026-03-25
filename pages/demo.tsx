@@ -205,7 +205,7 @@ const recognitionData = {
 };
 
 const featureHighlightsData = {
-    fieldGroupName: "PagebuilderSectionsFeatureHighlightsLayout" as const,
+    fieldGroupName: 'PagebuilderSectionsFeaturedHighlightsLayout' as const,
     sectionPadding: ["padding-medium"],
     theme: "light" as const,
     items: [

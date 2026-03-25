@@ -50,7 +50,7 @@ type BladeComponentMap = {
   PagebuilderSectionsContentWithFormOrCalanderLayout: React.FC<{ data: ContactSectionBlade }>;
   PagebuilderSectionsFooterCtaLayout: React.FC<{ data: FooterCtaBlade }>;
   PagebuilderSectionsIconWithTextCardLayout: React.FC<{ data: IconWithTextCardBlade }>;
-  PagebuilderSectionsFeatureHighlightsLayout: React.FC<{ data: FeatureHighlightsBlade }>;
+  PagebuilderSectionsFeaturedHighlightsLayout: React.FC<{ data: FeatureHighlightsBlade }>;
   PagebuilderSectionsGridLayoutSectionLayout: React.FC<{ data: GridLayoutBlade }>;
   PagebuilderSectionsComparisonRowGridLayout: React.FC<{ data: ComparisonRowGridBlade }>;
   PagebuilderSectionsProcessTimelineLayout: React.FC<{ data: ProcessTimelineBlade }>;
@@ -65,7 +65,7 @@ const layoutMap: BladeComponentMap = {
   PagebuilderSectionsContentWithFormOrCalanderLayout: ContactSection,
   PagebuilderSectionsFooterCtaLayout: Cta,
   PagebuilderSectionsIconWithTextCardLayout: IconWithTextCard as any,
-  PagebuilderSectionsFeatureHighlightsLayout: FeaturedHighlights,
+  PagebuilderSectionsFeaturedHighlightsLayout: FeaturedHighlights,
   PagebuilderSectionsGridLayoutSectionLayout: GridLayout,
   PagebuilderSectionsComparisonRowGridLayout: ComparisonRowGrid,
   PagebuilderSectionsProcessTimelineLayout: ProcessTimeline,

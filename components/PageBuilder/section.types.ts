@@ -194,7 +194,7 @@ export interface IconWithTextCardBlade {
 }
 
 export interface FeatureHighlightsBlade {
-  fieldGroupName: 'PagebuilderSectionsFeatureHighlightsLayout';
+  fieldGroupName: 'PagebuilderSectionsFeaturedHighlightsLayout';
   sectionId?: string;
   theme?: 'light' | 'dark';
   sectionPadding?: string[];
