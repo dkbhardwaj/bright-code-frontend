@@ -173,17 +173,18 @@ const processTimelineData = {
     ]
 };
 const pricingData = {
+    fieldGroupName: "PagebuilderSectionsPricingSectionLayout" as const,
     eyebrowText: "Pricing",
     introTitle: "$8–18k",
     subtitle: "per engagement",
     description: "Most projects fall within a clear range. Here it is.",
     supportingText:
         "Where you land depends on scope, existing infrastructure, and how much of the diagnostic work has already been done on your side.",
-    note: [
-        "There's no discovery call required to get a number. ",
-        "If the range doesn't fit, this probably isn't the right fit either",
-        " — and that's useful to know before either of us spends time finding out."
-        ],
+    wrapItems: [
+        {
+            note: "There's no discovery call required to get a number. If the range doesn't fit, this probably isn't the right fit either — and that's useful to know before either of us spends time finding out.",
+        },
+    ],
     footerText: "Not sure what scope you need? Start with a Website Audit →",
     cta: {
         linkText: "Website Audit",
@@ -191,12 +192,11 @@ const pricingData = {
         target: "_self",
     },
     sectionPadding: ["padding-medium"],
-    textAlignment: "left" as const, 
 };
 const recognitionData = {
     topText:
         "You've been running the same systems long enough to know exactly where they break. The workarounds have workarounds. The team has adapted so thoroughly to the friction that no one mentions it anymore — it's just the way things work here. You're not in crisis. You're in drift, which is harder to act on because nothing is obviously on fire.",
-    
+
     bottomText:
         "At some point you started a conversation about fixing it — internally, with a vendor, maybe both. That conversation produced a document. The document produced a roadmap. The roadmap is now eighteen months old and the first phase still hasn't shipped. You know what needs to change. The question is why it hasn't, and whether the next attempt will be any different.",
 
@@ -248,8 +248,8 @@ export default function DemoPage() {
             <GridLayout data={gridLayoutData} />
             <IntroSection data={introData} />
             <ComparisonRowGrid data={comparisonData} />
-            <PricingSection data={pricingData}/>
-            <RecognitionSection data={recognitionData}/>
+            <PricingSection data={pricingData} />
+            <RecognitionSection data={recognitionData} />
         </>
     );
 }

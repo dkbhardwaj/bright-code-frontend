@@ -12,6 +12,7 @@ import FeaturedHighlights from '../FeaturedHighlights';
 import GridLayout from '../GridLayout';
 import ComparisonRowGrid from '../ComparisonRowGrid';
 import ProcessTimeline from '../ProcessTimeline';
+import PricingSection from '../PricingSection';
 import {
   Blade, HeroBannerBlade,
   IntroductionBlade,
@@ -24,7 +25,8 @@ import {
   FeatureHighlightsBlade,
   GridLayoutBlade,
   ComparisonRowGridBlade,
-  ProcessTimelineBlade
+  ProcessTimelineBlade,
+  PricingSectionBlade
 } from './section.types';
 
 
@@ -54,6 +56,7 @@ type BladeComponentMap = {
   PagebuilderSectionsGridLayoutSectionLayout: React.FC<{ data: GridLayoutBlade }>;
   PagebuilderSectionsComparisonRowGridLayout: React.FC<{ data: ComparisonRowGridBlade }>;
   PagebuilderSectionsProcessTimelineLayout: React.FC<{ data: ProcessTimelineBlade }>;
+  PagebuilderSectionsPricingSectionLayout: React.FC<{ data: PricingSectionBlade }>;
 };
 
 const layoutMap: BladeComponentMap = {
@@ -69,6 +72,7 @@ const layoutMap: BladeComponentMap = {
   PagebuilderSectionsGridLayoutSectionLayout: GridLayout,
   PagebuilderSectionsComparisonRowGridLayout: ComparisonRowGrid,
   PagebuilderSectionsProcessTimelineLayout: ProcessTimeline,
+  PagebuilderSectionsPricingSectionLayout: PricingSection,
 };
 
 const SafeSection: React.FC<{ children: React.ReactNode, name: string }> = ({ children, name }) => {

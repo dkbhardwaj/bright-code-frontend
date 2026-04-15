@@ -271,6 +271,29 @@ export interface ProcessTimelineBlade {
   }[];
 }
 
+export interface PricingSectionBlade {
+  fieldGroupName: 'PagebuilderSectionsPricingSectionLayout';
+  sectionId?: string;
+  sectionPadding?: string[];
+  sectionClasses?: string;
+  theme?: 'light' | 'dark';
+  eyebrowText?: string;
+  introTitle: string;
+  subtitle?: string;
+  description?: string;
+  supportingText?: string;
+  footerText?: string;
+  wrapItems?: {
+    note: string;
+  }[];
+  link?: {
+    linkText: string;
+    linkUrl: string;
+    target?: boolean;
+    classname?: string[];
+  };
+}
+
 export type Blade =
   | HeroBannerBlade
   | IntroductionBlade
@@ -283,4 +306,5 @@ export type Blade =
   | FeatureHighlightsBlade
   | GridLayoutBlade
   | ComparisonRowGridBlade
-  | ProcessTimelineBlade;
+  | ProcessTimelineBlade
+  | PricingSectionBlade;
