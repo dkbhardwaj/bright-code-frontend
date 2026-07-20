@@ -28,7 +28,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(405).json({ ok: false, error: "Method not allowed" });
   }
 
-  const { name, email, company, date, time, message, website } = req.body ?? {};
+  const { name, email, company, phone, date, time, message, website } = req.body ?? {};
 
   // Honeypot: real users never fill this hidden field
   if (typeof website === "string" && website.length > 0) {
@@ -39,6 +39,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     name: clean(name, 120),
     email: clean(email, 200),
     company: clean(company, 200),
+    phone: clean(phone, 30),
     date: clean(date, 10),
     time: clean(time, 5),
     message: clean(message, 2000),
@@ -53,8 +54,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   if (!DATE_RE.test(booking.date)) {
     return res.status(400).json({ ok: false, error: "Please pick a date." });
   }
-  if (booking.date < new Date().toISOString().slice(0, 10)) {
-    return res.status(400).json({ ok: false, error: "Please pick a date in the future." });
+  // No same-day appointments: earliest bookable date is tomorrow
+  if (booking.date <= new Date().toISOString().slice(0, 10)) {
+    return res.status(400).json({ ok: false, error: "Please pick a date at least one day ahead." });
+  }
+  if (booking.phone && !/^[\d\s()+.-]{7,30}$/.test(booking.phone)) {
+    return res.status(400).json({ ok: false, error: "Please enter a valid phone number." });
   }
   if (booking.time && !TIME_SLOTS.includes(booking.time)) {
     return res.status(400).json({ ok: false, error: "Please pick a valid time slot." });
