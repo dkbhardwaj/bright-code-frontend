@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "../../styles/contactSection.module.css";
-import Button from "../buttons/Button";
 import BookingForm from "./BookingForm";
 import { CONTACT } from "../../content/site";
 
@@ -19,13 +18,12 @@ const BookingSection: React.FC<BookingSectionProps> = ({ title, subtitle }) => {
           <div className={styles.left}>
             <h2 className="mt-[20px]">{title}</h2>
             <p className="mb-[20px]">{subtitle}</p>
-            <Button
-              href={`mailto:${CONTACT.email}`}
-              className="btn-tertiary no-arrow"
-              target="_blank"
-            >
-              {`Email ${CONTACT.email}`}
-            </Button>
+            <p className="text-[14px] text-[#6b7280]">
+              Prefer email?{" "}
+              <a href={`mailto:${CONTACT.email}`} className="text-[#0044FF] underline underline-offset-[3px]">
+                {CONTACT.email}
+              </a>
+            </p>
           </div>
 
           <div className={styles.right}>

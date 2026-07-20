@@ -113,10 +113,7 @@ const BookingForm: React.FC = () => {
     return (
       <div>
         <StepIndicator step={1} />
-        <span className="block text-[16px] font-[600] mb-[5px]">Pick a date</span>
-        <p className="text-[13px] text-[#6b7280] mb-[10px]">
-          Appointments start from tomorrow — no same-day bookings.
-        </p>
+        <span className="block text-[16px] font-[600] mb-[10px]">Book a meeting</span>
         <div className="rounded-[10px] border border-[#E5E5EA] p-[10px]">
           <DayPicker
             mode="single"
