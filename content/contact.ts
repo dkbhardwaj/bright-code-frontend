@@ -1,23 +1,15 @@
 import type { Blade } from "../components/PageBuilder/section.types";
 import { CONTACT } from "./site";
 
-// /contact — book a call.
+// /contact — book an appointment.
+
+export const booking = {
+  title: "Book an appointment",
+  subtitle:
+    "Thirty minutes on your delivery pipeline: where AI already is, where it should be, and where it needs a human. Pick a date and we'll confirm by email.",
+};
 
 export const sections: Blade[] = [
-  {
-    fieldGroupName: "PagebuilderSectionsContentWithFormOrCalanderLayout",
-    contactTitle: "Book a call",
-    subtitle:
-      "Thirty minutes on your delivery pipeline: where AI already is, where it should be, and where it needs a human. We'll follow up with times that work.",
-    formcalender: "calendar",
-    link: {
-      classname: "",
-      linkText: `Email ${CONTACT.email}`,
-      linkUrl: `mailto:${CONTACT.email}`,
-      target: true,
-    },
-    sectionPadding: ["padding-medium"],
-  },
   {
     fieldGroupName: "PagebuilderSectionsIconWithTextCardLayout",
     topDivider: true,

@@ -593,7 +593,7 @@
     box-shadow: 0 2px 12px rgba(31, 107, 255, 0.08);
 }
 
-.contactForm button {
+.contactForm button[type="submit"] {
     margin-top: 12px;
     align-self: flex-start;
     padding: 12px 28px;
@@ -609,12 +609,12 @@
     overflow: hidden;
 }
 
-.contactForm button:hover {
+.contactForm button[type="submit"]:hover {
     transform: translateY(-3px);
     box-shadow: 0 12px 32px rgba(31, 107, 255, 0.3);
 }
 
-.contactForm button::after {
+.contactForm button[type="submit"]::after {
     content: "";
     position: absolute;
     top: -50%;
@@ -628,7 +628,7 @@
     transition: left 0.6s;
 }
 
-.contactForm button:hover::after {
+.contactForm button[type="submit"]:hover::after {
     left: 150%;
 }
 

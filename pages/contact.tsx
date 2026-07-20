@@ -1,17 +1,19 @@
 import Head from "next/head";
 import PageBuilder from "../components/PageBuilder";
-import { sections } from "../content/contact";
+import BookingSection from "../components/static/BookingSection";
+import { booking, sections } from "../content/contact";
 
 export default function Contact() {
   return (
     <>
       <Head>
-        <title>Book a Call — Bright Code</title>
+        <title>Book an Appointment — Bright Code</title>
         <meta
           name="description"
-          content="Thirty minutes on your agency's delivery pipeline: where AI already is, where it should be, and where it needs a human."
+          content="Book thirty minutes on your agency's delivery pipeline: where AI already is, where it should be, and where it needs a human."
         />
       </Head>
+      <BookingSection title={booking.title} subtitle={booking.subtitle} />
       <PageBuilder blades={sections} />
     </>
   );
