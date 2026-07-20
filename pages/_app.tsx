@@ -8,6 +8,7 @@ import "../styles/darkmode.css";
 import "../styles/buttons.css";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
+import StaticHeader from "../components/static/Header";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -24,6 +25,7 @@ declare global {
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;
+  staticLayout?: boolean;
 };
 
 type AppPropsWithLayout = AppProps & {
@@ -48,9 +50,13 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   return (
     <main className={`${poppins.className} ${poppins.variable} pt-[101px]`}>
       {preview && <PreviewBanner pageStatus={pageStatus} lastModified={lastModified} />}
-      <Navigation
-        menuData={null}
-      />
+      {Component.staticLayout ? (
+        <StaticHeader />
+      ) : (
+        <Navigation
+          menuData={null}
+        />
+      )}
       {getLayout(<Component {...pageProps} />)}
       <Footer theme={footerTheme as "light" | "dark"} />
     </main>
