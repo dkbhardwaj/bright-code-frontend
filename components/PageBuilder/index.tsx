@@ -8,6 +8,9 @@ import ThreeColumns from '../ThreeColumns';
 import ContactSection from '../ContactSection';
 import Cta from '../Cta';
 import IconWithTextCard from '../IconWithTextCard';
+import WorkflowDiagram from '../WorkflowDiagram';
+import ComparisonBlock from '../ComparisonBlock';
+import FaqAccordion from '../FaqAccordion';
 import {
   Blade, HeroBannerBlade,
   IntroductionBlade,
@@ -17,7 +20,10 @@ import {
   // GridCardsBlade,
   ContactSectionBlade,
   FooterCtaBlade,
-  IconWithTextCardBlade
+  IconWithTextCardBlade,
+  WorkflowDiagramBlade,
+  ComparisonBlockBlade,
+  FaqBlade
 } from './section.types';
 
 
@@ -44,6 +50,9 @@ type BladeComponentMap = {
   PagebuilderSectionsContentWithFormOrCalanderLayout: React.FC<{ data: ContactSectionBlade }>;
   PagebuilderSectionsFooterCtaLayout: React.FC<{ data: FooterCtaBlade }>;
   PagebuilderSectionsIconWithTextCardLayout: React.FC<{ data: IconWithTextCardBlade }>;
+  PagebuilderSectionsWorkflowDiagramLayout: React.FC<{ data: WorkflowDiagramBlade }>;
+  PagebuilderSectionsComparisonBlockLayout: React.FC<{ data: ComparisonBlockBlade }>;
+  PagebuilderSectionsFaqLayout: React.FC<{ data: FaqBlade }>;
 };
 
 const layoutMap: BladeComponentMap = {
@@ -56,6 +65,9 @@ const layoutMap: BladeComponentMap = {
   PagebuilderSectionsContentWithFormOrCalanderLayout: ContactSection,
   PagebuilderSectionsFooterCtaLayout: Cta,
   PagebuilderSectionsIconWithTextCardLayout: IconWithTextCard as any,
+  PagebuilderSectionsWorkflowDiagramLayout: WorkflowDiagram,
+  PagebuilderSectionsComparisonBlockLayout: ComparisonBlock,
+  PagebuilderSectionsFaqLayout: FaqAccordion,
 };
 
 const SafeSection: React.FC<{ children: React.ReactNode, name: string }> = ({ children, name }) => {
