@@ -7,6 +7,7 @@ export interface HeroBannerBlade {
   fieldGroupName: 'PagebuilderSectionsHeroBannerLayout';
   sectionId?: string;
   theme?: 'light' | 'dark';
+  eyebrowText?: string;
   image: {
     bg?: ThemeImage;
     leftIcons?: ThemeImage;

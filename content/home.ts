@@ -8,20 +8,21 @@ export const sections: Blade[] = [
     fieldGroupName: "PagebuilderSectionsHeroBannerLayout",
     theme: "light",
     varient: "light",
+    eyebrowText: "For agencies",
     image: {
       node: {
-        altText: "AI workflow with human oversight",
+        altText: "AI workflow output reviewed by humans before client delivery",
         guid: "",
-        sourceUrl: "/what-we-do-blades/hero.svg",
+        sourceUrl: "/hero-oversight-loop.svg",
       },
     },
     title: {
-      titlePrefix: "AI workflows your agency can",
-      titleGradient: "actually trust",
+      titlePrefix: "AI workflows,",
+      titleGradient: "human-verified",
       titleSuffix: "",
     },
     subtitle:
-      "Bright Code helps agencies implement AI-powered delivery — and puts experienced humans in the loop to review, correct, and stand behind every output before it reaches your clients.",
+      "We implement AI workflows for agencies and provide deep human oversight of the ones you already run.",
     textUnderCta: "Free 30-minute workflow audit. No commitment.",
     cta: [
       {
@@ -35,8 +36,8 @@ export const sections: Blade[] = [
       {
         link: {
           target: true,
-          linkUrl: "/how-we-work",
-          linkText: "How we work",
+          linkUrl: "/ai-oversight",
+          linkText: "See how oversight works",
           classname: "rounded-white",
         },
       },

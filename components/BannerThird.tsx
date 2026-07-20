@@ -11,6 +11,7 @@ export interface BannerThirdData {
   data: {
     sectionId?: string;
     theme?: "light" | "dark";
+    eyebrowText?: string;
     image: {
       bg?: ThemeImage;
       leftIcons?: ThemeImage;
@@ -51,6 +52,7 @@ const BannerThird: React.FC<BannerThirdData> = ({ data }) => {
     subtitle,
     cta,
     sectionId,
+    eyebrowText,
   } = data;
 
 
@@ -87,7 +89,7 @@ const BannerThird: React.FC<BannerThirdData> = ({ data }) => {
   return (
     <section
       id={sectionId}
-      className={`banner-third relative min-h-[750px] lg:min-h-[600px] flex items-center overflow-hidden padding-medium ${isDark == "dark" ? "darkMode" : ""
+      className={`banner-third relative min-h-[640px] lg:min-h-[520px] flex items-center overflow-hidden padding-medium ${isDark == "dark" ? "darkMode" : ""
         }`}
     >
       {/* Background */}
@@ -123,33 +125,11 @@ const BannerThird: React.FC<BannerThirdData> = ({ data }) => {
       )}
 
 
-      {/* Right Image */}
-      {rightImage && (
-        <div
-          className="
-      absolute right-[10%] desktop-mid-down:right-[20px] xxl:right-[50px] bottom-[80px] z-0
-      hidden md-up:block
-      w-[220px] h-[240px]
-      tablet:w-[300px] tablet:h-[340px]
-      desktop:w-[420px] desktop:h-[460px]
-      xxl:w-[460px] xxl:h-[490px]
-      xxl-up:w-[523px] xxl-up:h-[566px]
-    "
-        >
-          <Image
-            src={rightImage}
-            fill
-            className="object-contain"
-            alt={image?.node?.altText}
-          />
-        </div>
-      )}
-
-
-
       {/* Content */}
       <div className="container relative z-10">
-        <div className="w-full lg-up:max-w-[800px] lg:pt-[100px]">
+        <div className="flex items-center gap-[48px] lg:flex-col lg:items-start lg:gap-[32px]">
+        <div className="w-full lg-up:max-w-[660px] shrink-0 lg-up:w-[55%] lg:pt-[30px]">
+          {eyebrowText && <span className="announcemnet-badge">{eyebrowText}</span>}
           {(title?.titlePrefix || title?.titleGradient || title?.titleSuffix) && (
             <h1
               className={`lg-up:text-[56px] ${isDark == "dark" ? "text-white" : "text-[#000D20]"
@@ -203,12 +183,29 @@ const BannerThird: React.FC<BannerThirdData> = ({ data }) => {
             </div>
           )}
 
-          <span
-            className={`block mt-4 text-[14px] ${isDark == "dark" ? "text-[#D1D1D6]" : "text-[#333333]"
-              }`}
-          >
-            {textUnderCta}
-          </span>
+          {textUnderCta && (
+            <span
+              className={`block mt-4 text-[14px] ${isDark == "dark" ? "text-[#D1D1D6]" : "text-[#333333]"
+                }`}
+            >
+              {textUnderCta}
+            </span>
+          )}
+        </div>
+
+        {/* Right Image */}
+        {rightImage && (
+          <div className="flex-1 w-full flex justify-center lg:justify-start">
+            <Image
+              src={rightImage}
+              width={523}
+              height={566}
+              className="w-full h-auto max-w-[460px] lg:max-w-[360px]"
+              alt={image?.node?.altText || ""}
+              priority
+            />
+          </div>
+        )}
         </div>
       </div>
     </section>
