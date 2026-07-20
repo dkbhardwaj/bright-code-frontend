@@ -223,6 +223,58 @@ export interface IconWithTextCardBlade {
   }[];
 }
 
+export interface WorkflowDiagramBlade {
+  fieldGroupName: 'PagebuilderSectionsWorkflowDiagramLayout';
+  sectionId?: string;
+  theme?: 'light' | 'dark';
+  sectionPadding?: string[];
+  eyebrowText?: string;
+  diagramTitle?: string;
+  subtitle?: string;
+  steps: {
+    stepTitle: string;
+    stepDescription?: string;
+    icon?: {
+      node?: {
+        sourceUrl?: string;
+        altText?: string;
+      };
+    };
+    highlight?: boolean;
+  }[];
+}
+
+export interface ComparisonBlockBlade {
+  fieldGroupName: 'PagebuilderSectionsComparisonBlockLayout';
+  sectionId?: string;
+  theme?: 'light' | 'dark';
+  sectionPadding?: string[];
+  eyebrowText?: string;
+  comparisonTitle?: string;
+  subtitle?: string;
+  leftColumn: {
+    columnTitle: string;
+    items: { item: string }[];
+  };
+  rightColumn: {
+    columnTitle: string;
+    items: { item: string }[];
+  };
+}
+
+export interface FaqBlade {
+  fieldGroupName: 'PagebuilderSectionsFaqLayout';
+  sectionId?: string;
+  theme?: 'light' | 'dark';
+  sectionPadding?: string[];
+  faqTitle?: string;
+  subtitle?: string;
+  faqs: {
+    question: string;
+    answer: string;
+  }[];
+}
+
 export type Blade =
   | HeroBannerBlade
   | IntroductionBlade
@@ -232,4 +284,7 @@ export type Blade =
   // | GridCardsBlade
   | ContactSectionBlade
   | FooterCtaBlade
-  | IconWithTextCardBlade;
+  | IconWithTextCardBlade
+  | WorkflowDiagramBlade
+  | ComparisonBlockBlade
+  | FaqBlade;

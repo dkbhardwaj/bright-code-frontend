@@ -4,13 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Style from "../../styles/navigation.module.css";
 import Button from "../buttons/Button";
-
-const MENU_LINKS = [
-  { label: "For Agencies", path: "/for-agencies" },
-  { label: "For Companies", path: "/b2b-solutions" },
-  { label: "Why Bright Code", path: "/why-bright-code" },
-  { label: "How We Work", path: "/how-we-work" },
-];
+import { MENU_LINKS, CTA_LINK } from "../../content/site";
 
 interface HeaderProps {
   className?: string;
@@ -95,11 +89,11 @@ function Header({ className }: HeaderProps) {
             {/* CTA */}
             <li className={Style.btnWrap}>
               <Button
-                href="/contact"
+                href={CTA_LINK.path}
                 className="my-[10px] no-arrow btn-primary"
                 target="_self"
               >
-                Book a call
+                {CTA_LINK.label}
               </Button>
             </li>
           </ul>
