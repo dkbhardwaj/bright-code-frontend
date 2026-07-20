@@ -60,12 +60,13 @@ export const sections: Blade[] = [
   },
   {
     fieldGroupName: "PagebuilderSectionsImageWithContentLayout",
+    sectionId: "implement",
     imageOnLeft: true,
     timageOnLeft: true,
     image: {
       node: {
-        altText: "Designing and building AI workflows",
-        sourceUrl: "/what-we-do-blades/creative.svg",
+        altText: "An AI workflow with data pull, AI draft, auto-checks and human review steps",
+        sourceUrl: "/implement-workflow.svg",
       },
     },
     eyebrowText: "Implement",
@@ -84,12 +85,13 @@ export const sections: Blade[] = [
   },
   {
     fieldGroupName: "PagebuilderSectionsImageWithContentLayout",
+    sectionId: "oversee",
     imageOnLeft: false,
     timageOnLeft: false,
     image: {
       node: {
-        altText: "Human oversight of AI output",
-        sourceUrl: "/what-we-do-blades/teams.svg",
+        altText: "A review queue where human reviewers approve and correct AI output",
+        sourceUrl: "/oversee-review-queue.svg",
       },
     },
     eyebrowText: "Oversee",
