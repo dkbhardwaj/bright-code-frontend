@@ -18,6 +18,10 @@ export const CONTACT = {
 
 export const TAGLINE = "AI workflows for agencies, with human oversight you can trust";
 
+export const GOOGLE_ADS_ID = "AW-16650844425";
+// "Free consultation" conversion — fired when a booking request succeeds
+export const GOOGLE_ADS_BOOKING_CONVERSION = "AW-16650844425/n8pxCLX50c8ZEIny3oM-";
+
 export const FOOTER_COLUMNS = [
   {
     title: "Services",

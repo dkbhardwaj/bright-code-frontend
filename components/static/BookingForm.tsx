@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
 import calStyles from "../../styles/calendlyCalendar.module.css";
+import { GOOGLE_ADS_BOOKING_CONVERSION } from "../../content/site";
 
 const TIME_SLOTS = [
   { value: "09:00", label: "9:00 AM" },
@@ -85,6 +86,11 @@ const BookingForm: React.FC = () => {
 
       if (res.ok && data.ok) {
         setStatus("success");
+        // Google Ads "Free consultation" conversion
+        const gtag = (window as any).gtag;
+        if (typeof gtag === "function") {
+          gtag("event", "conversion", { send_to: GOOGLE_ADS_BOOKING_CONVERSION });
+        }
       } else {
         setStatus("error");
         setErrorMessage(data.error || "Something went wrong. Please try again.");
