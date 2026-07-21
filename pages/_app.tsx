@@ -38,7 +38,7 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
     <main className={`${poppins.className} ${poppins.variable} pt-[101px]`}>
       <StaticHeader />
       {getLayout(<Component {...pageProps} />)}
-      <StaticFooter />
+      <StaticFooter theme="dark" />
     </main>
   );
 }

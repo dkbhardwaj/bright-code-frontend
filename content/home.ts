@@ -106,6 +106,7 @@ export const sections: Blade[] = [
     },
     buttonText: "",
     buttonLink: "",
+    theme: "dark",
     sectionPadding: ["padding-medium"],
   },
   {

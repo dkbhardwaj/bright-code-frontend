@@ -20,7 +20,7 @@ export const sections: Blade[] = [
   },
   {
     fieldGroupName: "PagebuilderSectionsTimelineViewLayout",
-    theme: "light",
+    theme: "dark",
     sectionPadding: ["padding-medium"],
     timelineItems: [
       {

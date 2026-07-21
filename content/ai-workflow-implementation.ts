@@ -107,7 +107,7 @@ export const sections: Blade[] = [
     image: {
       node: {
         altText: "Production software engineering",
-        sourceUrl: "/what-we-do-blades/white_label.svg",
+        sourceUrl: "/what-we-do-blades/white_label_dark_theme.svg",
       },
     },
     eyebrowText: "Why us",
@@ -122,6 +122,7 @@ export const sections: Blade[] = [
     },
     buttonText: "",
     buttonLink: "",
+    theme: "dark",
     sectionPadding: ["padding-medium"],
   },
   {
