@@ -17,12 +17,12 @@ export const sections: Blade[] = [
       },
     },
     title: {
-      titlePrefix: "AI workflows,",
-      titleGradient: "human-verified",
+      titlePrefix: "AI that works.",
+      titleGradient: "With humans in charge.",
       titleSuffix: "",
     },
     subtitle:
-      "We implement AI workflows for agencies and provide deep human oversight of the ones you already run.",
+      "AI is best at drafting, research, and repetitive tasks—not judgment calls. We build workflows where AI does what it's good at, then your team makes the calls that matter.",
     textUnderCta: "Free 30-minute workflow audit. No commitment.",
     cta: [
       {
@@ -46,9 +46,9 @@ export const sections: Blade[] = [
   {
     fieldGroupName: "PagebuilderSectionsIntroductionLayout",
     eyebrowText: "For agencies",
-    introTitle: "AI speed. Human judgment. Client-ready output.",
+    introTitle: "Faster drafts. Smarter oversight. Your team stays in control.",
     textAlighment: "center",
-    sub: "Your clients expect AI-era turnaround at agency-grade quality. We make both possible: we build AI workflows around how your team already delivers, then keep experienced reviewers between the model and your clients — so nothing ships on autopilot.",
+    sub: "AI can halve the time on research, drafts, and routine work—but it makes mistakes. We build workflows that leverage speed where it matters, then set up checkpoints your team actually trusts. The result: genuine efficiency without the risk.",
     sectionPadding: ["padding-medium"],
     link: {
       classname: "",
