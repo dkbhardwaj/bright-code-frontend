@@ -1,6 +1,7 @@
 import type { ReactElement, ReactNode } from "react";
 import type { NextPage } from "next";
 import type { AppProps } from "next/app";
+import { useRouter } from "next/router";
 import { Poppins } from "next/font/google";
 import "../styles/global.css";
 import "../app/globals.css";
@@ -8,6 +9,10 @@ import "../styles/darkmode.css";
 import "../styles/buttons.css";
 import StaticHeader from "../components/static/Header";
 import StaticFooter from "../components/static/Footer";
+
+// Landing pages with a stripped-down header/footer (no nav or footer
+// links) to keep paid/organic traffic focused on the page's own CTA.
+const LANDING_PAGE_ROUTES = ["/lp/human-in-the-loop"];
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -33,12 +38,14 @@ type AppPropsWithLayout = AppProps & {
 export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   // Use the layout defined at the page level, if available
   const getLayout = Component.getLayout ?? ((page) => page);
+  const router = useRouter();
+  const isLandingPage = LANDING_PAGE_ROUTES.includes(router.pathname);
 
   return (
     <main className={`${poppins.className} ${poppins.variable} pt-[101px]`}>
-      <StaticHeader />
+      <StaticHeader hideNavLinks={isLandingPage} />
       {getLayout(<Component {...pageProps} />)}
-      <StaticFooter theme="dark" />
+      <StaticFooter theme="dark" hideLinks={isLandingPage} />
     </main>
   );
 }

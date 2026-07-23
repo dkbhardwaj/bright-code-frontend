@@ -8,9 +8,10 @@ import { MENU_LINKS, CTA_LINK } from "../../content/site";
 
 interface HeaderProps {
   className?: string;
+  hideNavLinks?: boolean;
 }
 
-function Header({ className }: HeaderProps) {
+function Header({ className, hideNavLinks }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -74,17 +75,18 @@ function Header({ className }: HeaderProps) {
           <ul
             className={`${Style.navList} ${isMobileMenuOpen ? Style.navOpen : ""}`}
           >
-            {MENU_LINKS.map((item) => (
-              <li key={item.label} className={Style.menuItem}>
-                <Link
-                  href={item.path}
-                  className={Style.menuLink}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
+            {!hideNavLinks &&
+              MENU_LINKS.map((item) => (
+                <li key={item.label} className={Style.menuItem}>
+                  <Link
+                    href={item.path}
+                    className={Style.menuLink}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
 
             {/* CTA */}
             <li className={Style.btnWrap}>
