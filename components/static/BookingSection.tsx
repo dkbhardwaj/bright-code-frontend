@@ -6,13 +6,17 @@ import { CONTACT } from "../../content/site";
 interface BookingSectionProps {
   title: string;
   subtitle: string;
+  id?: string;
 }
 
 // Static booking section: same layout as ContactSection, but the right side
 // is a working form that saves to Firestore via /api/book.
-const BookingSection: React.FC<BookingSectionProps> = ({ title, subtitle }) => {
+const BookingSection: React.FC<BookingSectionProps> = ({ title, subtitle, id }) => {
   return (
-    <section className={`${styles.contactSection} ${styles.light} overflow-hidden`}>
+    <section
+      id={id}
+      className={`${styles.contactSection} ${styles.light} overflow-hidden ${id ? "scroll-mt-[120px]" : ""}`}
+    >
       <div className="container">
         <div className={styles.top}>
           <div className={styles.left}>

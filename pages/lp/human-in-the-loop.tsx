@@ -1,6 +1,7 @@
 import Head from "next/head";
 import PageBuilder from "../../components/PageBuilder";
-import { sections } from "../../content/human-in-the-loop";
+import BookingSection from "../../components/static/BookingSection";
+import { booking, sections } from "../../content/human-in-the-loop";
 
 export default function HumanInTheLoop() {
   return (
@@ -13,6 +14,7 @@ export default function HumanInTheLoop() {
         />
       </Head>
       <PageBuilder blades={sections} />
+      <BookingSection id="book-a-call" title={booking.title} subtitle={booking.subtitle} />
     </>
   );
 }

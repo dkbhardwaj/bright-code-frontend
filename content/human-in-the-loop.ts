@@ -4,6 +4,14 @@ import type { Blade } from "../components/PageBuilder/section.types";
 // agencies and product teams shipping code fast with AI coding tools,
 // positioning Bright Code as the senior human review layer.
 
+// All "Book a call" CTAs on this page point to the #book-a-call anchor
+// below instead of /contact, so the booking form opens on the same page.
+export const booking = {
+  title: "Book your code review audit",
+  subtitle:
+    "Thirty minutes on your repo and how AI-generated code moves through it today. Pick a date and we'll confirm by email.",
+};
+
 export const sections: Blade[] = [
   {
     fieldGroupName: "PagebuilderSectionsHeroBannerLayout",
@@ -29,7 +37,7 @@ export const sections: Blade[] = [
       {
         link: {
           target: true,
-          linkUrl: "/contact",
+          linkUrl: "#book-a-call",
           linkText: "Book a call",
           classname: "rounded-blue",
         },
@@ -136,7 +144,7 @@ export const sections: Blade[] = [
     link: {
       classname: ["rounded-blue"] as unknown as string,
       linkText: "Book a call",
-      linkUrl: "/contact",
+      linkUrl: "#book-a-call",
       target: false,
     },
   },
@@ -207,20 +215,5 @@ export const sections: Blade[] = [
           "Review runs as a monthly retainer scoped to your pull request volume, starting with a paid audit of one repo so you can see what we catch before committing.",
       },
     ],
-  },
-  {
-    fieldGroupName: "PagebuilderSectionsFooterCtaLayout",
-    footerCtaTitle: "Find out what your AI-generated code is missing",
-    subtitle:
-      "Send us one repo. We'll review a sample of recent pull requests and show you exactly what we'd catch before it ships.",
-    theme: "light",
-    sectionPadding: ["padding-medium"],
-    link: {
-      target: "_self",
-      linkUrl: "/contact",
-      linkText: "Book a call",
-      fieldGroupName: "",
-      classname: "rounded-blue",
-    },
   },
 ];
