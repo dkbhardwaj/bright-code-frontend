@@ -43,7 +43,7 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
 
   return (
     <main className={`${poppins.className} ${poppins.variable} pt-[101px]`}>
-      <StaticHeader hideNavLinks={isLandingPage} />
+      <StaticHeader hideNavLinks={isLandingPage} ctaHref={isLandingPage ? "#book-a-call" : undefined} />
       {getLayout(<Component {...pageProps} />)}
       <StaticFooter theme="dark" hideLinks={isLandingPage} />
     </main>

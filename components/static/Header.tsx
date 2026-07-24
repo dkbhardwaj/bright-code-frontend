@@ -9,9 +9,10 @@ import { MENU_LINKS, CTA_LINK } from "../../content/site";
 interface HeaderProps {
   className?: string;
   hideNavLinks?: boolean;
+  ctaHref?: string;
 }
 
-function Header({ className, hideNavLinks }: HeaderProps) {
+function Header({ className, hideNavLinks, ctaHref }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -91,7 +92,7 @@ function Header({ className, hideNavLinks }: HeaderProps) {
             {/* CTA */}
             <li className={Style.btnWrap}>
               <Button
-                href={CTA_LINK.path}
+                href={ctaHref ?? CTA_LINK.path}
                 className="my-[10px] no-arrow btn-primary"
                 target="_self"
               >
